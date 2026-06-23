@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo web pro salon krásy | Nikolaj Dev</title>
+  <meta name="description" content="Demo web pro salon krásy, kadeřníka nebo studio: služby, ceny, rezervační formulář, galerie, kontakty a mobilní CTA.">
+  <meta property="og:title" content="Demo web pro salon krásy">
+  <meta property="og:description" content="Premium demo landing for a salon or beauty master with services, booking, gallery, contacts and START / PLUS / PRO pricing.">
+  <meta property="og:image" content="../../assets/images/beauty-salon/hero-salon.jpg">
+  <style>
+    :root {
+      --ink: #221822;
+      --plum: #52304f;
+      --rose: #b85d7f;
+      --rose-dark: #813f62;
+      --cream: #fff7f2;
+      --paper: #ffffff;
+      --mist: #f7ebf1;
+      --gold: #c89555;
+      --muted: #786678;
+      --line: rgba(82, 48, 79, .14);
+      --shadow: 0 22px 70px rgba(82, 48, 79, .15);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.58;
+      overflow-x: hidden;
+      padding-bottom: 76px;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .wrap { width: min(1140px, calc(100% - 32px)); margin: 0 auto; }
+
+    .demo-bar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 6px 12px;
+      color: #fff;
+      background: rgba(34, 24, 34, .94);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      font-weight: 900;
+      backdrop-filter: blur(12px);
+    }
+    .demo-bar a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #ffe5ef;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.14);
+      white-space: nowrap;
+    }
+    .demo-bar .order {
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      border: 0;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 50;
+      background: rgba(255, 247, 242, .9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .nav-inner {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 950;
+      color: var(--plum);
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--rose), var(--plum));
+      box-shadow: 0 14px 30px rgba(184, 93, 127, .28);
+    }
+    .brand small { display: block; color: var(--muted); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { padding: 9px 12px; border-radius: 999px; color: var(--muted); font-size: 14px; font-weight: 850; }
+    .nav-links a:hover { background: #fff; color: var(--plum); }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 950;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { color: #fff; background: linear-gradient(135deg, var(--rose), var(--rose-dark)); box-shadow: 0 18px 38px rgba(184, 93, 127, .28); }
+    .btn.dark { color: #fff; background: var(--ink); }
+    .btn.soft { color: var(--plum); background: #fff; border-color: var(--line); }
+    .btn.telegram { color: #fff; background: linear-gradient(135deg, #2aabee, #6874ff); }
+    .btn.full { width: 100%; }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 36px);
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--plum);
+    }
+    .hero-media { position: absolute; inset: 0; z-index: -3; }
+    .hero-media img,
+    .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-media img { z-index: 0; filter: saturate(1.02) contrast(1.02); }
+    .hero-media video { z-index: 1; opacity: 0; transition: opacity .7s ease; will-change: opacity; mix-blend-mode: soft-light; }
+    .hero-media video.is-ready { opacity: .58; }
+    .hero-media video.is-disabled { display: none; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(34, 24, 34, .86), rgba(82, 48, 79, .56) 48%, rgba(255, 247, 242, .08)),
+        linear-gradient(0deg, rgba(34, 24, 34, .82), rgba(34, 24, 34, .16) 48%);
+    }
+    .hero-content { padding: 116px 0 76px; color: #fff; max-width: 780px; }
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #ffe2ef;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 12px;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.04; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(43px, 8vw, 88px); max-width: 860px; letter-spacing: -.02em; }
+    h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 5.6vw, 62px); color: var(--plum); }
+    h3 { font-size: 23px; color: var(--plum); }
+    .hero p { max-width: 660px; margin: 20px 0 0; color: rgba(255,255,255,.88); font-size: clamp(17px, 2.3vw, 22px); }
+    .hero-actions, .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .chips span { padding: 8px 11px; border-radius: 999px; color: #fff; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); font-size: 13px; font-weight: 850; }
+
+    section { padding: 76px 0; }
+    .info-strip { position: relative; z-index: 5; margin-top: -32px; padding: 0; }
+    .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 12px; border-radius: var(--radius); background: rgba(255,255,255,.94); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .info-grid article { padding: 16px; border-radius: 18px; background: var(--mist); }
+    .info-grid span { display: block; color: var(--muted); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .info-grid strong { display: block; margin-top: 4px; }
+    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 28px; }
+    .section-head p, .lead { color: var(--muted); font-size: 17px; margin: 0; max-width: 560px; }
+    .split { display: grid; grid-template-columns: 1.04fr .96fr; gap: 34px; align-items: center; }
+    .panel { padding: 26px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: 0 16px 44px rgba(82, 48, 79, .08); }
+    .media-card { position: relative; overflow: hidden; min-height: 390px; border-radius: var(--radius); background: var(--plum); box-shadow: var(--shadow); }
+    .media-card img, .media-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .media-card video { opacity: 0; transition: opacity .75s ease; mix-blend-mode: screen; }
+    .media-card video.is-ready { opacity: .35; }
+    .media-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(34,24,34,.42), transparent 55%); }
+    .kicker { color: var(--rose); font-size: 12px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { padding: 22px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: 0 14px 42px rgba(82, 48, 79, .08); }
+    .card p { color: var(--muted); margin: 10px 0 0; }
+    .service-card { overflow: hidden; padding: 0; }
+    .service-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .service-body { padding: 20px; }
+    .service-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; font-weight: 950; color: var(--rose-dark); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .price-card { display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 42px rgba(82,48,79,.08); }
+    .price-card.recommended { background: linear-gradient(180deg, #fff, #fff0f6); border-color: rgba(184,93,127,.34); }
+    .price-card.premium { color: #fff; background: linear-gradient(145deg, var(--ink), var(--plum)); border-color: rgba(255,255,255,.18); }
+    .price-card.premium h3, .price-card.premium strong { color: #fff; }
+    .price-card.premium p, .price-card.premium small { color: rgba(255,255,255,.74); }
+    .price-card strong { color: var(--rose-dark); font-size: 32px; line-height: 1; }
+    .price-card strong small { display: block; margin-top: 5px; color: var(--muted); font-size: 15px; }
+    .price-card .badge { align-self: flex-start; padding: 5px 9px; border-radius: 999px; background: linear-gradient(135deg, #ffd3e4, #f5b6ce); color: var(--plum); font-size: 12px; font-weight: 950; }
+    .price-note { margin-top: 16px; padding: 18px; border-radius: 18px; color: var(--muted); background: #fff; border: 1px solid var(--line); font-weight: 760; }
+    .gallery { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 14px; }
+    .gallery img { width: 100%; height: 270px; object-fit: cover; border-radius: 22px; box-shadow: 0 14px 38px rgba(82,48,79,.12); }
+    .gallery img:first-child { height: 554px; grid-row: span 2; }
+    .booking { color: #fff; background: linear-gradient(135deg, var(--ink), var(--plum)); }
+    .booking h2 { color: #fff; }
+    .booking .lead { color: rgba(255,255,255,.75); }
+    form { display: grid; gap: 12px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    input, select, textarea { width: 100%; border: 1px solid rgba(82,48,79,.18); border-radius: 14px; padding: 13px; color: var(--ink); background: #fff; outline: 0; }
+    textarea { resize: vertical; }
+    .booking .panel { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); box-shadow: none; }
+    .contact-card { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .contact-list { display: grid; gap: 10px; margin-top: 18px; }
+    .contact-list a, .contact-list span { padding: 14px; border-radius: 15px; background: #fff; border: 1px solid var(--line); font-weight: 900; }
+    .map-box { min-height: 300px; display: grid; place-items: center; padding: 24px; border-radius: 22px; color: #fff; text-align: center; background: linear-gradient(135deg, #eab0c8, var(--rose-dark)); }
+    .final { color: #fff; background: var(--ink); }
+    .final h2 { color: #fff; }
+    .final p { color: rgba(255,255,255,.75); }
+    .final-card { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .bottom-nav { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 70; display: none; grid-template-columns: repeat(4,1fr); gap: 6px; padding: 7px; border-radius: 18px; background: rgba(34,24,34,.92); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(14px); }
+    .bottom-nav a { color: #fff; text-align: center; font-size: 12px; font-weight: 950; padding: 8px 4px; border-radius: 12px; }
+    footer { padding: 34px 0; color: rgba(255,255,255,.66); background: var(--ink); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media video, .media-card video { display: none; }
+      html { scroll-behavior: auto; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .split, .contact-card, .final-card { grid-template-columns: 1fr; }
+      .info-grid, .grid-3, .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery img:first-child { grid-column: 1 / -1; height: 340px; }
+    }
+    @media (max-width: 640px) {
+      .demo-bar { justify-content: flex-start; overflow-x: auto; white-space: nowrap; min-height: 34px; font-size: 11px; }
+      .site-nav { top: 34px; }
+      .nav-inner { height: 58px; }
+      .brand small { display: none; }
+      .hero { min-height: calc(100svh - 34px); }
+      .hero-content { padding: 96px 0 90px; }
+      .hero-actions .btn { width: 100%; }
+      .info-strip { margin-top: 0; }
+      .info-grid, .grid-3, .grid-2, .price-grid, .field-row { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      section { padding: 58px 0; }
+      .media-card { min-height: 310px; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img, .gallery img:first-child { height: 260px; }
+      .bottom-nav { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-bar">
+    <span>DEMO šablona salonu</span>
+    <span>·</span>
+    <a href="../../index.html#catalog">← Zpět</a>
+    <span>·</span>
+    <a class="order" href="#booking">Objednat podobný web</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Navigace Mira Beauty">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">MB</span>
+        <span>Mira Beauty <small>studio & rezervace</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Služby</a>
+        <a href="#prices">Ceník</a>
+        <a href="#gallery">Ukázky</a>
+        <a href="#booking">Rezervace</a>
+      </div>
+      <a class="btn primary" href="#booking">Rezervovat</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="../../assets/images/beauty-salon/hero-salon.jpg" alt="">
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="../../assets/images/beauty-salon/hero-salon.jpg">
+          <source src="../../assets/videos/beauty-salon/hero-glow.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="wrap hero-content">
+        <p class="eyebrow">Mira Beauty Studio · demo</p>
+        <h1>Web pro salon, specialistu nebo beauty studio s rezervací</h1>
+        <p>Služby, ceny, fotky prací, kontaktní tlačítka a rezervační formulář - vše, co klient potřebuje, aby si rychle vybral proceduru a nechal poptávku.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#booking">Rezervovat online</a>
+          <a class="btn soft" href="#services">Zobrazit služby</a>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Telegram</a>
+        </div>
+        <div class="chips">
+          <span>Služby a ceny</span>
+          <span>Mobilní rezervace</span>
+          <span>Galerie prací</span>
+          <span>START / PLUS / PRO</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div class="wrap info-grid">
+        <article><span>Formát</span><strong>Salon / specialista</strong></article>
+        <article><span>Spuštění</span><strong>3–6 dní</strong></article>
+        <article><span>Kontakt</span><strong>Telegram / formulář</strong></article>
+        <article><span>Cena webu</span><strong>od 10 000 Kč</strong></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Pro lokální beauty byznys</p>
+          <h2>Klient musí hned pochopit, co děláte, kolik to stojí a jak se objednat</h2>
+          <p class="lead">Takový web se hodí pro kadeřníka, nail stylistku, brow/lash studio, kosmetiku, masáže nebo menší salon. Struktura je hotová: mění se fotky, texty, služby, ceny a kontakty.</p>
+          <div class="grid-2" style="margin-top:22px">
+            <article class="card"><h3>Rychlý výběr služby</h3><p>Karty služeb, délka, cena a jasné tlačítko rezervace.</p></article>
+            <article class="card"><h3>Důvěra přes fotky</h3><p>Galerie prací, interiér, specialista, detaily služby a čistá prezentace.</p></article>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="../../assets/images/beauty-salon/interior.jpg" alt="Interiér beauty salonu" loading="lazy">
+          <video class="lazy-video" muted loop playsinline preload="none" poster="../../assets/images/beauty-salon/interior.jpg" data-src="../../assets/videos/beauty-salon/booking-glow.mp4"></video>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Služby</p>
+            <h2>Přehledná vitrína procedur</h2>
+          </div>
+          <p>V reálném projektu sem přijdou vaše služby, ceny, délka procedur a fotky práce.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card service-card">
+            <img src="../../assets/images/beauty-salon/hair-service.jpg" alt="Hair styling service" loading="lazy">
+            <div class="service-body">
+              <h3>Hair styling</h3>
+              <p>Střih, styling, barvení a konzultace péče.</p>
+              <div class="service-meta"><span>60-120 min</span><strong>od 900 Kč</strong></div>
+            </div>
+          </article>
+          <article class="card service-card">
+            <img src="../../assets/images/beauty-salon/nail-service.jpg" alt="Nail salon service" loading="lazy">
+            <div class="service-body">
+              <h3>Nails / manicure</h3>
+              <p>Manikúra, gel lak, pedikúra, péče a design.</p>
+              <div class="service-meta"><span>60-90 min</span><strong>od 650 Kč</strong></div>
+            </div>
+          </article>
+          <article class="card service-card">
+            <img src="../../assets/images/beauty-salon/interior.jpg" alt="Interiér salonu krásy" loading="lazy">
+            <div class="service-body">
+              <h3>Brow / skin care</h3>
+              <p>Obočí, pečující procedury, konzultace a rezervace.</p>
+              <div class="service-meta"><span>30-75 min</span><strong>od 500 Kč</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Cena webu</p>
+            <h2>Tři jasné varianty spuštění</h2>
+          </div>
+          <p>START je pro rychlé spuštění podle hotové demo šablony. PLUS a PRO jsou pro hlubší úpravu, strukturu a přípravu na růst.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card">
+            <span class="badge">Rychlé spuštění</span>
+            <h3>START</h3>
+            <strong>10 000 Kč <small>≈400 €</small></strong>
+            <p>Vezmeme hotovou demo šablonu, vyměníme fotky, texty, kontakty, služby a rezervační formulář.</p>
+            <small>+ doména ~150–300 Kč / rok · hosting 0 Kč pro běžný landing</small>
+            <button class="btn soft" type="button" data-package="Start" data-package-price="10 000 Kč / ≈400 €">Vybrat Start</button>
+          </article>
+          <article class="price-card recommended">
+            <span class="badge">Optimální</span>
+            <h3>PLUS</h3>
+            <strong>20 000 Kč <small>≈800 €</small></strong>
+            <p>Více bloků, druhý jazyk podle zadání, děkovací stránka, základní analytika a pečlivé úpravy.</p>
+            <small>+ doména ~150–300 Kč / rok · hosting 0 Kč pro běžný landing</small>
+            <button class="btn primary" type="button" data-package="Plus" data-package-price="20 000 Kč / ≈800 €">Vybrat Plus</button>
+          </article>
+          <article class="price-card premium">
+            <span class="badge">Pro reklamu</span>
+            <h3>PRO</h3>
+            <strong>od 30 000 Kč <small>od ≈1 200 €</small></strong>
+            <p>Rozšířená struktura, základ SEO, analytika kliknutí, UTM a příprava na reklamu.</p>
+            <small>+ doména ~150–300 Kč / rok · placené služby podle zadání</small>
+            <button class="btn primary" type="button" data-package="Pro" data-package-price="od 30 000 Kč / od ≈1 200 €">Probrat Pro</button>
+          </article>
+        </div>
+        <div class="price-note"><strong>Minimální spuštění:</strong> START 10 000 Kč + doména přibližně 150–300 Kč / rok + bezplatný hosting. Doména, placené formuláře, placený hosting, reklamní rozpočet, logo, profesionální fotky a složité funkce se platí zvlášť.</div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Galerie</p>
+            <h2>Fotky prodávají službu rychleji než dlouhý text</h2>
+          </div>
+          <p>Pro reálného klienta sem přijdou fotky prací, interiéru, specialisty, materiálů a procesu.</p>
+        </div>
+        <div class="gallery">
+          <img src="../../assets/images/beauty-salon/hero-salon.jpg" alt="Pracoviště salonu" loading="lazy">
+          <img src="../../assets/images/beauty-salon/hair-service.jpg" alt="Hair styling photo" loading="lazy">
+          <img src="../../assets/images/beauty-salon/nail-service.jpg" alt="Nail salon photo" loading="lazy">
+          <img src="../../assets/images/beauty-salon/interior.jpg" alt="Fotografie interiéru salonu" loading="lazy">
+          <img src="../../assets/images/categories/beauty-salon.jpg" alt="Náhled kategorie salon krásy" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Rezervace / poptávka</p>
+          <h2>Poptávkový formulář je už připojen k e-mailu</h2>
+          <p class="lead">V demu formulář odešle požadavek Nikolajovi. V reálném projektu může zůstat pro poptávky, změnit se na rezervace, Telegram/WhatsApp nebo jinou službu.</p>
+          <div class="cta-row">
+            <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+            <a class="btn soft" href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook / Messenger</a>
+          </div>
+        </div>
+        <div class="panel">
+          <form action="https://forminit.com/f/kshbr37bfe4" method="POST">
+            <input type="hidden" name="selected_template" value="Demo web pro salon krásy">
+            <input type="hidden" name="selected_package" value="">
+            <input type="hidden" name="package_price" value="">
+            <input type="hidden" name="source" value="beauty-salon-demo">
+            <select name="selected_package_visible" required>
+              <option value="">Vyberte balíček webu</option>
+              <option value="Start" data-price="10 000 Kč / ≈400 €">START — 10 000 Kč / ≈400 € — hotová demo šablona</option>
+              <option value="Plus" data-price="20 000 Kč / ≈800 €">PLUS — 20 000 Kč / ≈800 € — více bloků a úpravy</option>
+              <option value="Pro" data-price="od 30 000 Kč / od ≈1 200 €">PRO — od 30 000 Kč / od ≈1 200 € — pro reklamu a růst</option>
+            </select>
+            <input name="package_price_visible" placeholder="Cena balíčku" readonly>
+            <div class="field-row">
+              <input name="name" placeholder="Jméno" required>
+              <input name="phone" placeholder="Telefon" required>
+            </div>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="telegram_whatsapp" placeholder="Telegram / WhatsApp" required>
+            <input name="business_type" value="Salon krásy" required>
+            <textarea name="message" rows="4" placeholder="Jaké služby, město, máte fotky/logo, který balíček vás zajímá?" required></textarea>
+            <button class="btn primary full" type="submit">Odeslat poptávku</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-card">
+        <div>
+          <p class="kicker">Kontakt</p>
+          <h2>Mapa, telefon a rychlá tlačítka</h2>
+          <p class="lead">V reálném projektu sem přijde adresa salonu, pracovní doba, telefon, mapa a odkazy na sociální sítě. Klient na telefonu hned vidí, jak se objednat.</p>
+          <div class="contact-list">
+            <span>Demo location — Prague / your city</span>
+            <span>+420 XXX XXX XXX</span>
+            <span>email@yourbeauty.cz</span>
+            <a href="#booking">Otevřít rezervační formulář</a>
+          </div>
+        </div>
+        <div class="map-box">
+          <div>
+            <h3 style="color:#fff">DEMO LOCATION</h3>
+            <p>Mapa se připojí podle reálné adresy klienta.</p>
+            <a class="btn soft" href="#booking">Připojit pro můj salon</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="wrap final-card">
+        <div>
+          <p class="kicker">Nikolaj Dev template</p>
+          <h2>Chcete takový web pro svůj salon nebo beauty služby?</h2>
+          <p>Tuto demo šablonu lze upravit pro salon, specialistu, beauty studio, kosmetiku nebo spa: vyměnit služby, fotky, ceny, kontakty, styl, připojit poptávkový formulář a web zveřejnit.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#booking">Objednat podobný web</a>
+          <a class="btn soft" href="../../index.html#catalog">Vrátit se do portfolia</a>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Rychlé akce">
+    <a href="#services">Služby</a>
+    <a href="#prices">Ceník</a>
+    <a href="#booking">Rezervace</a>
+    <a href="#contact">Mapa</a>
+  </nav>
+
+  <footer>
+    <div class="wrap">
+      <span>Mira Beauty Studio - fiktivní demo šablona</span>
+      <span>Nikolaj Dev · Demo web pro salon krásy</span>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.querySelector("form");
+    const packageButtons = document.querySelectorAll("[data-package]");
+    const packageSelect = form?.querySelector("[name='selected_package_visible']");
+    const packagePriceInput = form?.querySelector("[name='package_price_visible']");
+
+    function syncPackage(packageName, packagePrice) {
+      if (!form) return;
+      form.querySelector("[name='selected_package']").value = packageName || "";
+      form.querySelector("[name='package_price']").value = packagePrice || "";
+      if (packageSelect && packageName) packageSelect.value = packageName;
+      if (packagePriceInput) packagePriceInput.value = packagePrice || "";
+    }
+
+    packageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        syncPackage(button.dataset.package, button.dataset.packagePrice);
+        document.querySelector("#booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    packageSelect?.addEventListener("change", () => {
+      const option = packageSelect.selectedOptions[0];
+      syncPackage(packageSelect.value, option?.dataset.price || "");
+    });
+
+    form?.addEventListener("submit", () => {
+      if (packageSelect) {
+        const option = packageSelect.selectedOptions[0];
+        syncPackage(packageSelect.value, option?.dataset.price || packagePriceInput?.value || "");
+      }
+    });
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const inAppBrowser = /FBAN|FBAV|FB_IAB|Instagram|Messenger/i.test(navigator.userAgent || "");
+
+    document.querySelectorAll(".hero-video").forEach((video) => {
+      if (reducedMotion || inAppBrowser) {
+        video.classList.add("is-disabled");
+        video.pause();
+        return;
+      }
+      const start = () => {
+        video.addEventListener("canplay", () => video.classList.add("is-ready"), { once: true });
+        video.play().catch(() => video.classList.remove("is-ready"));
+      };
+      if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 1500 });
+      else window.setTimeout(start, 700);
+    });
+
+    document.querySelectorAll(".lazy-video").forEach((video) => {
+      const src = video.dataset.src;
+      if (!src || reducedMotion || inAppBrowser || !("IntersectionObserver" in window)) {
+        video.classList.add("is-disabled");
+        return;
+      }
+      let loaded = false;
+      const load = () => {
+        if (loaded) return;
+        loaded = true;
+        const source = document.createElement("source");
+        source.src = src;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        video.addEventListener("canplay", () => {
+          video.classList.add("is-ready");
+          video.play().catch(() => {});
+        }, { once: true });
+        video.load();
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) load();
+          else video.pause();
+        });
+      }, { rootMargin: "420px 0px", threshold: .08 });
+      observer.observe(video);
+    });
+  </script>
+  <script src="../../assets/js/demo-sale.js"></script>
+  <script src="../../assets/js/forminit-submit.js?v=forminit-safe-2"></script>
+</body>
+</html>
+
+
+

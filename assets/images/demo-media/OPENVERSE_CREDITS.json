@@ -1,0 +1,2739 @@
+[
+  {
+    "slug": "clinic-doctor",
+    "queries": [
+      "doctor consultation",
+      "medical clinic",
+      "dentist office",
+      "healthcare office"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-01.jpg",
+        "title": "Street Doctor consultation",
+        "source": "https://www.flickr.com/photos/38411862@N00/495928652",
+        "creator": "rbrwr",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-02.jpg",
+        "title": "The Doctor's Consultation",
+        "source": "https://www.rawpixel.com/image/9163340/the-doctors-consultation",
+        "creator": "",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "rawpixel",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-03.jpg",
+        "title": "Pleasure Doctors' Consultation (plate 11)",
+        "source": "https://www.rawpixel.com/image/8991680/the-pleasure-doctors-consultation-plate-11-charles-emile-jacque",
+        "creator": "artinstitutechicago",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "rawpixel",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-04.jpg",
+        "title": "Old Doctor's Consulting Room",
+        "source": "https://www.geograph.org.uk/photo/273191",
+        "creator": "David Wright",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "geographorguk",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-05.jpg",
+        "title": "Mens Health Doctor Consultation in Office",
+        "source": "https://www.flickr.com/photos/201760013@N04/54119878890",
+        "creator": "phoenix_raye_photography",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-06.jpg",
+        "title": "An aggressive colonel barging his way into a doctor's consulting-room demanding to have his liver inspected. Reproduction after a drawing by G.L. Stampa, 1926.",
+        "source": "https://wellcomecollection.org/works/kekd3y57",
+        "creator": "",
+        "license": "by 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "provider": "europeana",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-07.jpg",
+        "title": "advice, assistance, healthcare, healthy, help,",
+        "source": "https://www.flickr.com/photos/115089924@N02/16256199615",
+        "creator": "www.ilmicrofono.it",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-08.jpg",
+        "title": "adult, africa, african, black, care, cheerful, clinic, doctor,",
+        "source": "https://www.flickr.com/photos/115089924@N02/16068674648",
+        "creator": "www.ilmicrofono.it",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-09.jpg",
+        "title": "Medics from across the NHS practise in full Personal Protective Equipment (PPE)",
+        "source": "https://www.flickr.com/photos/14214150@N02/15649499108",
+        "creator": "DFID - UK Department for International Development",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-10.jpg",
+        "title": "NHS medics train to tackle to Ebola in Sierra Leone",
+        "source": "https://www.flickr.com/photos/14214150@N02/15836582012",
+        "creator": "DFID - UK Department for International Development",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-11.jpg",
+        "title": "hGraph trends, suggestions, + consult",
+        "source": "https://www.flickr.com/photos/38869431@N00/4820659509",
+        "creator": "juhansonin",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-12.jpg",
+        "title": "Personal Protective Equipment (PPE) to keep NHS staff safe from Ebola",
+        "source": "https://www.flickr.com/photos/14214150@N02/15835096215",
+        "creator": "DFID - UK Department for International Development",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-13.jpg",
+        "title": "Ultra-violet screening for potentially Ebola-carrying liquids",
+        "source": "https://www.flickr.com/photos/14214150@N02/15811190376",
+        "creator": "DFID - UK Department for International Development",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-14.jpg",
+        "title": "Junior Doctors being entertained by The Red Flag in front of Norwich Trades Council banner A3",
+        "source": "https://www.flickr.com/photos/10630857@N04/25727783064",
+        "creator": "Roger Blackwell",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "doctor consultation"
+      },
+      {
+        "file": "assets/images/demo-media/clinic-doctor/photo-15.jpg",
+        "title": "Hard Work at Medical Clinic in Nicaragua",
+        "source": "https://www.flickr.com/photos/28650594@N03/2781797739",
+        "creator": "DVIDSHUB",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "medical clinic"
+      }
+    ]
+  },
+  {
+    "slug": "law-accounting",
+    "queries": [
+      "lawyer office",
+      "legal consultation",
+      "accountant office",
+      "business paperwork"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-01.jpg",
+        "title": "Lawyer Office",
+        "source": "https://www.flickr.com/photos/69552755@N03/8552235003",
+        "creator": "HolleyandChris",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-02.jpg",
+        "title": "Joel Vecchio - Dallas Car Accident Lawyer Office Pic",
+        "source": "https://www.flickr.com/photos/50823901@N05/4814085653",
+        "creator": "smbSEO.com Dallas SEO Firm",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-03.jpg",
+        "title": "Lawyer's Office",
+        "source": "https://www.flickr.com/photos/20517130@N00/4159109733",
+        "creator": "trevorturk",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-04.jpg",
+        "title": "Lawyer's office, Beamish, Durham, UK",
+        "source": "https://www.flickr.com/photos/37996580417@N01/12148922674",
+        "creator": "gruntzooki",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-05.jpg",
+        "title": "Lawyer's office building, Manhattan, New York, 10 Feb 2008",
+        "source": "https://www.flickr.com/photos/42033648@N00/2256381884",
+        "creator": "In Memoriam: PhillipC",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-06.jpg",
+        "title": "USS Missouri - Lawyers Office",
+        "source": "https://www.flickr.com/photos/21442511@N08/6180653114",
+        "creator": "jdnx",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-07.jpg",
+        "title": "Lawyers offices always have the best views",
+        "source": "https://www.flickr.com/photos/93376699@N00/7536823320",
+        "creator": "Rev Stan",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-08.jpg",
+        "title": "Lawyers office",
+        "source": "https://www.flickr.com/photos/42042512@N00/14240560598",
+        "creator": "Carlos Ebert",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-09.jpg",
+        "title": "Man in Street by Lawyers' Offices - Kandy - Sri Lanka",
+        "source": "https://www.flickr.com/photos/41000732@N04/13949508059",
+        "creator": "Adam Jones, Ph.D. - Global Photo Archive",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-10.jpg",
+        "title": "USS Missouri - Lawyer's Office",
+        "source": "https://www.flickr.com/photos/21442511@N08/8327928237",
+        "creator": "jdnx",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-11.jpg",
+        "title": "Lawyer's Office in ONSL",
+        "source": "https://www.flickr.com/photos/53301297@N00/4855476721",
+        "creator": "pasa47",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-12.jpg",
+        "title": "Ofisa Loia (Lawyer's Office)",
+        "source": "https://www.flickr.com/photos/89165847@N00/30465999200",
+        "creator": "mikecogh",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-13.jpg",
+        "title": "Lawyer's office built in 1790, Hudson, NY. photo taken 1993",
+        "source": "https://www.flickr.com/photos/90536753@N00/9104733919",
+        "creator": "theslowlane",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-14.jpg",
+        "title": "Lawyer's Office",
+        "source": "https://www.flickr.com/photos/53301297@N00/20553445444",
+        "creator": "pasa47",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      },
+      {
+        "file": "assets/images/demo-media/law-accounting/photo-15.jpg",
+        "title": "Lawyers Office with a twist",
+        "source": "https://www.flickr.com/photos/65064602@N00/121854440",
+        "creator": "RobDurdle.com",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "lawyer office"
+      }
+    ]
+  },
+  {
+    "slug": "auto-service",
+    "queries": [
+      "auto repair garage",
+      "car mechanic",
+      "car detailing",
+      "workshop car"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/auto-service/photo-01.jpg",
+        "title": "auto repair garage - Motorcars Toyota",
+        "source": "https://www.flickr.com/photos/23165290@N00/50515394847",
+        "creator": "Tim Evanson",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-02.jpg",
+        "title": "Auto Repair Garage, Broadway Street, Butte, MT",
+        "source": "https://www.flickr.com/photos/59081381@N03/53778640662",
+        "creator": "w_lemay",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-03.jpg",
+        "title": "Auto Repair Garage, Broadway Street, Butte, MT",
+        "source": "https://www.flickr.com/photos/59081381@N03/53779569326",
+        "creator": "w_lemay",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-04.jpg",
+        "title": "Braşov - Auto Service, June 1994",
+        "source": "https://www.flickr.com/photos/28179929@N08/4019938029",
+        "creator": "sludgegulper",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-05.jpg",
+        "title": "Chiriaco Summit Classic Car Garage - No Service Available",
+        "source": "https://www.flickr.com/photos/12836528@N00/5560494131",
+        "creator": "kevin dooley",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-06.jpg",
+        "title": "4 Wheel Computer Alignment with Muffler Man in Camo",
+        "source": "https://www.flickr.com/photos/10710442@N08/6907227009",
+        "creator": "Steve Snodgrass",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-07.jpg",
+        "title": "Panoramic view of downtown Los Angeles, looking east with the 8th Street and Olive Street intersection in view, ca.1910-1913 (CHS-2078)",
+        "source": "https://www.flickr.com/photos/50398299@N08/16468867140",
+        "creator": "Fæ",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-08.jpg",
+        "title": "You Drove me up the wall",
+        "source": "https://www.flickr.com/photos/36989019@N08/4351955974",
+        "creator": "Loco Steve",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-09.jpg",
+        "title": "Depressed Garfield (R) by Jim Davis",
+        "source": "https://www.flickr.com/photos/10710442@N08/5845665634",
+        "creator": "Steve Snodgrass",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-10.jpg",
+        "title": "Office",
+        "source": "https://www.flickr.com/photos/10710442@N08/7579106718",
+        "creator": "Steve Snodgrass",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-11.jpg",
+        "title": "Panoramic view of Los Angeles, looking west from the Pacific Electric building, with Main Street and 7th Street in view, January 1, 1907 (CHS-5774)",
+        "source": "https://www.flickr.com/photos/50398299@N08/16655528412",
+        "creator": "Fæ",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-12.jpg",
+        "title": "Panoramic view of downtown Los Angeles, looking east with the 8th Street and Olive Street intersection in view, ca.1910-1913 (CHS-5663)",
+        "source": "https://www.flickr.com/photos/50398299@N08/16656267985",
+        "creator": "Fæ",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-13.jpg",
+        "title": "auto repairing",
+        "source": "https://www.flickr.com/photos/48889107219@N01/2661967812",
+        "creator": "debaird™",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-14.jpg",
+        "title": "Panoramic view of Los Angeles, looking west from the Pacific Electric building, with Main Street and 7th Street in view, January 1, 1907 (CHS-5775)",
+        "source": "https://www.flickr.com/photos/50398299@N08/16655533382",
+        "creator": "Fæ",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      },
+      {
+        "file": "assets/images/demo-media/auto-service/photo-15.jpg",
+        "title": "Tanning Patch, Miles City",
+        "source": "https://www.flickr.com/photos/30512529@N00/1510242365",
+        "creator": "dave_mcmt",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "auto repair garage"
+      }
+    ]
+  },
+  {
+    "slug": "cleaning",
+    "queries": [
+      "cleaning service",
+      "house cleaning",
+      "office cleaning",
+      "cleaning supplies"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/cleaning/photo-01.jpg",
+        "title": "home-cleaners-house-cleaning-services-north-charleston-mount-pleasant",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243754323",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-02.jpg",
+        "title": "john's-island-residential-cleaning-services",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243595315",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-03.jpg",
+        "title": "charleston-mount-pleasant-commercial-cleaning-services-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243614765",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-04.jpg",
+        "title": "retail-cleaning-services-janitorial-companies",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243868634",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-05.jpg",
+        "title": "office-cleaning-services-west-ashley-summerville-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243896544",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-06.jpg",
+        "title": "home-cleaners-residential-cleaning-services-mount-pleasant-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243603145",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-07.jpg",
+        "title": "restroom-commercial-cleaning-services-medicial-facility-north-charleston-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243702273",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-08.jpg",
+        "title": "medicial-facilities-cleaning-services",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243727943",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-09.jpg",
+        "title": "Cleaning Service Frederick Maryland",
+        "source": "https://www.flickr.com/photos/61935366@N02/7265094766",
+        "creator": "Commercial Cleaning Maryland",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-10.jpg",
+        "title": "healthcare-facility-commercial-cleaning-services-north-charleston-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243944894",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-11.jpg",
+        "title": "residential-cleaners-north-charleston-cleaning-services-company",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243883354",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-12.jpg",
+        "title": "north-charleston-commercial-cleaning-services-home-and-maid-services",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243558055",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-13.jpg",
+        "title": "north-charleston-commercial-cleaning-services-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243561755",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-14.jpg",
+        "title": "heathcare-facilities-cleaning-service-north-charleston-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243599985",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      },
+      {
+        "file": "assets/images/demo-media/cleaning/photo-15.jpg",
+        "title": "medical-cleaning-services-solutions-healthcare-facilities-commercial-cleaning-sc",
+        "source": "https://www.flickr.com/photos/100966175@N04/13243737153",
+        "creator": "custom_tshirts",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "cleaning service"
+      }
+    ]
+  },
+  {
+    "slug": "real-estate",
+    "queries": [
+      "apartment interior",
+      "real estate agent",
+      "modern apartment",
+      "house exterior"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/real-estate/photo-01.jpg",
+        "title": "Apartment Interior",
+        "source": "https://www.flickr.com/photos/21482825@N03/2943498529",
+        "creator": "ashkyd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-02.jpg",
+        "title": "Apartment Interior",
+        "source": "https://www.flickr.com/photos/51035624697@N01/100975382",
+        "creator": "philsown",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-03.jpg",
+        "title": "Blue Front -- apartment interior upstairs.",
+        "source": "https://www.flickr.com/photos/70251312@N00/12311634746",
+        "creator": "In Memoriam: Wystan",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-04.jpg",
+        "title": "Il Molinello apartment interior, Asciano Tuscany",
+        "source": "https://www.flickr.com/photos/42033648@N00/5980439",
+        "creator": "In Memoriam: PhillipC",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-05.jpg",
+        "title": "Spa Apartment interior",
+        "source": "https://www.flickr.com/photos/36881690@N07/4522838647",
+        "creator": "frame.fusion",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-06.jpg",
+        "title": "Apartment interior",
+        "source": "https://www.flickr.com/photos/24215253@N05/5524840452",
+        "creator": "Darren Wilkinson",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-07.jpg",
+        "title": "Xinxin Apartment Interior 3",
+        "source": "https://www.flickr.com/photos/63304495@N06/6180077565",
+        "creator": "D Johnston",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-08.jpg",
+        "title": "Apartment Interior",
+        "source": "https://www.flickr.com/photos/17157315@N00/3918306885",
+        "creator": "thekirbster",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-09.jpg",
+        "title": "Xinxin Apartment Interior 1",
+        "source": "https://www.flickr.com/photos/63304495@N06/6180602904",
+        "creator": "D Johnston",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-10.jpg",
+        "title": "Xinxin Apartment Interior 5",
+        "source": "https://www.flickr.com/photos/63304495@N06/6180605254",
+        "creator": "D Johnston",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-11.jpg",
+        "title": "Xinxin Apartment Interior 2",
+        "source": "https://www.flickr.com/photos/63304495@N06/6180076883",
+        "creator": "D Johnston",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-12.jpg",
+        "title": "Xinxin Apartment Interior 4",
+        "source": "https://www.flickr.com/photos/63304495@N06/6180079079",
+        "creator": "D Johnston",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-13.jpg",
+        "title": "Apartment Interior",
+        "source": "https://www.flickr.com/photos/126170354@N06/14659615604",
+        "creator": "crystalsquare_photos",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-14.jpg",
+        "title": "OMMX, Apartment Interior, London, 2014",
+        "source": "https://www.flickr.com/photos/147316538@N02/34493605162",
+        "creator": "bianca.maggio",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      },
+      {
+        "file": "assets/images/demo-media/real-estate/photo-15.jpg",
+        "title": "Christmas themed apartment interior - Credit to https://www.lyncconf.com/",
+        "source": "https://www.flickr.com/photos/156259214@N05/41550109060",
+        "creator": "nodstrum",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "apartment interior"
+      }
+    ]
+  },
+  {
+    "slug": "product-catalog",
+    "queries": [
+      "retail shop products",
+      "product display",
+      "store shelf",
+      "boutique shelves"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-01.jpg",
+        "title": "Milk bottles",
+        "source": "https://www.flickr.com/photos/56087830@N00/829573216",
+        "creator": "markhillary",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-02.jpg",
+        "title": "Walmart Customer Selects a Fabric Reintroduced to Product Mix",
+        "source": "https://www.flickr.com/photos/50128414@N05/5684305063",
+        "creator": "Walmart Corporate",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-03.jpg",
+        "title": "Retail Target",
+        "source": "https://www.flickr.com/photos/86530412@N02/8354120717",
+        "creator": "ccPixs.com",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-04.jpg",
+        "title": "Publix Garlic Mashed Potatoes",
+        "source": "https://www.flickr.com/photos/12734746@N00/108459814",
+        "creator": "hyku",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-05.jpg",
+        "title": "Kmart - Chantilly, VA",
+        "source": "https://www.flickr.com/photos/93732749@N00/3831396457",
+        "creator": "Robert Stinnett",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-06.jpg",
+        "title": "Rikki's Refuge Re-Tail",
+        "source": "https://www.flickr.com/photos/60109376@N00/14925967065",
+        "creator": "rikkis_refuge",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-07.jpg",
+        "title": "Actionway Looking Back",
+        "source": "https://www.flickr.com/photos/67408512@N03/14504896165",
+        "creator": "Random Retail",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-08.jpg",
+        "title": "The Winecoff Hotel (and fire)",
+        "source": "https://www.flickr.com/photos/65193799@N00/2073140320",
+        "creator": "dbking",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-09.jpg",
+        "title": "O'Brien's Opera House, c.1882, Birmingham, Alabama",
+        "source": "https://www.flickr.com/photos/50245058@N03/14117170256",
+        "creator": "Cougar_6",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-10.jpg",
+        "title": "strummer guitar..",
+        "source": "https://www.flickr.com/photos/30261341@N00/806288315",
+        "creator": "wheelzwheeler",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-11.jpg",
+        "title": "20120105-OC-AMW-0484",
+        "source": "https://www.flickr.com/photos/41284017@N08/7413968580",
+        "creator": "USDAgov",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-12.jpg",
+        "title": "20110715-RD-LSC-0074",
+        "source": "https://www.flickr.com/photos/41284017@N08/6832537327",
+        "creator": "USDAgov",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-13.jpg",
+        "title": "Verkamps Grand Canyon Store August 2008. View southwest from northeast corner of store. 2039",
+        "source": "https://www.flickr.com/photos/50693818@N08/14766709588",
+        "creator": "Grand Canyon NPS",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-14.jpg",
+        "title": "Toys R Us Retro Eletronics Aisle",
+        "source": "https://www.flickr.com/photos/67408512@N03/10596871184",
+        "creator": "Random Retail",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      },
+      {
+        "file": "assets/images/demo-media/product-catalog/photo-15.jpg",
+        "title": "Retail Burger King",
+        "source": "https://www.flickr.com/photos/86530412@N02/8408777059",
+        "creator": "ccPixs.com",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "retail shop products"
+      }
+    ]
+  },
+  {
+    "slug": "education",
+    "queries": [
+      "online course classroom",
+      "students learning laptop",
+      "language school",
+      "teacher classroom"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/education/photo-01.jpg",
+        "title": "Online Webinar",
+        "source": "https://www.flickr.com/photos/68132273@N00/5166666608",
+        "creator": "sridgway",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-02.jpg",
+        "title": "Online Webinar",
+        "source": "https://www.flickr.com/photos/68132273@N00/5166665076",
+        "creator": "sridgway",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-03.jpg",
+        "title": "Teens HIRED! and earn money through FMWR apprenticeship program",
+        "source": "https://www.flickr.com/photos/31687107@N07/4366045435",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-04.jpg",
+        "title": "Poster 09 - Edupunk, Open Content, and You #heweb10",
+        "source": "https://www.flickr.com/photos/24734142@N07/5075914331",
+        "creator": "jameskm03",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-05.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 4",
+        "source": "https://www.flickr.com/photos/41431665@N07/26393858875",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-06.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 1",
+        "source": "https://www.flickr.com/photos/41431665@N07/26301514852",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-07.jpg",
+        "title": "BIMM IN THE COOMBE [SECOND SITE]-145934",
+        "source": "https://www.flickr.com/photos/80824546@N00/31182700947",
+        "creator": "infomatique",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-08.jpg",
+        "title": "002 - New Kernow Course Opening Day",
+        "source": "https://www.flickr.com/photos/69706441@N03/10906960153",
+        "creator": "PiktourUK",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-09.jpg",
+        "title": "2011_11_05",
+        "source": "https://www.flickr.com/photos/43296902@N00/6314795937",
+        "creator": "Dennis S. Hurd",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-10.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 43",
+        "source": "https://www.flickr.com/photos/41431665@N07/25789019474",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-11.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 35",
+        "source": "https://www.flickr.com/photos/41431665@N07/26393860635",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-12.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 7",
+        "source": "https://www.flickr.com/photos/41431665@N07/25791098743",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-13.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 20",
+        "source": "https://www.flickr.com/photos/41431665@N07/26327646741",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-14.jpg",
+        "title": "COD, West Chicago District 33 Team Up through New Dual-Language Program 2016 31",
+        "source": "https://www.flickr.com/photos/41431665@N07/26393860545",
+        "creator": "COD Newsroom",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "online course classroom"
+      },
+      {
+        "file": "assets/images/demo-media/education/photo-15.jpg",
+        "title": "Girl Using Laptop in park",
+        "source": "https://www.flickr.com/photos/83633410@N07/7658165122",
+        "creator": "CollegeDegrees360",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "students learning laptop"
+      }
+    ]
+  },
+  {
+    "slug": "personal-brand",
+    "queries": [
+      "freelancer workspace",
+      "professional portrait laptop",
+      "creative studio",
+      "personal brand"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-01.jpg",
+        "title": "freelancer workspace working b2b consulting",
+        "source": "https://www.flickr.com/photos/146625745@N08/23786052638",
+        "creator": "homethods",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-02.jpg",
+        "title": "MySpace",
+        "source": "https://www.flickr.com/photos/68978695@N00/3452272176",
+        "creator": "Risager",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-03.jpg",
+        "title": "Aerial view of computer laptop on wooden table photography hobby concept",
+        "source": "https://www.flickr.com/photos/147875007@N03/27665202098",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-04.jpg",
+        "title": "Creative Workspace Office",
+        "source": "https://www.flickr.com/photos/125167502@N02/46206050671",
+        "creator": "markus spiske",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-05.jpg",
+        "title": "Aerial view of computer laptop on wooden table photography hobby concept",
+        "source": "https://www.flickr.com/photos/147875007@N03/26666494897",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-06.jpg",
+        "title": "Dead plants",
+        "source": "https://www.flickr.com/photos/49503031667@N01/46038406",
+        "creator": "Tym",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-07.jpg",
+        "title": "Aerial view of a man typing on a retro typewriter",
+        "source": "https://www.flickr.com/photos/147875007@N03/45789238041",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-08.jpg",
+        "title": "Aerial view of a man typing on a retro typewriter",
+        "source": "https://www.flickr.com/photos/147875007@N03/27665216818",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-09.jpg",
+        "title": "Woman using laptop while holding a cup of coffee - Credit to https://homegets.com/",
+        "source": "https://www.flickr.com/photos/141436406@N04/49675580438",
+        "creator": "homegets.com",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-10.jpg",
+        "title": "Colorful Autumn leaves and laptop on a black background. Top view of work space in the fall.",
+        "source": "https://www.flickr.com/photos/157635012@N07/48879026376",
+        "creator": "Artem Beliaikin",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-11.jpg",
+        "title": "Illustrationist coloring",
+        "source": "https://www.flickr.com/photos/147875007@N03/40640194065",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-12.jpg",
+        "title": "Aerial view of a man typing on a retro typewriter",
+        "source": "https://www.flickr.com/photos/147875007@N03/40642009405",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-13.jpg",
+        "title": "Colorful Autumn leaves and laptop on a black background. Top view of work space in the fall.",
+        "source": "https://www.flickr.com/photos/157635012@N07/48879028066",
+        "creator": "Artem Beliaikin",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-14.jpg",
+        "title": "Colorful Autumn leaves and laptop on a black background. Top view of work space in the fall.",
+        "source": "https://www.flickr.com/photos/157635012@N07/48878493248",
+        "creator": "Artem Beliaikin",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      },
+      {
+        "file": "assets/images/demo-media/personal-brand/photo-15.jpg",
+        "title": "Colorful Autumn leaves and laptop on a black background. Top view of work space in the fall.",
+        "source": "https://www.flickr.com/photos/157635012@N07/48879222252",
+        "creator": "Artem Beliaikin",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "freelancer workspace"
+      }
+    ]
+  },
+  {
+    "slug": "event-photo",
+    "queries": [
+      "wedding photographer",
+      "camera event",
+      "event photography",
+      "photo studio"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/event-photo/photo-01.jpg",
+        "title": "The Wedding Photographer",
+        "source": "https://www.flickr.com/photos/26667277@N00/955070800",
+        "creator": "wickenden",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-02.jpg",
+        "title": "Wedding Photographers",
+        "source": "https://www.flickr.com/photos/44124348109@N01/5437885444",
+        "creator": "jurvetson",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-03.jpg",
+        "title": "Unknown early 20th Century wedding photograph",
+        "source": "https://www.flickr.com/photos/24469639@N00/5064759588",
+        "creator": "whatsthatpicture",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-04.jpg",
+        "title": "Unknown 1920s wedding photograph - family group",
+        "source": "https://www.flickr.com/photos/24469639@N00/5064146339",
+        "creator": "whatsthatpicture",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-05.jpg",
+        "title": "the wedding photographers",
+        "source": "https://www.flickr.com/photos/7941044@N06/4724134057",
+        "creator": "jenny downing",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-06.jpg",
+        "title": "Unknown early 20th Century wedding photograph",
+        "source": "https://www.flickr.com/photos/24469639@N00/5064759388",
+        "creator": "whatsthatpicture",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-07.jpg",
+        "title": "UFO Sighting of Fleet By Wedding Photographer at Long Beach, California Sept 4, 2010, Video & Photos 1/3",
+        "source": "https://www.flickr.com/photos/15515514@N06/5112937524",
+        "creator": "DragonRal",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-08.jpg",
+        "title": "UFO Sighting of Fleet By Wedding Photographer at Long Beach, California Sept 4, 2010, Video & Photos 3/3.",
+        "source": "https://www.flickr.com/photos/15515514@N06/5112948854",
+        "creator": "DragonRal",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-09.jpg",
+        "title": "Sydney Wedding Photographers by Katsu Nojiri",
+        "source": "https://www.flickr.com/photos/79992579@N07/8378672624",
+        "creator": "Katsunojiri",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-10.jpg",
+        "title": "The Wedding Photographer",
+        "source": "https://www.flickr.com/photos/80912889@N00/598005877",
+        "creator": "SarahCartwright",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-11.jpg",
+        "title": "All-terrain wedding photographer, part 2",
+        "source": "https://www.flickr.com/photos/7171548@N04/5097508292",
+        "creator": "Marco Arment",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-12.jpg",
+        "title": "Sydney Wedding Photographers by Katsu Nojiri",
+        "source": "https://www.flickr.com/photos/79992579@N07/8378725986",
+        "creator": "Katsunojiri",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-13.jpg",
+        "title": "Sydney Wedding Photographers by Katsu Nojiri",
+        "source": "https://www.flickr.com/photos/79992579@N07/8378680236",
+        "creator": "Katsunojiri",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-14.jpg",
+        "title": "Sydney Wedding Photographers by Katsu Nojiri",
+        "source": "https://www.flickr.com/photos/79992579@N07/8377581659",
+        "creator": "Katsunojiri",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      },
+      {
+        "file": "assets/images/demo-media/event-photo/photo-15.jpg",
+        "title": "UNITY candle: it was a blessing that I was asked to be a wedding photographer & witnessed two people becoming one today. God bless them: Losing your relationship with God for a relationship with a person isn't worth it. You deserve more, find someone yo",
+        "source": "https://www.flickr.com/photos/22779530@N02/11008163763",
+        "creator": "Lel4nd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "wedding photographer"
+      }
+    ]
+  },
+  {
+    "slug": "fitness",
+    "queries": [
+      "personal trainer gym",
+      "fitness coaching",
+      "workout gym",
+      "training session"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/fitness/photo-01.jpg",
+        "title": "Free back personal trainer gym",
+        "source": "https://www.rawpixel.com/image/5925411/photo-image-public-domain-free-workout",
+        "creator": "",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "rawpixel",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-02.jpg",
+        "title": "gym 2",
+        "source": "https://www.flickr.com/photos/78218545@N07/8152951831",
+        "creator": "FORM E FOR ME",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-03.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073261391",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-04.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073272917",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-05.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073275357",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-06.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073274681",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-07.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073257212",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-08.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073259108",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-09.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073269508",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-10.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073266582",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-11.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073253056",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-12.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073270077",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-13.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073267257",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-14.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073257963",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      },
+      {
+        "file": "assets/images/demo-media/fitness/photo-15.jpg",
+        "title": "ACS Job fair - U.S. Army Garrison Humphreys, South Korea - 28 September 2012",
+        "source": "https://www.flickr.com/photos/31687107@N07/8073263135",
+        "creator": "USAG-Humphreys",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "personal trainer gym"
+      }
+    ]
+  },
+  {
+    "slug": "hotel-apartment",
+    "queries": [
+      "hotel room",
+      "guesthouse interior",
+      "apartment rental",
+      "hotel lobby"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-01.jpg",
+        "title": "hotel room camera obscura",
+        "source": "https://www.flickr.com/photos/62213282@N00/7312436036",
+        "creator": "Crunchy Footsteps",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-02.jpg",
+        "title": "Day 133: Hotel Room",
+        "source": "https://www.flickr.com/photos/61174949@N00/3534470411",
+        "creator": "tsmall",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-03.jpg",
+        "title": "Abuja hotel room",
+        "source": "https://www.flickr.com/photos/12394349@N06/5574612655",
+        "creator": "Bryn Pinzgauer",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-04.jpg",
+        "title": "Hotel room stock photo",
+        "source": "https://www.flickr.com/photos/28478778@N05/4568472779",
+        "creator": "espensorvik",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-05.jpg",
+        "title": "Our hotel room in Kyoto",
+        "source": "https://www.flickr.com/photos/19714819@N00/7959523826",
+        "creator": "MarkDoliner",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-06.jpg",
+        "title": "Charleston Hotel Room",
+        "source": "https://www.flickr.com/photos/7471115@N08/3348335200",
+        "creator": "Mr.TinDC",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-07.jpg",
+        "title": "Hotel room",
+        "source": "https://www.flickr.com/photos/15313835@N00/12486706",
+        "creator": "Z_dead",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-08.jpg",
+        "title": "hotel room",
+        "source": "https://www.flickr.com/photos/60944931@N00/5954284664",
+        "creator": "waferboard",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-09.jpg",
+        "title": "Hotel Room",
+        "source": "https://www.flickr.com/photos/90155419@N00/2253659828",
+        "creator": "MoToMo",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-10.jpg",
+        "title": "CL Society 397: Girl in a hotel room",
+        "source": "https://www.flickr.com/photos/30330906@N04/15073370903",
+        "creator": "francisco_osorio",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-11.jpg",
+        "title": "Abuja hotel room",
+        "source": "https://www.flickr.com/photos/12394349@N06/5574608817",
+        "creator": "Bryn Pinzgauer",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-12.jpg",
+        "title": "Hotel Room",
+        "source": "https://www.flickr.com/photos/26782864@N00/9638499309",
+        "creator": "wwarby",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-13.jpg",
+        "title": "Hotel Room",
+        "source": "https://www.flickr.com/photos/46652337@N06/10696858004",
+        "creator": "zeitfaenger.at",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-14.jpg",
+        "title": "Hotel Room 'Maria Stuart'",
+        "source": "https://www.flickr.com/photos/8663137@N04/3558828349",
+        "creator": "barockschloss",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      },
+      {
+        "file": "assets/images/demo-media/hotel-apartment/photo-15.jpg",
+        "title": "Ilan Moyer and I made something that makes leaving the lab and staying in hotel rooms less problematic",
+        "source": "https://www.flickr.com/photos/79234916@N00/7478994924",
+        "creator": "Nadya Peek",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "hotel room"
+      }
+    ]
+  },
+  {
+    "slug": "recruitment",
+    "queries": [
+      "job interview",
+      "hiring recruitment",
+      "workers team",
+      "delivery courier"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/recruitment/photo-01.jpg",
+        "title": "Wearing A Suit After Job Interview!",
+        "source": "https://www.flickr.com/photos/27076064@N06/5079210544",
+        "creator": "joshchandler",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-02.jpg",
+        "title": "Job Interview #2",
+        "source": "https://www.flickr.com/photos/41216460@N00/224646677",
+        "creator": "rileyroxx",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-03.jpg",
+        "title": "Job interview",
+        "source": "https://www.flickr.com/photos/53326337@N00/4570357048",
+        "creator": "quinn.anya",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-04.jpg",
+        "title": "Young Man on a Job Interview",
+        "source": "https://www.flickr.com/photos/141761303@N08/24835247668",
+        "creator": "amtec_photos",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-05.jpg",
+        "title": "A bizarre job interview",
+        "source": "https://www.flickr.com/photos/53326337@N00/4272985057",
+        "creator": "quinn.anya",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-06.jpg",
+        "title": "Job Interview #2",
+        "source": "https://www.flickr.com/photos/41216460@N00/244499061",
+        "creator": "rileyroxx",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-07.jpg",
+        "title": "Beast of a Job Interview, after Walter Crane",
+        "source": "https://www.flickr.com/photos/9106303@N05/6125709344",
+        "creator": "Mike Licht, NotionsCapital.com",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-08.jpg",
+        "title": "JOB INTERVIEW ..",
+        "source": "https://www.flickr.com/photos/88611824@N00/4404340928",
+        "creator": "mrbill78636",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-09.jpg",
+        "title": "Job Interview Question: What Is Your Greatest Strength?",
+        "source": "https://www.flickr.com/photos/61904084@N00/17338151141",
+        "creator": "thedailyenglishshow",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-10.jpg",
+        "title": "Ready for a job interview",
+        "source": "https://www.flickr.com/photos/7714612@N04/15203641103",
+        "creator": "Teresa Trimm",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-11.jpg",
+        "title": "Ready for a job interview",
+        "source": "https://www.flickr.com/photos/7714612@N04/15637252109",
+        "creator": "Teresa Trimm",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-12.jpg",
+        "title": "Job Interview Question: What Is Your Greatest Strength?",
+        "source": "https://www.flickr.com/photos/61904084@N00/17312561406",
+        "creator": "thedailyenglishshow",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-13.jpg",
+        "title": "Job Interview Question: What Is Your Greatest Strength?",
+        "source": "https://www.flickr.com/photos/61904084@N00/17338540925",
+        "creator": "thedailyenglishshow",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-14.jpg",
+        "title": "Job Interview Question: What Is Your Greatest Strength?",
+        "source": "https://www.flickr.com/photos/61904084@N00/17150969200",
+        "creator": "thedailyenglishshow",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      },
+      {
+        "file": "assets/images/demo-media/recruitment/photo-15.jpg",
+        "title": "Job Interview Question: What Is Your Greatest Strength?",
+        "source": "https://www.flickr.com/photos/61904084@N00/17336646022",
+        "creator": "thedailyenglishshow",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "job interview"
+      }
+    ]
+  },
+  {
+    "slug": "start-landing",
+    "queries": [
+      "small business owner",
+      "local business shop",
+      "service business laptop",
+      "entrepreneur workspace"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/start-landing/photo-01.jpg",
+        "title": "98.8% OF SMALL BUSINESS OWNERS NOT SUBJECT TO HEALTH CARE SURCHARGE",
+        "source": "https://www.flickr.com/photos/11461909@N06/4110241755",
+        "creator": "Speaker Nancy Pelosi",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-02.jpg",
+        "title": "Vice President Pence Meets with Small Business Owners",
+        "source": "https://www.flickr.com/photos/148748355@N05/49959899478",
+        "creator": "The Trump White House Archived",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-03.jpg",
+        "title": "Vice President Pence Meets with Small Business Owners",
+        "source": "https://www.flickr.com/photos/148748355@N05/49959899488",
+        "creator": "The Trump White House Archived",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-04.jpg",
+        "title": "Ryan Media Works Comic Strip (Small Business Owner)",
+        "source": "https://www.flickr.com/photos/93477625@N02/8578288289",
+        "creator": "Ryan Media Works",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-05.jpg",
+        "title": "Vice President Pence Meets with Small Business Owners",
+        "source": "https://www.flickr.com/photos/148748355@N05/49959899508",
+        "creator": "The White House",
+        "license": "pdm 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-06.jpg",
+        "title": "Congresswoman Pelosi Leads a Roundtable with Local Latino Small Business Owners",
+        "source": "https://www.flickr.com/photos/11461909@N06/8281571777",
+        "creator": "Speaker Nancy Pelosi",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-07.jpg",
+        "title": "CO: Small business owners Diana and Gil Ortiz (Ortiz Accounting and Tax Services & Ortiz Enterprises catering - Pueblo, CO) supports Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3510670660",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-08.jpg",
+        "title": "IN: Boonville Small Business Owners for Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3506490892",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-09.jpg",
+        "title": "IN: Boonville Small Business Owners for Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3506489286",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-10.jpg",
+        "title": "Small Business Owner",
+        "source": "https://www.flickr.com/photos/48144610@N04/6036806609",
+        "creator": "CoffeePartyUSA",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-11.jpg",
+        "title": "IN: Boonville Small Business Owners for Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3505686951",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-12.jpg",
+        "title": "IN: Boonville Small Business Owners for Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3506497516",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-13.jpg",
+        "title": "CO: Diana and Gilbert Ortiz - small business owner Diana Ortiz caters for special gathering",
+        "source": "https://www.flickr.com/photos/26467954@N04/3405551348",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-14.jpg",
+        "title": "CO: Diana and Gilbert Ortiz - small business owner Diana Ortiz caters for special gathering",
+        "source": "https://www.flickr.com/photos/26467954@N04/3405552000",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      },
+      {
+        "file": "assets/images/demo-media/start-landing/photo-15.jpg",
+        "title": "IN: Boonville Small Business Owners for Employee Free Choice Act",
+        "source": "https://www.flickr.com/photos/26467954@N04/3506493156",
+        "creator": "AFL-CIO Field",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "small business owner"
+      }
+    ]
+  },
+  {
+    "slug": "business-website",
+    "queries": [
+      "business meeting team",
+      "office team",
+      "consulting meeting",
+      "professional services"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/business-website/photo-01.jpg",
+        "title": "Business Meetings Team",
+        "source": "https://www.flickr.com/photos/110382434@N07/11174111625",
+        "creator": "Informa Beauty",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-02.jpg",
+        "title": "Dr. Neil deGrasse Tyson Visits NASA Goddard",
+        "source": "https://www.flickr.com/photos/24662369@N07/14340083945",
+        "creator": "NASA Goddard Photo and Video",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-03.jpg",
+        "title": "Dr. Neil deGrasse Tyson Visits NASA Goddard",
+        "source": "https://www.flickr.com/photos/24662369@N07/14338442742",
+        "creator": "NASA Goddard Photo and Video",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-04.jpg",
+        "title": "Nimbuzz Argentina - Office",
+        "source": "https://www.flickr.com/photos/9078261@N07/3521170397",
+        "creator": "Nimbuzz",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-05.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-JBW2PXDOL6",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-06.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-VQXYE2ZEHC",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-07.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-69TMH4ITIE",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-08.jpg",
+        "title": "appX Cambridge 2012 Participants",
+        "source": "https://www.flickr.com/photos/38284634@N00/6828203382",
+        "creator": "bobfamiliar",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-09.jpg",
+        "title": "Business Meeting",
+        "source": "https://www.flickr.com/photos/83532250@N06/7650804342",
+        "creator": "thetaxhaven",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-10.jpg",
+        "title": "New office",
+        "source": "https://www.flickr.com/photos/19451080@N00/3344142642",
+        "creator": "Phillie Casablanca",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-11.jpg",
+        "title": "Eaglebrook_School_Fall_2013_Play20131016_3458",
+        "source": "https://www.flickr.com/photos/45532942@N08/10421011193",
+        "creator": "EaglebrookSchool",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-12.jpg",
+        "title": "Writing Papers",
+        "source": "https://stocksnap.io/photo/writing-papers-Y01VDYAX63",
+        "creator": "Helloquence",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-13.jpg",
+        "title": "Technology council discusses social media",
+        "source": "https://www.flickr.com/photos/34402227@N03/4424991948",
+        "creator": "U.S. Army Combat Capabilities Development Command",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-14.jpg",
+        "title": "Skype Reverie",
+        "source": "https://www.flickr.com/photos/44124348109@N01/43922369",
+        "creator": "jurvetson",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      },
+      {
+        "file": "assets/images/demo-media/business-website/photo-15.jpg",
+        "title": "Group of happy business people clapping their hands",
+        "source": "https://www.flickr.com/photos/92334668@N07/11123538363",
+        "creator": "tec_estromberg",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "business meeting team"
+      }
+    ]
+  },
+  {
+    "slug": "mvp-platform",
+    "queries": [
+      "software dashboard laptop",
+      "startup team laptop",
+      "app prototype",
+      "product design"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-01.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-JBW2PXDOL6",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-02.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-VQXYE2ZEHC",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-03.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-69TMH4ITIE",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-04.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13134024614",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-05.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13134000714",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-06.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13133721205",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-07.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13134020174",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-08.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13133716525",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-09.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13133844933",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-10.jpg",
+        "title": "Business people shaking hands in agreement",
+        "source": "https://www.flickr.com/photos/147875007@N03/43972154720",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-11.jpg",
+        "title": "",
+        "source": "https://www.flickr.com/photos/120262924@N05/13133735605",
+        "creator": "startupphotos",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-12.jpg",
+        "title": "Group of diverse people having a business meeting",
+        "source": "https://www.flickr.com/photos/147875007@N03/31917962768",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-13.jpg",
+        "title": "Japanese woman in a business meeting",
+        "source": "https://www.flickr.com/photos/147875007@N03/43972156700",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-14.jpg",
+        "title": "Diverse people working at an office",
+        "source": "https://www.flickr.com/photos/147875007@N03/45064629294",
+        "creator": "Rawpixel Ltd",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "startup team laptop"
+      },
+      {
+        "file": "assets/images/demo-media/mvp-platform/photo-15.jpg",
+        "title": "Team Meeting",
+        "source": "https://stocksnap.io/photo/team-meeting-2R1OMUFVO5",
+        "creator": "Startup Stock Photos",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "stocksnap",
+        "query": "startup team laptop"
+      }
+    ]
+  },
+  {
+    "slug": "project-rescue",
+    "queries": [
+      "project management laptop",
+      "software code laptop",
+      "audit checklist",
+      "developer debugging"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-01.jpg",
+        "title": "LRO Deputy Project Manager Cathie Peddie",
+        "source": "https://www.flickr.com/photos/24662369@N07/3645313261",
+        "creator": "NASA Goddard Photo and Video",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-02.jpg",
+        "title": "Yes we can: USACE employees help students manage can construction project",
+        "source": "https://www.flickr.com/photos/34728058@N08/4419592724",
+        "creator": "USACE Europe District",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-03.jpg",
+        "title": "Mobile Worker",
+        "source": "https://www.flickr.com/photos/89165847@N00/7348035690",
+        "creator": "mikecogh",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-04.jpg",
+        "title": "Pen, Diary and Glasses",
+        "source": "https://www.flickr.com/photos/46959536@N04/4827013488",
+        "creator": "Generationbass.com",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-05.jpg",
+        "title": "The Agile PM Game (Aug '11)",
+        "source": "https://www.flickr.com/photos/58816914@N05/6079728055",
+        "creator": "VFS Digital Design",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-06.jpg",
+        "title": "Big Brothers Public Service Announcement",
+        "source": "https://www.flickr.com/photos/38174668@N05/5938151095",
+        "creator": "vancouverfilmschool",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-07.jpg",
+        "title": "LRO Orbit Insertion Preparations - Craig Tooley",
+        "source": "https://www.flickr.com/photos/24662369@N07/3650814647",
+        "creator": "NASA Goddard Photo and Video",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-08.jpg",
+        "title": "Charles darwin",
+        "source": "https://www.flickr.com/photos/28438417@N08/3273899493",
+        "creator": "Ashley Basil",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-09.jpg",
+        "title": "Solaris Package Management Research Party - Side",
+        "source": "https://www.flickr.com/photos/51612898@N00/6806472",
+        "creator": "Mike Burns",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-10.jpg",
+        "title": "Mitigation Management",
+        "source": "https://www.flickr.com/photos/33503255@N00/2261929157",
+        "creator": "In Memoriam: saschapohflepp",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-11.jpg",
+        "title": "Project, program managers get lesson in risk communication",
+        "source": "https://www.flickr.com/photos/34728058@N08/11437071685",
+        "creator": "USACE Europe District",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-12.jpg",
+        "title": "The Agile PM Game (Aug '11)",
+        "source": "https://www.flickr.com/photos/58816914@N05/6080264746",
+        "creator": "VFS Digital Design",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-13.jpg",
+        "title": "Wii Opera Woes",
+        "source": "https://www.flickr.com/photos/24226200@N00/329939358",
+        "creator": "ToastyKen",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-14.jpg",
+        "title": "Maria Tsirantonaki, project manager Decisions for Life, Labour Rights for Women - ITUC",
+        "source": "https://www.flickr.com/photos/11553519@N03/6574907543",
+        "creator": "WageIndicator.org - Pictures from Paulien Osse and",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      },
+      {
+        "file": "assets/images/demo-media/project-rescue/photo-15.jpg",
+        "title": "2012/366/23 The Day the MacBookPro Died",
+        "source": "https://www.flickr.com/photos/37996646802@N01/6753555717",
+        "creator": "cogdogblog",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "project management laptop"
+      }
+    ]
+  },
+  {
+    "slug": "bug-fixing",
+    "queries": [
+      "debugging code laptop",
+      "web developer code",
+      "computer error code",
+      "programmer laptop"
+    ],
+    "credits": [
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-01.jpg",
+        "title": "Web development: Code on screen, candles, home plant—a cozy and productive workspace ambiance.",
+        "source": "https://wordpress.org/photos/photo/61365be1f7/",
+        "creator": "Upen Singh",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "wordpress",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-02.jpg",
+        "title": "Computer books",
+        "source": "https://www.flickr.com/photos/26209464@N00/476780331",
+        "creator": "simonov",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-03.jpg",
+        "title": "image-draught-code",
+        "source": "https://www.flickr.com/photos/70794342@N00/3392364131",
+        "creator": "joeflintham",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-04.jpg",
+        "title": "Lumia 920 - Caledos Runner - ND0_6158",
+        "source": "https://www.flickr.com/photos/15216811@N06/9807742335",
+        "creator": "Nicola since 1972",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-05.jpg",
+        "title": "Tokyo Jobs - Ruby on Rails Developer",
+        "source": "https://www.flickr.com/photos/88444437@N00/6043757408",
+        "creator": "Danny Choo",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-06.jpg",
+        "title": "PC Meter - Back View",
+        "source": "https://www.flickr.com/photos/52195472@N00/8664863726",
+        "creator": "lungstruck",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-07.jpg",
+        "title": "Hilary Mason (Lighting), Diana Eng's Fairytale Fashion Show at Eyebeam NYC / 20100224.7D.03491.P1.L1.C23 / SML",
+        "source": "https://www.flickr.com/photos/48973657@N00/4387741544",
+        "creator": "See-ming Lee (SML)",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-08.jpg",
+        "title": "PC Meter - Top View",
+        "source": "https://www.flickr.com/photos/52195472@N00/8663768153",
+        "creator": "lungstruck",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-09.jpg",
+        "title": "Illinois.gov - Illinois Government News Network (IGNN) - Search the News Results",
+        "source": "https://www.flickr.com/photos/36521980095@N01/9150833319",
+        "creator": "danxoneil",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-10.jpg",
+        "title": "Caledos Runner V3 - IMG_1292",
+        "source": "https://www.flickr.com/photos/15216811@N06/15316353091",
+        "creator": "Nicola since 1972",
+        "license": "by 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-11.jpg",
+        "title": "HTML PHP Javascript Source Code",
+        "source": "https://www.flickr.com/photos/125167502@N02/31906693748",
+        "creator": "markus spiske",
+        "license": "cc0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-12.jpg",
+        "title": "image-draught-code",
+        "source": "https://www.flickr.com/photos/70794342@N00/3392368075",
+        "creator": "joeflintham",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "web developer code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-13.jpg",
+        "title": "error message",
+        "source": "https://www.flickr.com/photos/42804178@N00/3892412685",
+        "creator": "Do u remember",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "computer error code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-14.jpg",
+        "title": "IBM 1620 in Computer Lab",
+        "source": "https://www.flickr.com/photos/78147607@N00/2131988829",
+        "creator": "euthman",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "computer error code"
+      },
+      {
+        "file": "assets/images/demo-media/bug-fixing/photo-15.jpg",
+        "title": "error message",
+        "source": "https://www.flickr.com/photos/42804178@N00/3893197602",
+        "creator": "Do u remember",
+        "license": "by-sa 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "provider": "flickr",
+        "query": "computer error code"
+      }
+    ]
+  }
+]

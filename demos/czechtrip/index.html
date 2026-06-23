@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CzechTrip — jednodenní výlety po Česku z Prahy</title>
+<meta name="description" content="Jednodenní skupinové výlety po Česku a Evropě: zámky, jeskyně, historická města a hotový program bez složité přípravy trasy.">
+<meta property="og:title" content="CzechTrip — víkendové výlety po Česku">
+<meta property="og:description" content="Vyberte výlet, pošlete poptávku a dostanete detaily v messengeru. Demo prototyp webu pro organizátora výletů.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#181818;
+  --bg4:#1f1f1f;
+  --card:#141414;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.12);
+  --gold:#c9a84c;
+  --gold2:#e8c96a;
+  --gold3:#f5dfa0;
+  --goldDim:rgba(201,168,76,.15);
+  --goldBorder:rgba(201,168,76,.3);
+  --white:#ffffff;
+  --off:#f5f0e8;
+  --t1:rgba(255,255,255,.92);
+  --t2:rgba(255,255,255,.55);
+  --t3:rgba(255,255,255,.3);
+  --r:4px; /* sharp corners = luxury */
+  --rC:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden}
+::selection{background:var(--gold);color:#000}
+h1,h2,h3{font-family:'Cormorant',serif}
+h1{font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.1}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:300}
+p{color:var(--t2);font-size:.88rem;font-weight:300;line-height:1.9}
+a{text-decoration:none}
+img{display:block;max-width:100%}
+.serif{font-family:'Cormorant',serif}
+
+/* UTILS */
+.cnt{max-width:1280px;margin:0 auto;padding:0 2rem}
+.cnt-narrow{max-width:900px;margin:0 auto;padding:0 2rem}
+.sec{padding:8rem 0}
+.lbl{display:inline-flex;align-items:center;gap:.75rem;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem}
+.lbl::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.divider{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:2.5rem auto}
+.gold{color:var(--gold)}
+.gold2{color:var(--gold2)}
+.tc{text-align:center}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.vis{opacity:1;transform:none}
+
+/* THIN GOLD LINE ACCENT */
+.gold-line{display:block;width:48px;height:1px;background:var(--gold);margin:1.5rem 0}
+.gold-line-c{display:block;width:48px;height:1px;background:var(--gold);margin:1.5rem auto}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:all .3s;white-space:nowrap}
+.btn-gold{background:var(--gold);color:#000;padding:.9rem 2.2rem}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,168,76,.3)}
+.btn-ghost{background:transparent;color:var(--gold);padding:.85rem 2.1rem;border:1px solid var(--goldBorder)}
+.btn-ghost:hover{background:var(--goldDim);border-color:var(--gold)}
+.btn-ghost-w{background:transparent;color:var(--t1);padding:.85rem 2.1rem;border:1px solid var(--border2)}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+.btn-sm{padding:.65rem 1.5rem;font-size:.67rem}
+.btn-full{width:100%}
+.btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* ═══ HEADER ═══ */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:900;transition:all .4s}
+#hdr.top{background:transparent}
+#hdr.scrolled{background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.hdr-in{display:flex;align-items:center;height:72px}
+.logo{font-family:'Cormorant',serif;font-size:1.55rem;font-weight:400;color:var(--white);letter-spacing:.06em;flex-shrink:0}
+.logo em{font-style:italic;color:var(--gold)}
+nav{display:flex;align-items:center;gap:.15rem;margin-left:2.5rem;flex:1}
+nav a{font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);padding:.4rem .8rem;transition:color .2s}
+nav a:hover{color:var(--white)}
+.hdr-r{display:flex;align-items:center;gap:.8rem;margin-left:auto}
+.msg-row{display:flex;gap:.4rem}
+.mi{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s,opacity .2s;border:1px solid var(--border2)}
+.mi:hover{transform:scale(1.1);opacity:.9}
+.mi svg{width:15px;height:15px}
+.mi-tg{background:#1e8fc7}
+.mi-ms{background:#2a2a2a}
+.mi-fb{background:#1565d4}
+.mi-wa{background:#1a9e4a}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;border:none;background:none;margin-left:.5rem}
+.ham span{display:block;width:20px;height:1px;background:var(--white);transition:all .3s}
+.mm{display:none;position:fixed;inset:0;background:var(--bg);z-index:800;padding:90px 2rem 2rem;flex-direction:column}
+.mm.open{display:flex}
+.mm a{font-size:1.8rem;font-family:'Cormorant',serif;font-weight:300;color:var(--t1);padding:.7rem 0;border-bottom:1px solid var(--border)}
+.mm-sub{margin-top:2rem;display:flex;flex-direction:column;gap:.75rem}
+.mm-msgs{display:grid;grid-template-columns:1fr;gap:.6rem;margin-top:1rem}.mm-msg{display:flex!important;align-items:center;justify-content:center;border:1px solid var(--border2)!important;background:rgba(255,255,255,.04);font-family:'Montserrat',sans-serif!important;font-size:.72rem!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:.85rem 1rem!important;color:var(--t1)!important}
+@media(max-width:960px){nav{display:none}.ham{display:flex}.hdr-r>.btn,.hdr-r .msg-row{display:none}}
+
+/* ═══ HERO ═══ */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--bg)}
+.hero-scene{position:absolute;inset:0;z-index:0}
+.hero-scene svg{width:100%;height:100%;position:absolute;inset:0}.hero-video-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(1.08) contrast(1.08)}.hero-photo-grid{position:absolute;right:5vw;top:18vh;width:min(42vw,540px);height:58vh;display:grid;grid-template-columns:1fr .72fr;grid-template-rows:1fr 1fr;gap:14px;opacity:.9}.hero-photo{background-size:cover;background-position:center;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 80px rgba(0,0,0,.38);min-height:0}.hero-photo.big{grid-row:1/3}.hero-route-card{position:absolute;left:50%;bottom:2.1rem;transform:translateX(-50%);z-index:2;display:flex;gap:1rem;align-items:center;background:rgba(10,10,10,.76);border:1px solid var(--border2);backdrop-filter:blur(18px);padding:.9rem 1.1rem;color:var(--t1);max-width:min(92vw,720px)}.route-pill{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#000;background:var(--gold);padding:.28rem .65rem}.route-copy{font-size:.74rem;color:var(--t2)}
+/* Vignette */
+.hero-scene::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 72% 36%,rgba(0,0,0,.1) 0%,rgba(0,0,0,.62) 64%),linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.72) 38%,rgba(10,10,10,.18) 72%),linear-gradient(to bottom,rgba(0,0,0,.28) 0%,rgba(0,0,0,.02) 42%,rgba(10,10,10,.95) 100%)}
+.hero-in{position:relative;z-index:1;padding:0 0 7rem;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:end}
+.hero-left .lbl{margin-bottom:2rem}
+.hero-title{color:var(--white);margin-bottom:1.5rem}
+.hero-title em{font-style:italic;color:var(--gold2)}
+.hero-sub{color:var(--t2);font-size:.88rem;max-width:460px;margin-bottom:2.5rem;line-height:2}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{display:flex;gap:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.hs-item{display:flex;flex-direction:column;gap:.25rem}
+.hs-num{font-family:'Cormorant',serif;font-size:2.2rem;font-weight:300;color:var(--white);line-height:1}
+.hs-lbl{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3)}
+
+/* HERO CARD */
+.hero-card{background:rgba(20,20,20,.85);backdrop-filter:blur(24px);border:1px solid var(--border2);padding:2rem;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hc-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.12);border:1px solid var(--goldBorder);color:var(--gold);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:1.25rem}
+.hc-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hc-title{font-family:'Cormorant',serif;font-size:1.55rem;font-weight:400;color:var(--white);line-height:1.25;margin-bottom:1.5rem}
+.hc-meta{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.hc-row{display:flex;align-items:center;gap:.7rem;font-size:.78rem;color:var(--t2)}
+.hc-row strong{color:var(--t1);font-weight:500}
+.hc-icon{width:16px;text-align:center;color:var(--gold);flex-shrink:0}
+.hc-price{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.5rem}
+.hc-price-num{font-family:'Cormorant',serif;font-size:3rem;font-weight:300;color:var(--white);line-height:1}
+.hc-price-unit{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)}
+.seats-wrap{margin-bottom:1.5rem}
+.seats-bar{background:rgba(255,255,255,.08);height:2px;margin-bottom:.4rem}
+.seats-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:75%}
+.seats-txt{font-size:.65rem;font-weight:600;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.hc-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-card{max-width:420px}.hero-photo-grid{opacity:.32;right:-18vw;top:12vh;width:82vw;height:46vh}.hero-route-card{display:none}.hero-in{padding-bottom:4.5rem}.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+
+/* ═══ MARQUEE ═══ */
+.marquee-wrap{background:var(--gold);padding:.7rem 0;overflow:hidden;position:relative;z-index:1}
+.marquee-track{display:flex;gap:0;animation:marquee 25s linear infinite}
+.marquee-item{display:flex;align-items:center;gap:1.5rem;padding:0 2rem;white-space:nowrap;font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#000}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,.4)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══ ABOUT / PHILOSOPHY ═══ */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center}
+.about-visual{position:relative}
+.about-scene{width:100%;aspect-ratio:3/4;position:relative;overflow:hidden}
+.about-scene svg{width:100%;height:100%}
+.about-accent{position:absolute;bottom:-2rem;right:-2rem;background:var(--bg3);border:1px solid var(--border);padding:1.5rem 2rem}
+.aa-num{font-family:'Cormorant',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1}
+.aa-lbl{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-top:.25rem}
+.about-text h2{margin-bottom:1.5rem}
+.about-text p{margin-bottom:1.5rem;max-width:420px}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:4rem}}
+
+/* ═══ TOURS ═══ */
+#tours{background:var(--bg)}
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.fb{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.55rem 1.25rem;background:transparent;border:1px solid var(--border);color:var(--t3);cursor:pointer;transition:all .2s}
+.fb.on,.fb:hover{border-color:var(--goldBorder);color:var(--gold);background:var(--goldDim)}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.tc-card{background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.tc-card:hover{border-color:var(--goldBorder);transform:translateY(-4px)}
+.tc-card:hover .tc-img-inner{transform:scale(1.05)}
+.tc-img{height:220px;overflow:hidden;position:relative}
+.tc-img-inner{width:100%;height:100%;transition:transform .6s ease;background-size:cover;background-position:center}.photo-bg{background-size:cover;background-position:center}.photo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.52),rgba(0,0,0,.05))}.img-credit{position:absolute;right:.7rem;bottom:.55rem;z-index:1;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.58);background:rgba(0,0,0,.38);padding:.18rem .45rem}
+.tc-tag{position:absolute;top:1.25rem;left:1.25rem;background:var(--gold);color:#000;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .7rem;z-index:1}
+.tc-tag-soon{background:rgba(0,0,0,.6);color:var(--t2);border:1px solid var(--border)}
+.tc-body{padding:1.75rem}
+.tc-name{font-family:'Cormorant',serif;font-size:1.35rem;font-weight:400;color:var(--white);margin-bottom:.6rem;line-height:1.25}
+.tc-desc{font-size:.8rem;color:var(--t2);margin-bottom:1.5rem;line-height:1.9}
+.tc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1.25rem;border-top:1px solid var(--border);gap:1rem}
+.tc-price{font-family:'Cormorant',serif;font-size:1.5rem;font-weight:300;color:var(--gold)}
+.tc-price small{display:block;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.08em;color:var(--t3);margin-top:.1rem}
+.tc-btns{display:flex;gap:.5rem}
+
+/* ═══ VIDEO ═══ */
+#vid-sec{background:var(--bg2);padding:0}
+.vid-full{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.vid-media{position:relative;overflow:hidden;background:#000}
+.vid-media video{width:100%;height:100%;object-fit:cover;display:block;opacity:.75}
+.vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .3s}
+.vid-play:hover .vp-ring{transform:scale(1.08)}
+.vid-play.hidden{opacity:0;pointer-events:none}
+.vp-ring{width:80px;height:80px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.vp-ring svg{width:28px;height:28px;margin-left:4px}
+.vid-content{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
+.vid-content h2{margin-bottom:1.5rem}
+.vid-content p{margin-bottom:2rem}
+@media(max-width:820px){.vid-full{grid-template-columns:1fr}.vid-media{height:320px}.vid-content{padding:3rem 2rem}}
+
+
+
+/* DESTINATIONS */
+#destinations{background:var(--bg2)}
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:3rem}
+.dest-card{min-height:260px;position:relative;overflow:hidden;border:1px solid var(--border);display:flex;align-items:flex-end;background-size:cover;background-position:center;cursor:pointer;transition:transform .3s,border-color .3s}
+.dest-card:hover{transform:translateY(-4px);border-color:var(--goldBorder)}
+.dest-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.12))}
+.dest-body{position:relative;z-index:1;padding:1.25rem}
+.dest-body h3{font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
+.dest-body p{font-size:.76rem;line-height:1.65}
+
+/* ═══ FEATURED ═══ */
+#feat{background:var(--bg3)}
+.feat-top{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-bottom:4rem}
+.feat-title{color:var(--white);margin-bottom:1.25rem}
+.feat-desc{max-width:440px;margin-bottom:2rem}
+.bdgs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.bdg{background:var(--goldDim);border:1px solid var(--goldBorder);color:var(--gold2);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem}
+.feat-cta{display:flex;gap:.75rem;flex-wrap:wrap}
+/* Timeline */
+.tl{position:relative;padding-left:2.5rem}
+.tl::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.1))}
+.tl-item{position:relative;margin-bottom:2rem}
+.tl-dot{position:absolute;left:-2.5rem;top:.2rem;width:14px;height:14px;border:1px solid var(--gold);background:var(--bg3);display:flex;align-items:center;justify-content:center}
+.tl-dot::after{content:'';width:4px;height:4px;background:var(--gold)}
+.tl-t{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.tl-name{font-family:'Cormorant',serif;font-size:1.2rem;font-weight:400;color:var(--white);margin-bottom:.3rem}
+.tl-txt{font-size:.8rem;color:var(--t2);line-height:1.85}
+/* Included */
+.inc-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border)}
+.inc-card{padding:1.75rem;border:1px solid var(--border)}
+.inc-card h4{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem}
+.inc-card h4.yes{color:#6ee7b7}
+.inc-card h4.no{color:#f59e0b}
+.inc-card ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.inc-card li{font-size:.78rem;color:var(--t2);display:flex;align-items:flex-start;gap:.6rem;line-height:1.6}
+@media(max-width:820px){.feat-top{grid-template-columns:1fr;gap:3rem}.inc-row{grid-template-columns:1fr}}
+
+/* ═══ WHY ═══ */
+#why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border)}
+.why-card{background:var(--bg);padding:2.5rem 2rem;transition:background .3s}
+.why-card:hover{background:var(--bg2)}
+.why-num{font-family:'Cormorant',serif;font-size:3.5rem;font-weight:300;color:var(--goldDim);line-height:1;margin-bottom:1.25rem;background:linear-gradient(135deg,var(--gold),transparent);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.why-card h3{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.6rem;letter-spacing:.02em}
+.why-card p{font-size:.8rem}
+
+/* ═══ FLOW ═══ */
+#flow{background:var(--bg2)}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.flow-step{background:var(--bg2);padding:3rem 2.5rem;position:relative}
+.flow-step::before{content:attr(data-n);position:absolute;top:2rem;right:2rem;font-family:'Cormorant',serif;font-size:4rem;font-weight:300;color:rgba(255,255,255,.04);line-height:1}
+.flow-step h3{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;color:var(--white);margin-bottom:.75rem;text-transform:uppercase}
+.flow-step p{font-size:.8rem}
+.flow-icon{width:32px;height:32px;border:1px solid var(--goldBorder);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--gold)}
+.flow-icon svg{width:14px;height:14px}
+@media(max-width:820px){.flow-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.flow-grid{grid-template-columns:1fr}}
+
+/* ═══ GALLERY ═══ */
+#gallery{background:var(--bg)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:3px}
+.gal-item{position:relative;overflow:hidden;cursor:pointer;background:var(--bg3)}
+.gal-item:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:unset;min-height:480px}
+.gal-item:not(:nth-child(1)){aspect-ratio:1}
+.gal-inner{width:100%;height:100%;transition:transform .5s ease;min-height:inherit}
+.gal-item:hover .gal-inner{transform:scale(1.06)}
+.gal-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.25rem}
+.gal-item:hover .gal-ov{opacity:1}
+.gal-lbl{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--off)}
+.gal-note{margin-top:1.5rem;text-align:center}
+@media(max-width:760px){.gal-grid{grid-template-columns:repeat(2,1fr)}.gal-item:nth-child(1){min-height:280px}}
+@media(max-width:480px){.gal-grid{grid-template-columns:1fr}.gal-item:nth-child(1){min-height:220px}}
+
+.rev-txt{font-size:.84rem;color:var(--t2);font-style:italic;line-height:2;margin-bottom:1.5rem}
+.rev-auth{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.funnel-row{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;margin-top:4rem;padding:2rem 2.5rem;border:1px solid var(--goldBorder);background:var(--goldDim)}
+.funnel-ico{font-size:2rem;flex-shrink:0}
+.funnel-row h3{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:600;color:var(--gold2);margin-bottom:.5rem;letter-spacing:.04em}
+.funnel-row p{font-size:.78rem}
+@media(max-width:760px){.funnel-row{grid-template-columns:1fr}}
+
+/* ═══ FAQ ═══ */
+#faq{background:var(--bg)}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;background:none;border:none;cursor:pointer;text-align:left;gap:1.5rem}
+.faq-qt{font-size:.85rem;font-weight:500;color:var(--t1);transition:color .2s;letter-spacing:.02em}
+.faq-item:hover .faq-qt{color:var(--gold)}
+.faq-ico{width:28px;height:28px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--t2);font-size:1rem;transition:all .25s}
+.faq-item.on .faq-ico{border-color:var(--goldBorder);color:var(--gold);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-ai{padding-bottom:1.5rem;font-size:.82rem;color:var(--t2);line-height:1.95;max-width:680px}
+.faq-item.on .faq-a{max-height:200px}
+
+/* ═══ CONTACT ═══ */
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:start}
+.ci-lbl{margin-bottom:2rem}
+.ci h2{color:var(--white);margin-bottom:1.5rem}
+.ci>p{margin-bottom:2.5rem;max-width:380px}
+.msg-btns{display:flex;flex-direction:column;gap:.75rem;margin-bottom:3rem}
+.mbl{display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;text-decoration:none;font-weight:600;font-size:.75rem;letter-spacing:.06em;color:var(--white);border:1px solid var(--border);transition:all .25s;position:relative;overflow:hidden}
+.mbl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.mbl-tg::before{background:#229ED9}
+.mbl-wa::before{background:#7B519D}
+.mbl-fb::before{background:#1877F2}
+.mbl-wa::before{background:#25D366}
+.mbl:hover{border-color:var(--border2);background:rgba(255,255,255,.03);transform:translateX(4px)}
+.mbl-ico{width:22px;height:22px;flex-shrink:0}
+.mbl-ico svg{width:100%;height:100%}
+.mbl-text{display:flex;flex-direction:column}
+.mbl-text small{font-size:.62rem;color:var(--t3);font-weight:400;margin-top:.08rem}
+/* Form */
+.form-wrap{background:var(--bg3);border:1px solid var(--border);padding:2.5rem;position:relative}
+.form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.form-badge{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);background:rgba(255,255,255,.05);padding:.3rem .7rem;display:inline-block;margin-bottom:1.5rem}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.fg{margin-bottom:.75rem}
+.fg label{display:block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.5rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--t1);font-size:.82rem;font-family:'Montserrat',sans-serif;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--goldBorder);background:rgba(255,255,255,.06)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--t3)}
+.fg select option{background:#1a1a1a;color:var(--t1)}
+.fg textarea{resize:vertical;min-height:85px}
+.f-ck{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1.5rem}
+.f-ck input{width:auto;margin-top:4px;accent-color:var(--gold);flex-shrink:0}
+.f-ck label{font-size:.72rem;color:var(--t3);line-height:1.6;cursor:pointer}
+.f-ok{display:none;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.2);padding:1.25rem;text-align:center;color:#6ee7b7;font-size:.78rem;margin-top:1rem;font-weight:600;letter-spacing:.04em}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr;gap:3rem}.fr{grid-template-columns:1fr}}
+
+/* ═══ MODAL ═══ */
+.modal{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;padding:1.5rem}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(16px)}
+.modal-box{position:relative;z-index:1;background:var(--bg3);border:1px solid var(--border);max-width:600px;width:100%;max-height:90vh;overflow-y:auto}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.modal-hdr{padding:2rem 2rem 0;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.modal-title{font-family:'Cormorant',serif;font-size:1.7rem;font-weight:300;color:var(--white)}
+.modal-close{background:none;border:1px solid var(--border);color:var(--t2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;flex-shrink:0;transition:all .2s}
+.modal-close:hover{border-color:var(--border2);color:var(--white)}
+.modal-body{padding:1.75rem 2rem 2rem}
+/* Gallery lb modal */
+.lb-modal .modal-box{max-width:900px;background:var(--bg)}
+.lb-scene{width:100%;min-height:460px;position:relative;overflow:hidden}
+.lb-scene svg{width:100%;height:100%;display:block}
+.lb-info{padding:1.5rem 2rem 2rem}
+.lb-title-txt{font-family:'Cormorant',serif;font-size:1.5rem;font-weight:300;color:var(--white);margin-bottom:.4rem}
+.lb-sub-txt{font-size:.78rem;color:var(--t3)}
+
+/* ═══ FLOATING CTA ═══ */
+#fcta{position:fixed;bottom:calc(1rem + env(safe-area-inset-bottom));right:1rem;z-index:800;background:rgba(24,24,24,.94);border:1px solid var(--border);padding:.9rem;width:230px;display:none;flex-direction:column;gap:.6rem;backdrop-filter:blur(18px)}
+#fcta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+#fcta.vis{display:flex}
+.fcta-h{display:flex;justify-content:space-between;align-items:flex-start}
+.fcta-title{font-family:'Cormorant',serif;font-size:1.05rem;font-weight:300;color:var(--white);line-height:1.2}
+.fcta-sub{font-size:.65rem;color:var(--t3);margin-top:.2rem}
+.fcta-x{background:none;border:none;color:var(--t3);cursor:pointer;font-size:.85rem;padding:0;line-height:1;flex-shrink:0}
+.fcta-x:hover{color:var(--white)}
+.fcta-msgs{display:flex;gap:.4rem}.fcta-msgs .mi{width:30px;height:30px}
+@media(max-width:480px){#fcta{left:1rem;right:1rem;width:auto;padding:.75rem}.fcta-msgs{display:none}.fcta-sub{display:none}}
+
+/* ═══ FOOTER ═══ */
+footer{background:#050505;border-top:1px solid var(--border);padding:4rem 0 2rem}
+.template-pricing{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.template-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.template-price-card{display:flex;flex-direction:column;gap:.85rem;background:var(--card);border:1px solid var(--border);padding:1.5rem}
+.template-price-card.rec{border-color:var(--goldBorder);background:linear-gradient(180deg,rgba(201,168,76,.12),rgba(255,255,255,.03))}
+.template-price-card.pro{background:linear-gradient(145deg,#050505,#181818);border-color:var(--goldBorder)}
+.template-price-card .badge{align-self:flex-start;background:var(--gold);color:#000;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.28rem .65rem}
+.template-price-card strong{font-family:'Cormorant',serif;font-size:2.3rem;font-weight:300;color:var(--white);line-height:1}.template-price-card strong small{display:block;margin-top:.35rem;font-family:'Montserrat',sans-serif;font-size:.78rem;color:var(--t2)}
+.template-price-card h3{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+.template-price-card p,.template-price-card small{color:var(--t2);font-size:.78rem;line-height:1.7}
+.template-price-card .btn{margin-top:auto}
+.template-cost-note{margin-top:1rem;border:1px solid var(--border);background:rgba(255,255,255,.03);padding:1.25rem;color:var(--t2);font-size:.82rem;line-height:1.8}
+.template-cost-note strong{color:var(--gold)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+.ft-logo{font-family:'Cormorant',serif;font-size:1.6rem;font-weight:400;color:var(--white);margin-bottom:1rem;display:block}
+.ft-logo em{font-style:italic;color:var(--gold)}
+.ft-brand p{font-size:.78rem;max-width:240px;line-height:1.9}
+footer h4{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:1.25rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+footer li a{color:var(--t2);font-size:.78rem;transition:color .2s}
+footer li a:hover{color:var(--gold)}
+.ft-bot{border-top:1px solid var(--border);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-bot p{font-size:.7rem;color:var(--t3)}
+.ft-demo{font-size:.65rem;color:rgba(201,168,76,.45)}
+@media(max-width:820px){.template-pricing-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.ft-grid{grid-template-columns:1fr;gap:2.5rem}.ft-bot{flex-direction:column;text-align:center}}
+
+/* DEMO TAG */
+.demo-tag{display:inline-block;background:rgba(201,168,76,.08);border:1px solid var(--goldBorder);color:rgba(201,168,76,.6);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .75rem}
+.nd-demo-bar{position:fixed;left:50%;top:84px;z-index:950;transform:translateX(-50%);display:flex;align-items:center;gap:.55rem;width:min(720px,calc(100% - 24px));padding:.55rem;background:rgba(10,10,10,.78);border:1px solid var(--border2);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.nd-demo-bar a,.nd-demo-bar span{display:inline-flex;align-items:center;justify-content:center;min-height:34px;border-radius:999px;padding:.48rem .82rem;font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nd-demo-bar a{color:var(--t1);border:1px solid var(--border2);background:rgba(255,255,255,.05);transition:background .2s,border-color .2s}.nd-demo-bar a:hover{background:rgba(255,255,255,.1);border-color:var(--goldBorder)}
+.nd-demo-bar .order{background:var(--gold);border-color:var(--gold);color:#000}.nd-demo-bar .order:hover{background:var(--gold2);color:#000}.nd-demo-bar span{margin-left:auto;color:var(--gold);border:1px solid var(--goldBorder);background:rgba(201,168,76,.1)}
+@media(max-width:720px){.nd-demo-bar{top:72px;align-items:stretch;display:grid;grid-template-columns:1fr 1fr}.nd-demo-bar span{grid-column:1/-1;margin-left:0}.nd-demo-bar a,.nd-demo-bar span{width:100%;white-space:normal;text-align:center}}
+</style>
+</head>
+<body>
+<div class="nd-demo-bar" aria-label="Demo controls">
+  <a href="../../index.html#work">← Zpět do portfolia</a>
+  <a class="order" href="../../index.html?lead=1&template=CzechTrip%20Tours%20Landing#contacts">Objednat podobný web</a>
+  <span>Demo šablona</span>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header id="hdr" class="top">
+  <div class="cnt">
+    <div class="hdr-in">
+      <a class="logo" href="#hero">Czech<em>Trip</em></a>
+      <nav>
+        <a href="#tours">Výlety</a>
+        <a href="#feat">Program</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#flow">Rezervace</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <div class="hdr-r">
+        <div class="msg-row">
+          <a href="https://t.me/czechtrip_demo" class="mi mi-tg" title="Telegram" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 1 0 24 12 12 12 0 0 0 11.944 0zm5.952 7.338-2.021 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.884.7z"/></svg></a>
+          <a href="https://wa.me/420777000000" class="mi mi-ms" title="WhatsApp" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M11.4.002C8.9-.034 3.245.639 1.035 6.143c-1.006 2.5-1.065 5.744-.977 7.71.088 1.97.32 5.669 3.051 7.675v3.122s-.019.87.538.87c.48 0 1.597-1.22 2.246-2.003 2.36.322 4.226.085 4.447.071 4.887-.552 7.797-3.18 8.165-7.112l.002-.035c.098-1.076.158-3.738-.43-5.824-.78-2.809-2.63-4.783-7.66-4.614l-.019.999c4.474-.147 5.988 1.454 6.647 3.79.524 1.881.464 4.356.375 5.337-.316 3.372-2.798 5.625-7.15 6.11-.179.02-1.888.242-4.1-.076l-.426-.065-.364.367s-1.055 1.19-1.532 1.72v-2.523l-.264-.177C2.885 14.033 2.624 11 2.545 9.15c-.078-1.78.007-4.838.894-7.062C5.108 2.5 7.83 1.013 11.402.998z"/></svg></a>
+          <a href="https://www.facebook.com/" class="mi mi-fb" title="Facebook" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.79-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.885v2.272h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+          <a href="https://wa.me/420777000000" class="mi mi-wa" title="WhatsApp" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+        </div>
+        <a href="#" class="btn btn-gold btn-sm" onclick="openBook(null,event)">Rezervovat</a>
+        <button class="ham" id="ham"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mm" id="mm">
+  <a href="#tours" onclick="closeMM()">Výlety</a>
+  <a href="#feat" onclick="closeMM()">Program</a>
+  <a href="#gallery" onclick="closeMM()">Galerie</a>
+  <a href="#flow" onclick="closeMM()">Rezervace</a>
+  <a href="#contact" onclick="closeMM()">Kontakt</a>
+  <div class="mm-sub">
+    <a href="#" class="btn btn-gold btn-full" onclick="closeMM();openBook(null,event)">Rezervovat místo</a>
+    <div class="mm-msgs">
+      <a href="https://t.me/czechtrip_demo" class="mm-msg" target="_blank">Telegram</a>
+      <a href="https://www.facebook.com/" class="mm-msg" target="_blank">Facebook</a>
+      <a href="https://wa.me/420777000000" class="mm-msg" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-scene">
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata" poster="../../assets/img/czechtrip/preview.svg" data-video-src="../../assets/videos/czechtrip-hero.mp4"></video>
+    <div class="hero-photo-grid" aria-hidden="true">
+      <div class="hero-photo big" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG/960px-Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG')"></div>
+      <div class="hero-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Propast_Macocha_02.jpg/640px-Propast_Macocha_02.jpg')"></div>
+      <div class="hero-photo" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg/800px-Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg')"></div>
+    </div>
+    <div class="hero-route-card">
+      <span class="route-pill">Nejbližší výlet</span>
+      <div class="route-copy"><strong>Lednice + Moravský kras</strong> · 1 den · program, čas a místo srazu předem</div>
+    </div>
+  </div>
+  
+<div class="hero-in">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="lbl">Výlety víkendové · Česko</span>
+          <h1 class="hero-title">Hotový den<br>po Česku<br><em>bez zbytečné</em><br>přípravy.</h1>
+          <p class="hero-sub">Vyberete si výlet, odešlete poptávku a dostanete detaily v messengeru. Trasa, program, čas i místo srazu jsou připravené.</p>
+          <div class="hero-cta">
+            <a href="#tours" class="btn btn-gold">Nejbližší výlety</a>
+            <a href="#" class="btn btn-ghost-w" onclick="openBook(null,event)">Rezervovat místo</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hs-item"><span class="hs-num">Demo</span><span class="hs-lbl">Prototyp</span></div>
+            <div class="hs-item"><span class="hs-num">1 den</span><span class="hs-lbl">Formát</span></div>
+            <div class="hs-item"><span class="hs-num">12</span><span class="hs-lbl">Směrů</span></div>
+            <div class="hs-item"><span class="hs-num">TG/WA</span><span class="hs-lbl">Kontakt</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="hero-card">
+            <div class="hc-badge"><div class="hc-dot"></div>Nejbližší výlet</div>
+            <div class="hc-title">Zámek Lednice + Moravský kras</div>
+            <div class="hc-meta">
+              <div class="hc-row"><span class="hc-icon">◈</span><span>Datum: <strong>16. května 2026</strong></span></div>
+              <div class="hc-row"><span class="hc-icon">◈</span><span>Čas: <strong>7:30 — 19:30</strong></span></div>
+              <div class="hc-row"><span class="hc-icon">◈</span><span>Formát: <strong>Skupinový výlet</strong></span></div>
+              <div class="hc-row"><span class="hc-icon">◈</span><span>Trasa: zámek, jeskyně, loďka</span></div>
+            </div>
+            <div class="hc-price">
+              <span class="hc-price-num">1 650</span>
+              <div><div style="font-family:'Cormorant',serif;font-size:1.1rem;color:var(--gold)">Kč</div><div class="hc-price-unit">/ osoba</div></div>
+            </div>
+            <div class="seats-wrap">
+              <div class="seats-bar"><div class="seats-fill"></div></div>
+              <div class="seats-txt">⚡ Zbývá několik míst</div>
+            </div>
+            <div class="hc-btns">
+              <a href="#feat" class="btn btn-ghost btn-sm" style="justify-content:center">Program</a>
+              <a href="#" class="btn btn-gold btn-sm" style="justify-content:center" onclick="openBook('Zámek Lednice + Moravský kras (16.05.2026)',event)">Rezervovat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mqTrack"></div>
+</div>
+
+<!-- ══ TOURS ══ -->
+<section id="tours" class="sec">
+  <div class="cnt">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;gap:2rem;flex-wrap:wrap">
+      <div>
+        <span class="lbl">Rozpis</span>
+        <h2>Nejbližší výlety</h2>
+      </div>
+      <p style="max-width:340px">Vyberte směr a odešlete poptávku - místo potvrdíme v messengeru.</p>
+    </div>
+    <div class="filter-row" id="fbar">
+      <button class="fb on" data-cat="all">Všechny směry</button>
+      <button class="fb" data-cat="castle">Zámky</button>
+      <button class="fb" data-cat="city">Města</button>
+      <button class="fb" data-cat="nature">Příroda</button>
+      <button class="fb" data-cat="cave">Jeskyně</button>
+      <button class="fb" data-cat="weekend">Víkend</button>
+    </div>
+    <div class="t-grid" id="tgrid"></div>
+  </div>
+</section>
+
+<!-- ══ VIDEO ══ -->
+<section id="vid-sec">
+  <div class="vid-full">
+    <div class="vid-media">
+      <video id="myVid" autoplay muted loop playsinline preload="metadata" poster="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg/1280px-Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg"><source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4"></video>
+      <div class="vid-play" id="vidBtn" onclick="toggleVid()">
+        <div class="vp-ring">
+          <svg viewBox="0 0 24 24" fill="white"><polygon points="8,5 19,12 8,19"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="vid-content">
+      <span class="lbl">Video pozadí</span>
+      <h2>Trasa<br><em style="font-style:italic;color:var(--gold)">jako hotový den</em></h2>
+      <span class="gold-line"></span>
+      <p>Demo video je zapojené jako funkční pozadí, aby sekce nepůsobila prázdně. Ve finální verzi lze dodat krátké video organizátora z výletů po Česku.</p>
+      <p style="margin-top:1rem">Video funguje jako lehké pozadí: autoplay, muted, loop a poster fotka zůstává fallback, pokud se video nenačte.</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:2.5rem">
+        <a href="#tours" class="btn btn-gold">Vybrat výlet</a>
+        <a href="#" class="btn btn-ghost" onclick="openBook(null,event)">Rezervovat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ══ DESTINATIONS ══ -->
+<section id="destinations" class="sec">
+  <div class="cnt">
+    <span class="lbl">Kam se dá jet</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap">
+      <h2>Jednodenní trasy</h2>
+      <p style="max-width:420px">Zámky, lázeňská města, jeskyně a krásná místa v okolí Česka. Konkrétní termíny a ceny lze později upravovat podle rozpisu.</p>
+    </div>
+    <div class="dest-grid">
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG/960px-Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG')"><div class="dest-body"><h3>Zámky Česka</h3><p>Lednice, Krumlov a další víkendové trasy.</p></div></a>
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Karlovy_Vary_Czech.jpg/960px-Karlovy_Vary_Czech.jpg')"><div class="dest-body"><h3>Karlovy Vary</h3><p>Lázeňská procházka, kolonády a volný čas.</p></div></a>
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Propast_Macocha_02.jpg/640px-Propast_Macocha_02.jpg')"><div class="dest-body"><h3>Moravský kras</h3><p>Jeskyně, propast Macocha a přírodní trasa.</p></div></a>
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg/800px-Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg')"><div class="dest-body"><h3>Český Krumlov</h3><p>Historické centrum, zámek a vyhlídky.</p></div></a>
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg/960px-Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg')"><div class="dest-body"><h3>Praha a příroda</h3><p>Večerní trasy, mosty, parky a fotoprocházky.</p></div></a>
+      <a class="dest-card" href="#tours" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/100130_150006_Dresden_Frauenkirche_winter_blue_sky-2.jpg/960px-100130_150006_Dresden_Frauenkirche_winter_blue_sky-2.jpg')"><div class="dest-body"><h3>Drážďany / Vídeň</h3><p>Městské výlety do zahraničí jako samostatný směr.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURED ══ -->
+<section id="feat" class="sec">
+  <div class="cnt">
+    <div class="feat-top">
+      <div>
+        <span class="lbl">Detailně</span>
+        <div class="bdgs">
+          <span class="bdg">16. května 2026</span>
+          <span class="bdg">1 den</span>
+          <span class="bdg">1 650 Kč</span>
+          <span class="bdg">Skupina</span>
+        </div>
+        <h2 class="feat-title">Lednice +<br><em style="font-style:italic;color:var(--gold)">Moravský kras</em></h2>
+        <span class="gold-line"></span>
+        <p class="feat-desc">Za jeden den jeden z nejkrásnějších zámků Česka a přírodní divy Moravského krasu: Punkevní jeskyně, propast Macocha a plavba po podzemní řece.</p>
+        <div class="feat-cta">
+          <a href="#" class="btn btn-gold" onclick="openBook('Zámek Lednice + Moravský kras (16.05.2026)',event)">Rezervovat místo</a>
+          <a href="https://t.me/czechtrip_demo" class="btn btn-ghost" target="_blank">Napsat na Telegram</a>
+        </div>
+      </div>
+      <div>
+        <span class="lbl">Program dne</span>
+        <div class="tl">
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-t">07:30</div><div class="tl-name">Odjezd</div><div class="tl-txt">Sraz skupiny a odjezd.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-t">I. etapa</div><div class="tl-name">Zámek Lednice</div><div class="tl-txt">Prohlídka zámku a parku, čas na fotky a krátká pauza.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-t">II. etapa</div><div class="tl-name">Moravský kras</div><div class="tl-txt">Punkevní jeskyně, propast Macocha a plavba po podzemní řece.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-t">Pauza</div><div class="tl-name">Volný čas</div><div class="tl-txt">Oběd, procházka a fotky podle nálady.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-t">19:30</div><div class="tl-name">Návrat</div><div class="tl-txt">Orientační čas návratu.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="inc-row">
+      <div class="inc-card">
+        <h4 class="yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Co je v ceně</h4>
+        <ul>
+          <li><span style="color:var(--gold);flex-shrink:0">—</span> Organizace trasy a koordinace</li>
+          <li><span style="color:var(--gold);flex-shrink:0">—</span> Program a detaily výletu</li>
+          <li><span style="color:var(--gold);flex-shrink:0">—</span> Podpora v messengeru</li>
+          <li><span style="color:var(--gold);flex-shrink:0">—</span> Místo srazu a čas předem</li>
+          <li><span style="color:var(--gold);flex-shrink:0">—</span> Odpovědi na otázky před výletem i během něj</li>
+        </ul>
+      </div>
+      <div class="inc-card">
+        <h4 class="no"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>Platí se zvlášť</h4>
+        <ul>
+          <li><span style="color:var(--t3);flex-shrink:0">—</span> Vstupenky do objektů</li>
+          <li><span style="color:var(--t3);flex-shrink:0">—</span> Jídlo a pití</li>
+          <li><span style="color:var(--t3);flex-shrink:0">—</span> Osobní výdaje</li>
+          <li><span style="color:var(--t3);flex-shrink:0">—</span> Doplňkové prohlídky</li>
+          <li style="font-size:.7rem;color:var(--t3)">Upřesní organizátor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY ══ -->
+<section id="why" class="sec" style="padding-top:0">
+  <div class="cnt">
+    <div style="margin-bottom:4rem">
+      <span class="lbl">Bez starostí</span>
+      <h2>Proč lidé volí takové výlety</h2>
+      <p style="max-width:620px;margin-top:1rem">Nemusíte sami skládat trasu, hledat vstupenky, program a cestu. Vyberete směr, pošlete poptávku, dostanete detaily v messengeru a jedete si odpočinout.</p>
+    </div>
+  </div>
+  <div class="why-grid" id="whyGrid"></div>
+</section>
+
+<!-- ══ FLOW ══ -->
+<section id="flow" class="sec">
+  <div class="cnt">
+    <div style="text-align:center;margin-bottom:5rem">
+      <span class="lbl" style="justify-content:center">Jednoduše</span>
+      <h2>Jak rezervovat</h2>
+      <span class="gold-line-c"></span>
+    </div>
+    <div class="flow-grid" id="flowGrid"></div>
+    <div style="text-align:center;margin-top:4rem">
+      <a href="#" class="btn btn-gold" onclick="openBook(null,event)">Rezervovat místo nyní</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section id="gallery" class="sec" style="padding-bottom:0">
+  <div class="cnt" style="margin-bottom:3rem">
+    <span class="lbl">Galerie</span>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+      <h2>Atmosféra výletů</h2>
+      <div class="filter-row" id="gfbar" style="margin:0;padding:0;border:none">
+        <button class="fb on" data-gc="all">Vše</button>
+        <button class="fb" data-gc="castle">Zámky</button>
+        <button class="fb" data-gc="city">Města</button>
+        <button class="fb" data-gc="nature">Příroda</button>
+        <button class="fb" data-gc="cave">Jeskyně</button>
+      </div>
+    </div>
+  </div>
+  <div class="gal-grid" id="ggrid"></div>
+  <div class="gal-note" style="padding:1.5rem 2rem">
+    <span class="demo-tag">Nahradit reálnými fotkami z výletů</span>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="sec" style="background:var(--bg2)">
+  <div class="cnt-narrow">
+    <div style="text-align:center;margin-bottom:4rem">
+      <span class="lbl" style="justify-content:center">FAQ</span>
+      <h2>Časté otázky</h2>
+    </div>
+    <div class="faq-list" id="faqlist"></div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="pricing" class="sec template-pricing">
+  <div class="cnt">
+    <span class="lbl">Cena webu</span>
+    <h2>Balíčky pro web výletů</h2>
+    <p style="max-width:720px">Lze začít s hotovou demo šablonou CzechTrip: vyměnit směry, texty, kontakty a poptávkový formulář.</p>
+    <div class="template-pricing-grid">
+      <article class="template-price-card">
+        <span class="badge">START</span>
+        <strong>10 000 Kč <small>≈400 €</small></strong>
+        <h3>Start Tours Landing</h3>
+        <p>Hotový landing podle šablony, trasy, kontakty, poptávkový formulář a mobilní verze.</p>
+        <small>+ doména ~150–300 Kč / rok</small>
+        <small>+ hosting 0 Kč pro běžný landing page</small>
+        <a class="btn btn-gold" href="../../index.html?lead=1&template=CzechTrip%20Tours%20Landing&package=Start#contacts">Vybrat Start</a>
+      </article>
+      <article class="template-price-card rec">
+        <span class="badge">Populární</span>
+        <strong>20 000 Kč <small>≈800 €</small></strong>
+        <h3>Tours Plus</h3>
+        <p>Více tras, fotek, druhý jazyk, děkovací stránka a základní analytika.</p>
+        <small>+ doména ~150–300 Kč / rok</small>
+        <small>+ hosting 0 Kč pro běžný landing page</small>
+        <a class="btn btn-gold" href="../../index.html?lead=1&template=CzechTrip%20Tours%20Landing&package=Plus#contacts">Vybrat Plus</a>
+      </article>
+      <article class="template-price-card pro">
+        <span class="badge">PRO</span>
+        <strong>od 30 000 Kč <small>od ≈1 200 €</small></strong>
+        <h3>Tours Pro</h3>
+        <p>UTM, základ SEO, další sekce a příprava na reklamu.</p>
+        <small>+ doména ~150–300 Kč / rok</small>
+        <small>+ placené služby podle zadání</small>
+        <a class="btn btn-gold" href="../../index.html?lead=1&template=CzechTrip%20Tours%20Landing&package=Pro#contacts">Probrat Pro</a>
+      </article>
+    </div>
+    <div class="template-cost-note"><strong>Minimální spuštění:</strong> START 10 000 Kč / ≈400 € + doména přibližně 150–300 Kč / rok + bezplatný hosting. Měsíční hosting pro jednoduchý prezentační web může být 0 Kč. Doména, placené formuláře, placený hosting, reklamní rozpočet, logo, profesionální fotky, překlady a složité funkce se platí zvlášť.</div>
+  </div>
+</section>
+
+<section id="contact" class="sec">
+  <div class="cnt">
+    <div class="contact-grid">
+      <div class="ci">
+        <span class="lbl ci-lbl">Kontakt</span>
+        <h2>Rezervovat<br><em style="font-style:italic;color:var(--gold)">místo</em></h2>
+        <span class="gold-line"></span>
+        <p>Pošlete poptávku nebo napište přímo - ozvu se a potvrdím detaily výletu.</p>
+        <div class="msg-btns">
+          <a href="https://t.me/czechtrip_demo" class="mbl mbl-tg" target="_blank">
+            <span class="mbl-ico"><svg viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 1 0 24 12 12 12 0 0 0 11.944 0zm5.952 7.338-2.021 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.884.7z"/></svg></span>
+            <div class="mbl-text">Telegram<small>Napsat na Telegram</small></div>
+          </a>
+          <a href="https://wa.me/420777000000" class="mbl mbl-wa" target="_blank">
+            <span class="mbl-ico"><svg viewBox="0 0 24 24" fill="white"><path d="M11.4.002C8.9-.034 3.245.639 1.035 6.143c-1.006 2.5-1.065 5.744-.977 7.71.088 1.97.32 5.669 3.051 7.675v3.122s-.019.87.538.87c.48 0 1.597-1.22 2.246-2.003 2.36.322 4.226.085 4.447.071 4.887-.552 7.797-3.18 8.165-7.112l.002-.035c.098-1.076.158-3.738-.43-5.824-.78-2.809-2.63-4.783-7.66-4.614l-.019.999c4.474-.147 5.988 1.454 6.647 3.79.524 1.881.464 4.356.375 5.337-.316 3.372-2.798 5.625-7.15 6.11-.179.02-1.888.242-4.1-.076l-.426-.065-.364.367s-1.055 1.19-1.532 1.72v-2.523l-.264-.177C2.885 14.033 2.624 11 2.545 9.15c-.078-1.78.007-4.838.894-7.062C5.108 2.5 7.83 1.013 11.402.998z"/></svg></span>
+            <div class="mbl-text">WhatsApp<small>+420 XXX XXX XXX</small></div>
+          </a>
+          <a href="https://www.facebook.com/" class="mbl mbl-fb" target="_blank">
+            <span class="mbl-ico"><svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.79-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.885v2.272h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></span>
+            <div class="mbl-text">Facebook<small>Messenger</small></div>
+          </a>
+          <a href="https://wa.me/420777000000" class="mbl mbl-wa" target="_blank">
+            <span class="mbl-ico"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span>
+            <div class="mbl-text">WhatsApp<small>+420 XXX XXX XXX</small></div>
+          </a>
+        </div>
+      </div>
+      <div class="form-wrap">
+        <div class="form-badge">Demo formulář. V ostré verzi bude poptávka chodit organizátorovi.</div>
+        <div class="fr">
+          <div class="fg"><label>Jméno *</label><input type="text" id="fi-name" placeholder="Vaše jméno"></div>
+          <div class="fg"><label>Telefon *</label><input type="tel" id="fi-phone" placeholder="+420 ..."></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label>Telegram / WhatsApp</label><input type="text" id="fi-tg" placeholder="@username"></div>
+          <div class="fg"><label>Počet osob *</label><input type="number" id="fi-ppl" placeholder="1" min="1"></div>
+        </div>
+        <div class="fg"><label>Vyberte výlet *</label>
+          <select id="fi-tour">
+            <option value="">— vyberte výlet —</option>
+            <option>Zámek Lednice + Moravský kras (16.05.2026)</option>
+            <option>Karlovy Vary na 1 den</option>
+            <option>Drážďany + shopping</option>
+            <option>Český Krumlov</option>
+            <option>Praha: večerní procházka</option>
+            <option>Jiný směr</option>
+          </select>
+        </div>
+        <div class="fg"><label>Kdy se vám hodí jet</label><input type="text" id="fi-city" placeholder="Datum / víkend / přání"></div>
+        <div class="fg"><label>Komentář</label><textarea id="fi-msg" placeholder="Otázky, přání..."></textarea></div>
+        <div class="f-ck"><input type="checkbox" id="fi-ok"><label for="fi-ok">Rozumím, že dostupnost míst a detaily výletu potvrzuje organizátor.</label></div>
+        <button class="btn btn-gold btn-full" style="padding:.95rem;font-size:.72rem;letter-spacing:.14em" onclick="submitForm('fi')">Odeslat poptávku</button>
+        <div class="f-ok" id="fi-success">✓ &nbsp;Děkujeme! Toto je demo formulář. V ostré verzi bude poptávka chodit organizátorovi.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FLOATING CTA ══ -->
+<div id="fcta">
+  <div class="fcta-h">
+    <div><div class="fcta-title">Chcete vyrazit?</div><div class="fcta-sub">Počet míst je omezený</div></div>
+    <button class="fcta-x" id="fctaX">✕</button>
+  </div>
+  <a href="#" class="btn btn-gold btn-full btn-sm" onclick="openBook(null,event);document.getElementById('fcta').classList.remove('vis')">Rezervovat místo</a>
+  <div class="fcta-msgs">
+    <a href="https://t.me/czechtrip_demo" class="mi mi-tg" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 1 0 24 12 12 12 0 0 0 11.944 0zm5.952 7.338-2.021 9.52c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.884.7z"/></svg></a>
+    <a href="https://wa.me/420777000000" class="mi mi-ms" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M11.4.002C8.9-.034 3.245.639 1.035 6.143c-1.006 2.5-1.065 5.744-.977 7.71.088 1.97.32 5.669 3.051 7.675v3.122s-.019.87.538.87c.48 0 1.597-1.22 2.246-2.003 2.36.322 4.226.085 4.447.071 4.887-.552 7.797-3.18 8.165-7.112l.002-.035c.098-1.076.158-3.738-.43-5.824-.78-2.809-2.63-4.783-7.66-4.614l-.019.999c4.474-.147 5.988 1.454 6.647 3.79.524 1.881.464 4.356.375 5.337-.316 3.372-2.798 5.625-7.15 6.11-.179.02-1.888.242-4.1-.076l-.426-.065-.364.367s-1.055 1.19-1.532 1.72v-2.523l-.264-.177C2.885 14.033 2.624 11 2.545 9.15c-.078-1.78.007-4.838.894-7.062C5.108 2.5 7.83 1.013 11.402.998z"/></svg></a>
+    <a href="https://www.facebook.com/" class="mi mi-fb" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.79-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.885v2.272h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+    <a href="https://wa.me/420777000000" class="mi mi-wa" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookModal">
+  <div class="modal-bg" onclick="closeModal('bookModal')"></div>
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-title" id="modalTitle">Rezervovat místo</div>
+      <button class="modal-close" onclick="closeModal('bookModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <span class="demo-tag" style="display:block;margin-bottom:1.5rem">⚠ Demo formulář</span>
+      <div class="fr">
+        <div class="fg"><label>Jméno *</label><input type="text" id="mb-name" placeholder="Vaše jméno"></div>
+        <div class="fg"><label>Telefon *</label><input type="tel" id="mb-phone" placeholder="+420..."></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Telegram / WhatsApp</label><input type="text" id="mb-tg" placeholder="@username"></div>
+        <div class="fg"><label>Počet osob *</label><input type="number" id="mb-ppl" placeholder="1" min="1"></div>
+      </div>
+      <div class="fg"><label>Výlet *</label>
+        <select id="mb-tour">
+          <option value="">— vyberte výlet —</option>
+          <option>Zámek Lednice + Moravský kras (16.05.2026)</option>
+          <option>Karlovy Vary na 1 den</option>
+          <option>Drážďany + shopping</option>
+          <option>Český Krumlov</option>
+          <option>Praha: večerní procházka</option>
+          <option>Jiný směr</option>
+        </select>
+      </div>
+      <div class="fg"><label>Komentář</label><textarea id="mb-msg" placeholder="Otázky, přání..." style="min-height:70px"></textarea></div>
+      <div class="f-ck"><input type="checkbox" id="mb-ok"><label for="mb-ok">Rozumím, že dostupnost míst a detaily potvrzuje organizátor.</label></div>
+      <button class="btn btn-gold btn-full" style="padding:.9rem" onclick="submitForm('mb')">Odeslat poptávku</button>
+      <div class="f-ok" id="mb-success">✓ &nbsp;Děkujeme! Toto je demo formulář. V ostré verzi bude poptávka chodit organizátorovi.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY MODAL -->
+<div class="modal lb-modal" id="lbModal">
+  <div class="modal-bg" onclick="closeModal('lbModal')"></div>
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('lbModal')" style="position:absolute;top:1rem;right:1rem;z-index:2">✕</button>
+    <div class="lb-scene" id="lb-scene"></div>
+    <div class="lb-info">
+      <div class="lb-title-txt" id="lb-cap"></div>
+      <div class="lb-sub-txt" id="lb-sub"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="cnt">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="ft-logo" href="#hero">Czech<em>Trip</em></a>
+        <p>Organizace skupinových výletů a zájezdů víkendové a tras po Česka. Zámky, města a příroda.</p>
+      </div>
+      <div>
+        <h4>Navigace</h4>
+        <ul>
+          <li><a href="#tours">Výlety</a></li>
+          <li><a href="#feat">Program</a></li>
+          <li><a href="#flow">Rezervace</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="https://t.me/czechtrip_demo" target="_blank">Telegram</a></li>
+          <li><a href="https://wa.me/420777000000" target="_blank">WhatsApp</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
+          <li><a href="https://wa.me/420777000000" target="_blank">WhatsApp</a></li>
+          <li><a href="#contact">Poptávkový formulář</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2026 CzechTrip — demo prototyp</p>
+      <span class="ft-demo">Vytvořil Nikolaj Dev · Obsah se nahrazuje</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SVG SCENES ──
+const S={
+  castle:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="cs1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#03060d"/><stop offset="100%" stop-color="#0a0a0a"/></linearGradient><linearGradient id="cs2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1408"/><stop offset="100%" stop-color="#0a0803"/></linearGradient></defs><rect width="500" height="280" fill="url(#cs1)"/><polygon points="0,200 80,150 160,175 240,130 320,160 400,125 500,145 500,280 0,280" fill="#070a05"/><g transform="translate(155,50)" fill="url(#cs2)"><rect x="40" y="110" width="110" height="120"/><rect x="0" y="85" width="50" height="145"/><polygon points="0,85 25,30 50,85"/><rect x="150" y="75" width="55" height="155"/><polygon points="150,75 177,18 205,75"/><rect x="65" y="145" width="28" height="85" rx="14" fill="#020406"/><rect x="8" y="102" width="20" height="28" rx="10" fill="#020406"/><rect x="158" y="95" width="20" height="28" rx="10" fill="#020406"/><line x1="177" y1="18" x2="177" y2="5" stroke="#c9a84c" stroke-width="1.5"/><polygon points="177,5 194,10 177,15" fill="#c9a84c"/></g><circle cx="420" cy="45" r="28" fill="#c9a84c" opacity=".08"/><circle cx="420" cy="45" r="18" fill="#c9a84c" opacity=".12"/><circle cx="420" cy="45" r="10" fill="#c9a84c" opacity=".7"/><g fill="#c9a84c" opacity=".5"><circle cx="60" cy="25" r=".8"/><circle cx="120" cy="12" r="1"/><circle cx="280" cy="18" r=".8"/><circle cx="350" cy="8" r=".7"/><circle cx="460" cy="30" r=".9"/></g></svg>`,
+  cave:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><radialGradient id="cav1" cx="50%" cy="35%"><stop offset="0%" stop-color="#0d1a2e"/><stop offset="100%" stop-color="#020406"/></radialGradient></defs><rect width="500" height="280" fill="url(#cav1)"/><g fill="#0a1520"><polygon points="0,0 50,120 0,120"/><polygon points="40,0 95,140 0,140"/><polygon points="100,0 155,115 50,115"/><polygon points="180,0 235,130 125,130"/><polygon points="270,0 325,120 215,120"/><polygon points="360,0 415,130 305,130"/><polygon points="440,0 500,115 380,115"/><polygon points="480,0 500,90 460,90"/></g><ellipse cx="250" cy="210" rx="130" ry="25" fill="#1e4d8c" opacity=".3"/><ellipse cx="250" cy="206" rx="90" ry="14" fill="#3a7abd" opacity=".18"/><circle cx="250" cy="130" r="55" fill="#0a1520" opacity=".6"/><circle cx="250" cy="130" r="32" fill="#020406"/><g fill="#c9a84c" opacity=".4"><circle cx="80" cy="18" r=".8"/><circle cx="180" cy="8" r="1"/><circle cx="340" cy="14" r=".8"/><circle cx="430" cy="22" r=".7"/></g><path d="M165 210 Q250 185 335 210" stroke="#3a7abd" stroke-width="1.5" fill="none" opacity=".4"/></svg>`,
+  city:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="ct1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#03060d"/><stop offset="100%" stop-color="#080a05"/></linearGradient></defs><rect width="500" height="280" fill="url(#ct1)"/><g fill="#1a1408"><rect x="10" y="160" width="35" height="120"/><rect x="50" y="140" width="30" height="140"/><rect x="85" y="120" width="42" height="160"/><rect x="135" y="100" width="32" height="180"/><rect x="175" y="80" width="48" height="200"/><rect x="235" y="105" width="35" height="175"/><rect x="280" y="120" width="40" height="160"/><rect x="330" y="130" width="32" height="150"/><rect x="372" y="110" width="45" height="170"/><rect x="428" y="145" width="35" height="135"/><rect x="465" y="160" width="35" height="120"/></g><g fill="#c9a84c" opacity=".25"><rect x="22" y="172" width="8" height="10"/><rect x="34" y="172" width="8" height="10"/><rect x="62" y="152" width="8" height="10"/><rect x="74" y="152" width="8" height="10"/><rect x="97" y="132" width="10" height="14"/><rect x="113" y="132" width="10" height="14"/><rect x="147" y="114" width="10" height="14"/><rect x="163" y="114" width="10" height="14"/><rect x="188" y="95" width="12" height="16"/><rect x="205" y="95" width="12" height="16"/></g><polygon points="175,80 199,35 222,80" fill="#120f06"/><line x1="199" y1="35" x2="199" y2="20" stroke="#c9a84c" stroke-width="1.5"/><polygon points="199,20 214,25 199,30" fill="#c9a84c"/><rect x="0" y="235" width="500" height="45" fill="#0a0803" opacity=".8"/><g fill="#c9a84c" opacity=".5"><circle cx="80" cy="228" r="4"/><circle cx="200" cy="224" r="4"/><circle cx="320" cy="228" r="4"/><circle cx="420" cy="222" r="4"/></g><g fill="#c9a84c" opacity=".35"><circle cx="50" cy="18" r=".8"/><circle cx="150" cy="8" r="1"/><circle cx="280" cy="14" r=".8"/><circle cx="400" cy="10" r=".7"/></g></svg>`,
+  nature:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="nt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#030608"/><stop offset="55%" stop-color="#060e08"/><stop offset="100%" stop-color="#030504"/></linearGradient></defs><rect width="500" height="280" fill="url(#nt1)"/><g fill="#050d06"><polygon points="0,220 55,130 110,220"/><polygon points="45,230 105,125 165,230"/><polygon points="110,215 170,120 230,215"/><polygon points="195,220 260,110 325,220"/><polygon points="280,215 345,125 410,215"/><polygon points="360,220 420,118 480,220"/><polygon points="430,225 485,130 500,225"/></g><g fill="#0a1a0c"><polygon points="15,235 75,145 135,235"/><polygon points="75,230 140,140 205,230"/><polygon points="175,228 240,135 305,228"/><polygon points="265,232 330,142 395,232"/><polygon points="360,228 425,138 490,228"/></g><circle cx="400" cy="42" r="25" fill="#c9a84c" opacity=".08"/><circle cx="400" cy="42" r="16" fill="#c9a84c" opacity=".1"/><circle cx="400" cy="42" r="8" fill="#c9a84c" opacity=".65"/><g fill="#c9a84c" opacity=".4"><circle cx="50" cy="20" r=".8"/><circle cx="140" cy="10" r="1"/><circle cx="240" cy="16" r=".8"/><circle cx="310" cy="8" r=".7"/></g></svg>`,
+  panorama:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="pn1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#03060d"/><stop offset="100%" stop-color="#080a06"/></linearGradient></defs><rect width="500" height="280" fill="url(#pn1)"/><polygon points="0,180 80,120 160,155 240,90 320,130 400,80 500,110 500,280 0,280" fill="#060a04"/><g fill="#1a1408"><rect x="185" y="80" width="32" height="130"/><rect x="165" y="68" width="22" height="142"/><rect x="220" y="74" width="28" height="136"/><polygon points="165,68 176,35 187,68"/><polygon points="220,74 234,38 248,74"/></g><g fill="#0a0803"><rect x="8" y="112" width="24" height="98"/><rect x="36" y="102" width="20" height="108"/><rect x="440" y="108" width="24" height="102"/><rect x="468" y="118" width="20" height="92"/></g><g fill="#020406"><rect x="12" y="124" width="8" height="12" rx="4"/><rect x="42" y="115" width="8" height="12" rx="4"/><rect x="170" y="82" width="9" height="13" rx="4"/><rect x="225" y="88" width="9" height="13" rx="4"/></g><ellipse cx="250" cy="255" rx="220" ry="25" fill="#1e3a6a" opacity=".25"/><circle cx="400" cy="38" r="22" fill="#c9a84c" opacity=".7"/><g fill="#c9a84c" opacity=".4"><circle cx="50" cy="18" r=".8"/><circle cx="130" cy="8" r="1"/><circle cx="300" cy="14" r=".8"/></g></svg>`,
+  bridge:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="br1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#030610"/><stop offset="100%" stop-color="#040608"/></linearGradient></defs><rect width="500" height="280" fill="url(#br1)"/><rect x="0" y="180" width="500" height="100" fill="#0a0f1a" opacity=".8"/><rect x="0" y="195" width="500" height="85" fill="#0d1530" opacity=".5"/><rect x="0" y="155" width="500" height="28" fill="#1a1408"/><g fill="#1a1408"><rect x="30" y="100" width="22" height="83"/><rect x="110" y="85" width="24" height="98"/><rect x="200" y="78" width="26" height="105"/><rect x="290" y="85" width="24" height="98"/><rect x="380" y="95" width="22" height="88"/><rect x="465" y="105" width="20" height="78"/></g><path d="M0 155 Q125 105 250 92 Q375 105 500 155" stroke="#1a1408" stroke-width="7" fill="none"/><g fill="#c9a84c" opacity=".7"><circle cx="41" cy="98" r="6"/><circle cx="122" cy="83" r="6"/><circle cx="213" cy="76" r="7"/><circle cx="302" cy="83" r="6"/><circle cx="391" cy="93" r="6"/></g><g fill="#c9a84c" opacity=".3"><circle cx="41" cy="98" r="10"/><circle cx="122" cy="83" r="10"/><circle cx="213" cy="76" r="11"/><circle cx="302" cy="83" width="10" r="10"/><circle cx="391" cy="93" r="10"/></g><g fill="#c9a84c" opacity=".35"><circle cx="50" cy="20" r=".8"/><circle cx="180" cy="10" r="1"/><circle cx="350" cy="16" r=".8"/></g><circle cx="420" cy="40" r="18" fill="#c9a84c" opacity=".65"/></svg>`,
+  park:`<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block"><defs><linearGradient id="pk1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#030608"/><stop offset="100%" stop-color="#060a06"/></linearGradient></defs><rect width="500" height="280" fill="url(#pk1)"/><ellipse cx="250" cy="310" rx="450" ry="200" fill="#060a05"/><g><ellipse cx="60" cy="175" rx="45" ry="60" fill="#0a1208"/><ellipse cx="60" cy="145" rx="35" ry="48" fill="#0f1a0c"/><ellipse cx="150" cy="162" rx="50" ry="65" fill="#0a1208"/><ellipse cx="150" cy="128" rx="38" ry="52" fill="#0f1a0c"/><ellipse cx="390" cy="168" rx="48" ry="62" fill="#0a1208"/><ellipse cx="390" cy="136" rx="36" ry="50" fill="#0f1a0c"/><ellipse cx="470" cy="178" rx="42" ry="55" fill="#0a1208"/></g><g transform="translate(210,90)"><rect x="22" y="60" width="18" height="90" fill="#0f1208"/><ellipse cx="31" cy="60" rx="35" ry="60" fill="#0f1a0c"/><rect x="28" y="112" width="12" height="38" rx="6" fill="#020406"/></g><path d="M80 280 Q250 240 420 280" stroke="#1a1408" stroke-width="5" fill="none"/><circle cx="380" cy="35" r="20" fill="#c9a84c" opacity=".65"/><g fill="#c9a84c" opacity=".35"><circle cx="50" cy="18" r=".8"/><circle cx="160" cy="8" r="1"/><circle cx="280" cy="14" r=".8"/></g></svg>`
+};
+
+// ── DATA ──
+const tours=[
+  {id:1,cat:['castle','cave','weekend'],scene:'castle',title:'Zámek Lednice + Moravský kras',date:'16.05.2026',price:'1 650 Kč',pn:'/ os.',desc:'Zámek, park, jeskyně Punkva, propast Macocha a plavba po podzemní řece.',hot:true},
+  {id:2,cat:['city','weekend'],scene:'city',title:'Karlovy Vary na 1 den',date:'Brzy',price:'upřesní se',pn:'',desc:'Lázeňské město, termální prameny, krásné výhledy a volný čas.',hot:false},
+  {id:3,cat:['city','weekend'],scene:'panorama',title:'Drážďany + shopping',date:'Brzy',price:'upřesní se',pn:'',desc:'Procházka městem, volný čas a pohodlný výlet za hranice.',hot:false},
+  {id:4,cat:['castle','city'],scene:'bridge',title:'Český Krumlov',date:'Brzy',price:'upřesní se',pn:'',desc:'Historický zámek, jedno z nejkrásnějších českých měst, výhledy a procházka.',hot:false},
+  {id:5,cat:['city'],scene:'nature',title:'Praha: večerní procházka',date:'dle domluvy',price:'individuálně',pn:'',desc:'Pro návštěvníky města: trasa, krásná místa, fotky a pomoc s orientací.',hot:false},
+  {id:6,cat:['city','weekend'],scene:'panorama',title:'Vídeň na víkend',date:'Brzy',price:'upřesní se',pn:'',desc:'Demo směr pro budoucí rozpis: procházka městem a volný čas.',hot:false}
+];
+
+const gals=[
+  {scene:'castle',t:'Zámek Lednice',s:'Jižní Morava',c:'castle'},
+  {scene:'bridge',t:'Český Krumlov',s:'Historický zámek a centrum',c:'castle'},
+  {scene:'city',t:'Karlovy Vary',s:'Lázeňské město',c:'city'},
+  {scene:'panorama',t:'Drážďany',s:'Německo',c:'city'},
+  {scene:'cave',t:'Moravský kras',s:'Punkevní jeskyně · Macocha',c:'cave'},
+  {scene:'nature',t:'Příroda Česka',s:'Víkendové trasy',c:'nature'},
+  {scene:'park',t:'Park Lednice',s:'Zahradní aleje',c:'nature'},
+  {scene:'panorama',t:'Vídeň / Drážďany',s:'Demo směry do zahraničí',c:'city'},
+  {scene:'bridge',t:'Praha',s:'Večerní trasa',c:'city'},
+];
+
+const whyItems=[
+  {n:'01',title:'Není třeba skládat trasu',text:'Program, čas, cesta a místo srazu jsou předem připravené v jednom jasném plánu.'},
+  {n:'02',title:'Krásná místa za jeden den',text:'Zámky, jeskyně, města a příroda Česka bez dlouhé dovolené.'},
+  {n:'03',title:'Můžete jet sami',text:'Skupina už existuje - pohodlné, když chcete cestovat i bez vlastní skupiny.'},
+  {n:'04',title:'Detaily v messengeru',text:'Telegram, Facebook nebo WhatsApp: datum, cena, program a sraz před výletem.'},
+  {n:'05',title:'Jasný program',text:'Na kartě je vidět formát, datum, cena, délka a co se platí zvlášť.'},
+  {n:'06',title:'Pohodlné na víkend',text:'Ráno odjezd, večer návrat. Jeden volný den se změní ve výlet.'},
+  {n:'07',title:'Rychlá poptávka',text:'Necháte kontakt, organizátor potvrdí volná místa a pošle detaily.'},
+  {n:'08',title:'Demo bez falešných slibů',text:'Kontakt, rozpis a část dat jsou označené jako demo, dokud nejsou dodané klientské materiály.'},
+];
+
+const flowItems=[
+  {icon:'◈',title:'Vyberte výlet',text:'Prohlédněte si směry a vyberte datum.',n:'01'},
+  {icon:'◈',title:'Pošlete poptávku',text:'Jméno, kontakt, výlet, počet osob.',n:'02'},
+  {icon:'◈',title:'Potvrzení',text:'Napíšeme a potvrdíme dostupnost míst.',n:'03'},
+  {icon:'◈',title:'Program',text:'Místo srazu, čas a všechny detaily předem.',n:'04'},
+  {icon:'◈',title:'Přijeďte',text:'V domluvený čas - a vyrážíme.',n:'05'},
+  {icon:'◈',title:'Užijte si to',text:'Zámky, příroda a nové zážitky.',n:'06'},
+];
+
+const faqs=[
+  {q:'Jak rezervovat místo?',a:'Pošlete poptávku na webu nebo napište do Telegram / WhatsApp / Facebook. Potvrdím dostupnost míst a pošlu detaily.'},
+  {q:'Co je v ceně?',a:'Organizace trasy a koordinace skupiny. Vstupenky a jídlo se platí zvlášť - upřesní se při rezervaci.'},
+  {q:'Kde je místo srazu?',a:'Místo srazu posílám každému účastníkovi předem ve zprávě.'},
+  {q:'Lze jet s dětmi?',a:'Záleží na trase. Je lepší se zeptat při rezervaci.'},
+  {q:'Jak zaplatit?',a:'Podmínky platby se upřesňují pro každý výlet - zeptejte se v messengeru.'},
+  {q:'Co když se plány změní?',a:'Napište co nejdříve - ověříme možnost přesunu nebo zrušení.'},
+  {q:'Lze individuální výlet?',a:'Ano. Napište požadovaný směr a trasu probereme.'},
+];
+
+// ── RENDER ──
+const P={
+  castle:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG/960px-Lednice_%28Eisgrub%29_-_z%C3%A1mek.JPG',
+  cave:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Propast_Macocha_02.jpg/640px-Propast_Macocha_02.jpg',
+  city:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Karlovy_Vary_Czech.jpg/960px-Karlovy_Vary_Czech.jpg',
+  nature:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg/960px-Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg',
+  panorama:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/100130_150006_Dresden_Frauenkirche_winter_blue_sky-2.jpg/960px-100130_150006_Dresden_Frauenkirche_winter_blue_sky-2.jpg',
+  bridge:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg/800px-Historic_Centre_of_%C4%8Cesk%C3%BD_Krumlov-111747.jpg',
+  park:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg/960px-Prague_07-2016_view_from_Lesser_Town_Tower_of_Charles_Bridge_img3.jpg'
+};
+function photoBg(k){return P[k]||P.castle}
+
+function svgBg(k){return `<div class="photo-bg" style="position:absolute;inset:0;background-image:url('${photoBg(k)}')"></div><span class="img-credit">Wikimedia</span>`}
+
+function renderTours(cat){
+  const g=document.getElementById('tgrid');
+  const list=cat==='all'?tours:tours.filter(t=>t.cat.includes(cat));
+  g.innerHTML=list.map(t=>`
+    <div class="tc-card">
+      <div class="tc-img">
+        <div class="tc-img-inner" style="position:relative;height:100%">${svgBg(t.scene)}</div>
+        ${t.hot?'<span class="tc-tag">🔥 16 května</span>':'<span class="tc-tag tc-tag-soon">Brzy</span>'}
+      </div>
+      <div class="tc-body">
+        <div class="tc-name">${t.title}</div>
+        <div class="tc-desc">${t.desc}</div>
+        <div class="tc-foot">
+          <div class="tc-price">${t.price}<small>${t.pn} · ${t.date}</small></div>
+          <div class="tc-btns">
+            <a href="${t.id===1?'#feat':'#contact'}" class="btn btn-ghost btn-sm">Podrobnosti</a>
+            <a href="#" class="btn btn-gold btn-sm" onclick="openBook('${t.title}',event)">Rezervovat</a>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderGal(cat){
+  const g=document.getElementById('ggrid');
+  const list=cat==='all'?gals:gals.filter(x=>x.c===cat);
+  g.innerHTML=list.map((x,i)=>`
+    <div class="gal-item${i===0?' gal-big':''}" onclick="openLB('${x.scene}','${x.t}','${x.s}')">
+      <div class="gal-inner" style="position:relative;height:100%;min-height:inherit">${svgBg(x.scene)}</div>
+      <div class="gal-ov"><div class="gal-lbl">${x.t}</div></div>
+    </div>`).join('');
+}
+
+function renderWhy(){
+  document.getElementById('whyGrid').innerHTML=whyItems.map(w=>`
+    <div class="why-card">
+      <div class="why-num">${w.n}</div>
+      <h3>${w.title}</h3>
+      <p>${w.text}</p>
+    </div>`).join('');
+}
+
+function renderFlow(){
+  document.getElementById('flowGrid').innerHTML=flowItems.map(f=>`
+    <div class="flow-step" data-n="${f.n}">
+      <div class="flow-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><polygon points="5,3 19,12 5,21"/></svg></div>
+      <h3>${f.title}</h3>
+      <p>${f.text}</p>
+    </div>`).join('');
+}
+
+function renderFAQ(){
+  document.getElementById('faqlist').innerHTML=faqs.map((f,i)=>`
+    <div class="faq-item" id="fi${i}">
+      <button class="faq-q" onclick="toggleFAQ(${i})">
+        <span class="faq-qt">${f.q}</span>
+        <div class="faq-ico">+</div>
+      </button>
+      <div class="faq-a"><div class="faq-ai">${f.a}</div></div>
+    </div>`).join('');
+}
+
+function toggleFAQ(i){
+  const el=document.getElementById('fi'+i);
+  const was=el.classList.contains('on');
+  document.querySelectorAll('.faq-item').forEach(e=>e.classList.remove('on'));
+  if(!was)el.classList.add('on');
+}
+
+// MARQUEE
+(function(){
+  const items=['Zámek Lednice','Moravský kras','Karlovy Vary','Český Krumlov','Drážďany','Praha','Skupinové výlety','Výlety víkendové','Trasy po Česku'];
+  const doubled=[...items,...items];
+  document.getElementById('mqTrack').innerHTML=doubled.map(t=>`<div class="marquee-item">${t}<div class="marquee-dot"></div></div>`).join('');
+})();
+
+// FILTERS
+document.getElementById('fbar').addEventListener('click',e=>{
+  const b=e.target.closest('.fb');if(!b)return;
+  document.querySelectorAll('#fbar .fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');renderTours(b.dataset.cat);
+});
+document.getElementById('gfbar').addEventListener('click',e=>{
+  const b=e.target.closest('.fb');if(!b)return;
+  document.querySelectorAll('#gfbar .fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');renderGal(b.dataset.gc);
+});
+
+// GALLERY LIGHTBOX
+function openLB(sk,t,s){
+  const sc=document.getElementById('lb-scene');
+  sc.innerHTML=svgBg(sk);
+  sc.style.cssText='width:100%;min-height:400px;position:relative;overflow:hidden;background:#000';
+  document.getElementById('lb-cap').textContent=t;
+  document.getElementById('lb-sub').textContent=s;
+  openModal('lbModal');
+}
+
+// MODALS
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('lbModal');closeModal('bookModal');}});
+
+// BOOK MODAL
+function openBook(name,e){
+  if(e)e.preventDefault();
+  if(name){
+    document.getElementById('modalTitle').textContent='Rezervace';
+    const s=document.getElementById('mb-tour');
+    for(let i=0;i<s.options.length;i++){if(s.options[i].text.includes(name.split('+')[0].trim())){s.selectedIndex=i;break;}}
+  } else {
+    document.getElementById('modalTitle').textContent='Rezervovat místo';
+  }
+  openModal('bookModal');
+}
+
+// VIDEO
+let vidOn=false;
+function toggleVid(){
+  const v=document.getElementById('myVid'),btn=document.getElementById('vidBtn');
+  if(vidOn){v.pause();btn.classList.remove('hidden');vidOn=false;}
+  else{v.play().then(()=>{btn.classList.add('hidden');vidOn=true;}).catch(()=>{v.muted=true;v.play().then(()=>{btn.classList.add('hidden');vidOn=true;});});}
+}
+document.getElementById('myVid').addEventListener('click',toggleVid);
+document.getElementById('myVid').addEventListener('pause',()=>{document.getElementById('vidBtn').classList.remove('hidden');vidOn=false;});
+document.getElementById('myVid').addEventListener('ended',()=>{document.getElementById('vidBtn').classList.remove('hidden');vidOn=false;});
+
+// HEADER
+window.addEventListener('scroll',()=>{
+  const h=document.getElementById('hdr');
+  window.scrollY>80?(h.classList.remove('top'),h.classList.add('scrolled')):(h.classList.add('top'),h.classList.remove('scrolled'));
+},{passive:true});
+
+// MOBILE MENU
+document.getElementById('ham').addEventListener('click',()=>document.getElementById('mm').classList.toggle('open'));
+function closeMM(){document.getElementById('mm').classList.remove('open');}
+
+// FLOATING CTA
+let fxDone=sessionStorage.getItem('fcx');
+const fcta=document.getElementById('fcta');
+document.getElementById('fctaX').addEventListener('click',()=>{fcta.classList.remove('vis');sessionStorage.setItem('fcx','1');fxDone=true;});
+window.addEventListener('scroll',()=>{
+  if(fxDone)return;
+  const toursBottom=document.getElementById('tours').getBoundingClientRect().bottom;
+  const contactTop=document.getElementById('contact').getBoundingClientRect().top;
+  fcta.classList.toggle('vis',toursBottom<window.innerHeight*.35 && contactTop>window.innerHeight*.72);
+},{passive:true});
+
+// FORM
+function submitForm(p){
+  const name=document.getElementById(p+'-name').value.trim();
+  const phone=document.getElementById(p+'-phone').value.trim();
+  const tour=document.getElementById(p+'-tour').value;
+  const ppl=document.getElementById(p+'-ppl').value;
+  const ok=document.getElementById(p+'-ok').checked;
+  if(!name){alert('Zadejte své jméno.');return;}
+  if(!phone){alert('Zadejte telefon.');return;}
+  if(!tour){alert('Vyberte výlet.');return;}
+  if(!ppl){alert('Zadejte počet osob.');return;}
+  if(!ok){alert('Potvrďte souhlas.');return;}
+  document.querySelectorAll('#'+p+'-name,#'+p+'-phone,#'+p+'-tg,#'+p+'-ppl,#'+p+'-tour,#'+p+'-msg,#'+p+'-ok').forEach(el=>el.disabled=true);
+  document.getElementById(p+'-success').style.display='block';
+}
+
+// SCROLL FADE IN
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.12});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// OPTIONAL LOCAL HERO BACKGROUND VIDEO
+const heroBgVideo=document.querySelector('.hero-video-bg[data-video-src]');
+if(heroBgVideo){
+  const src=heroBgVideo.dataset.videoSrc;
+  fetch(src,{method:'HEAD'}).then(r=>{
+    if(!r.ok)return;
+    const source=document.createElement('source');
+    source.src=src;
+    source.type=src.endsWith('.webm')?'video/webm':'video/mp4';
+    heroBgVideo.appendChild(source);
+    heroBgVideo.load();
+    heroBgVideo.play().catch(()=>{});
+  }).catch(()=>{});
+}
+
+// INIT
+renderTours('all');
+renderGal('all');
+renderWhy();
+renderFlow();
+renderFAQ();
+const bgv=document.getElementById('myVid'); if(bgv){bgv.muted=true; bgv.play().catch(()=>{});}
+</script>
+  <script src="../../assets/js/demo-sale.js"></script>
+  <script src="../../assets/js/forminit-submit.js?v=forminit-safe-2"></script>
+</body>
+</html>
+
+
+
+
+

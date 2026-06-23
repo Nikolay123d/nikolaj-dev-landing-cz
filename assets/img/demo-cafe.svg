@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title">
+  <title id="title">Cafe landing demo concept</title>
+  <rect width="900" height="560" rx="30" fill="#07162a"/>
+  <rect x="60" y="70" width="780" height="420" rx="28" fill="#0d1020" stroke="#26344f"/>
+  <circle cx="690" cy="280" r="145" fill="#ff7b00" opacity=".25"/>
+  <path d="M215 210h250M215 260h180M215 332h130" stroke="#e8eaf6" stroke-width="22" stroke-linecap="round"/>
+  <rect x="215" y="380" width="150" height="46" rx="23" fill="#ff7b00"/>
+  <path d="M640 220c0 70 100 70 100 0H640Zm22 0v-35h56v35" fill="none" stroke="#1a8fff" stroke-width="16" stroke-linecap="round"/>
+</svg>

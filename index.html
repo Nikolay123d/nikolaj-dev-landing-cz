@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Moderní weby a landing pages pro kavárny, restaurace, salony, služby a lokální podnikání. Hotové demo šablony, mobilní verze a formulář pro poptávky.">
+  <title>Nikolaj Dev — weby, landing pages, MVP a audit projektů</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=cz-final-mobile-1">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Nikolaj Dev home">
+      <span class="brand-mark">N/</span>
+      <span>Nikolaj Dev</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Hlavní navigace">
+      <a href="#home">Úvod</a>
+      <a href="#catalog">Katalog</a>
+      <a href="#services">Služby</a>
+      <a href="#work">Ukázky</a>
+      <button type="button" data-open-pricing>Ceník</button>
+      <a href="#process">Postup</a>
+      <a href="#contacts">Kontakt</a>
+    </nav>
+    <button class="header-cta" type="button" data-open-lead data-sale-source="header_sale">Sleva -50 %</button>
+    <button class="menu-toggle" type="button" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobilní navigace">
+    <a href="#home">Úvod</a>
+    <a href="#catalog">Katalog</a>
+    <a href="#services">Služby</a>
+    <a href="#work">Ukázky</a>
+    <button type="button" data-open-pricing>Ceník</button>
+    <a href="#process">Postup</a>
+    <a href="#contacts">Kontakt</a>
+    <button class="mobile-cta" type="button" data-open-lead data-sale-source="mobile_menu_sale">Získat slevu</button>
+  </nav>
+
+  <div class="sale-side-ribbon sale-side-left" aria-hidden="true">
+    <span>AKCE -50 %</span>
+    <strong data-sale-countdown>03:00:00</strong>
+  </div>
+  <div class="sale-side-ribbon sale-side-right" aria-hidden="true">
+    <span>od 5 000 Kč</span>
+    <strong>SALE50</strong>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <img class="hero-poster" src="assets/img/portfolio-hero-poster.jpg" alt="" aria-hidden="true" loading="eager" decoding="sync">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/portfolio-hero-poster.jpg" aria-hidden="true">
+        <source src="assets/videos/portfolio-hero-tech.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="page-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Weby / landing pages / MVP / audit</p>
+          <div class="sale-hero-badge sale-hero-block">
+            <span>-50%</span>
+            <strong>Startovací sleva 50 %</strong>
+            <small><span>Web podle demo šablony od 5 000 Kč místo 10 000 Kč.</span><span>Cena platí 3 hodiny od otevření stránky.</span><span>Čas do konce nabídky: <b data-sale-countdown>03:00:00</b></span></small>
+          </div>
+          <h1><span>Weby a landing pages,</span><span>které můžete rychle spustit</span><span>pro svůj byznys</span></h1>
+          <p class="hero-sub"><span>Tvořím moderní weby pro služby,</span><span>lokální podnikání a osobní značky.</span><span>Začneme z hotové demo šablony,</span><span>upravíme ji pro váš byznys</span><span>a získáte stránku, která sbírá poptávky.</span></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#catalog">Zobrazit šablony</a>
+            <button class="btn dark" type="button" data-open-lead data-sale-source="hero_sale_primary">Získat slevu -50 %</button>
+            <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          </div>
+          <div class="trust-row" aria-label="Výhody">
+            <span>Živé demo šablony</span>
+            <span>Mobilní verze</span>
+            <span>Formulář na e-mail</span>
+            <span>Pomoc se zveřejněním</span>
+            <span>Praha / vzdáleně</span>
+            <span>Akce od 5 000 Kč</span>
+          </div>
+        </div>
+        <aside class="hero-showcase" aria-label="Rychlý přehled">
+          <div class="showcase-top">
+            <span>Hotové demo šablony</span>
+            <strong>v akci od 5 000 Kč / ≈200 €</strong>
+          </div>
+          <div class="hero-demo-stack">
+            <a class="hero-demo-card is-featured" href="demos/bakery-cafe/index.html">
+              <img src="assets/images/bakery-cafe/hero-bakery.jpg" alt="Demo web pro pekařství / kavárnu">
+              <span>New</span>
+              <strong>Pekařství / kavárna</strong>
+              <small>Video, menu, káva, mapa</small>
+            </a>
+            <a class="hero-demo-card" href="demos/restaurant-cafe/index.html">
+              <img src="assets/images/restaurant-cafe/hero-food.jpg" alt="Demo web pro restauraci / kavárnu">
+              <span>Demo</span>
+              <strong>Restaurace</strong>
+              <small>Menu, rezervace, galerie</small>
+            </a>
+            <a class="hero-demo-card" href="demos/rempro/index.html">
+              <img src="assets/img/rempro/desktop-home.png" alt="RemPro landing pro rekonstrukce">
+              <span>Demo</span>
+              <strong>Renovation</strong>
+              <small>Služby, kalkulace, poptávky</small>
+            </a>
+          </div>
+          <div class="hero-showcase-actions">
+            <a class="btn primary" href="#catalog">Všechny šablony</a>
+            <button class="btn ghost" type="button" data-open-lead data-sale-source="hero_showcase_sale">Objednat se slevou</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="featured-demo-section" aria-labelledby="featuredBakeryTitle">
+      <div class="page-shell featured-demo-card">
+        <div class="featured-demo-media">
+          <img src="assets/images/bakery-cafe/hero-bakery.jpg" alt="Demo web pro pekařství / kavárnu" loading="eager">
+          <span>New demo</span>
+        </div>
+        <div class="featured-demo-copy">
+          <p class="eyebrow">Nová šablona nahoře v portfoliu</p>
+          <h2 id="featuredBakeryTitle">Demo web pro pekařství / kavárnu</h2>
+          <p>Web pro pekárnu, kavárnu nebo coffee shop: video v hero sekci, menu, fotky produktů, káva, mapa, kontakty a poptávky. Demo je teď viditelné hned nahoře, bez hledání v katalogu.</p>
+          <div class="project-meta">
+            <span>SALE START 5 000 Kč / ≈200 €</span>
+            <span>3–7 dní</span>
+            <span>Hotové demo</span>
+          </div>
+          <div class="featured-demo-actions">
+            <a class="btn primary" href="demos/bakery-cafe/index.html">Zobrazit šablonu</a>
+            <button class="btn dark" type="button" data-open-lead data-template="Demo web pro pekařství / kavárnu" data-package="Start" data-package-price="5 000 Kč / ≈200 €" data-sale-source="featured_bakery_sale">Objednat v akci</button>
+            <a class="btn ghost" href="#catalog">K dalším šablonám</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-pricing-section" aria-labelledby="quickPricingTitle">
+      <div class="page-shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Sleva -50 % na 3 hodiny</p>
+            <h2 id="quickPricingTitle">Kolik teď stojí web podle demo šablony</h2>
+          </div>
+          <p>Základní cena je v Kč. V akci začíná START od 5 000 Kč / ≈200 €, pokud se projekt hodí pro hotovou demo šablonu.</p>
+        </div>
+        <div class="quick-price-grid">
+          <article>
+            <span>START</span>
+            <strong><span class="price-sale-current">5 000 Kč <small>≈200 €</small></span><span class="price-sale-old">běžně 10 000 Kč / ≈400 €</span></strong>
+            <h3>Hotová demo šablona</h3>
+            <p>Doplníme vaše texty, fotky, kontakty, poptávkový formulář a doménu — a za pár dní může být web připravený ke spuštění.</p>
+            <button class="btn primary" type="button" data-open-lead data-package="Start" data-package-price="5 000 Kč / ≈200 €" data-regular-price="10 000 Kč / ≈400 €" data-sale-source="pricing_start_sale50">Objednat Start se slevou</button>
+          </article>
+          <article class="recommended">
+            <em>Populární</em>
+            <span>PLUS</span>
+            <strong><span class="price-sale-current">10 000 Kč <small>≈400 €</small></span><span class="price-sale-old">běžně 20 000 Kč / ≈800 €</span></strong>
+            <h3>Více bloků a úprav</h3>
+            <p>Když potřebujete více sekcí, druhý jazyk, thank-you stránku, základní analytiku a pečlivější přizpůsobení byznysu.</p>
+            <button class="btn primary" type="button" data-open-lead data-package="Plus" data-package-price="10 000 Kč / ≈400 €" data-regular-price="20 000 Kč / ≈800 €" data-sale-source="pricing_plus_sale50">Objednat Plus se slevou</button>
+          </article>
+          <article class="premium">
+            <span>PRO</span>
+            <strong><span class="price-sale-current">od 15 000 Kč <small>od ≈600 €</small></span><span class="price-sale-old">běžně od 30 000 Kč / od ≈1 200 €</span></strong>
+            <h3>Pro reklamu a růst</h3>
+            <p>Pro rozsáhlejší strukturu: UTM, měření kliků, základ SEO, další sekce a příprava na propagaci. Rozsah vždy domluvíme předem.</p>
+            <button class="btn primary" type="button" data-open-lead data-package="Pro" data-package-price="od 15 000 Kč / od ≈600 €" data-regular-price="od 30 000 Kč / od ≈1 200 €" data-sale-source="pricing_pro_sale50">Probrat Pro se slevou</button>
+          </article>
+        </div>
+        <div class="quick-price-note">
+          <strong>Minimální spuštění v akci:</strong> START 5 000 Kč / ≈200 € + doména přibližně 150–300 Kč ročně. U běžného landing page může být hosting 0 Kč. Časovač: <b data-sale-countdown>03:00:00</b>.
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section" id="catalog">
+      <div class="page-shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Katalog webů</p>
+            <h2>Jaké weby si můžete objednat</h2>
+          </div>
+          <p>Vyberte si směr: můžete začít hotovou šablonou, objednat podobný web nebo postupně postavit individuální projekt pro svůj byznys.</p>
+        </div>
+        <div class="catalog-toolbar" aria-label="Filtry typů webů">
+          <button class="active" type="button" data-category-filter="all">Vše</button>
+          <button type="button" data-category-filter="restaurants">Restaurace</button>
+          <button type="button" data-category-filter="services">Služby</button>
+          <button type="button" data-category-filter="tourism">Turismus</button>
+          <button type="button" data-category-filter="delivery">Doručení</button>
+          <button type="button" data-category-filter="medical">Medicína</button>
+          <button type="button" data-category-filter="b2b">B2B</button>
+          <button type="button" data-category-filter="mvp">MVP</button>
+          <button type="button" data-category-filter="audit">Audit</button>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section class="section value-section">
+      <div class="page-shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Co získáte</p>
+            <h2>Ne jen hezkou stránku, ale funkční výkladní skříň pro poptávky</h2>
+          </div>
+          <p>Web má rychle vysvětlit nabídku, vybudovat důvěru a vést návštěvníka k jasné akci: poptávce, hovoru nebo zprávě.</p>
+        </div>
+        <div class="value-grid">
+          <article><span>01</span><h3>Jasná první obrazovka</h3><p>Nabídka, tlačítka, krátký přínos a jasný další krok bez zbytečného textu.</p></article>
+          <article><span>02</span><h3>Služby a ceny</h3><p>Struktura, kde je jasné, co lze objednat, kolik to přibližně stojí a jak dlouho to trvá.</p></article>
+          <article><span>03</span><h3>Fotky, galerie, portfolio</h3><p>Vizuální bloky pro váš byznys: práce, ukázky, objekty, trasy nebo produkty.</p></article>
+          <article><span>04</span><h3>Kontaktní tlačítka</h3><p>Telegram, Facebook, WhatsApp nebo e-mail u důležitých CTA, aby poptávky neutíkaly.</p></article>
+          <article><span>05</span><h3>Poptávka do e-mailu</h3><p>Formulář odešle data na e-mail, uloží vybranou šablonu a přesměruje na thank-you stránku.</p></article>
+          <article><span>06</span><h3>Mobilní verze</h3><p>Karty, tlačítka, formulář i demo náhled jsou kontrolované pro telefon.</p></article>
+          <article><span>07</span><h3>FAQ a důvěra</h3><p>Odpovědi na otázky, postup práce, férová omezení a jasná očekávání.</p></article>
+          <article><span>08</span><h3>Pomoc se zveřejněním</h3><p>Příprava na zvolený způsob zveřejnění po samostatném potvrzení.</p></article>
+        </div>
+        <div class="section-cta-row">
+          <button class="btn primary" type="button" data-open-lead data-sale-source="value_section_sale">Nechat poptávku v akci</button>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          <a class="btn ghost" href="#catalog">Zobrazit šablony</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="page-shell">
+        <div class="section-head">
+          <p class="eyebrow">Služby</p>
+          <h2>Vyberte formát spolupráce</h2>
+          <p>Můžeme začít hotovou šablonou, připravit individuální web nebo projít už existující projekt.</p>
+        </div>
+        <div class="service-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="work">
+      <div class="page-shell">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Ukázky a šablony</p>
+            <h2>Ukázky, které si můžete otevřít a projít</h2>
+          </div>
+          <p>Nejdůležitější dema jsou už v katalogu výše. Tady jsou hotové ukázky, live projekt a směry, které lze objednat.</p>
+        </div>
+        <div class="work-toolbar" aria-label="Filtry ukázek">
+          <button class="active" type="button" data-filter="all">Vše</button>
+          <button type="button" data-filter="template">Šablony</button>
+          <button type="button" data-filter="real">Reálné projekty</button>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process">
+      <div class="page-shell">
+        <div class="section-head">
+          <p class="eyebrow">Jak probíhá práce</p>
+          <h2>Jasný postup bez chaosu</h2>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><h3>Vyberete šablonu nebo popíšete zadání</h3><p>Můžete poslat příklad, vybrat kategorii z katalogu nebo stručně popsat byznys.</p></article>
+          <article><span>02</span><h3>Upřesním detaily</h3><p>Podívám se na cíl webu, materiály, termín, rozpočet a co je potřeba připravit jako první.</p></article>
+          <article><span>03</span><h3>Připravím strukturu a upravím web</h3><p>Přizpůsobím obsah vašemu byznysu: nabídku, služby, důvěryhodné bloky, formuláře a CTA.</p></article>
+          <article><span>04</span><h3>Zkontrolujete a pošlete připomínky</h3><p>Ukážu funkční verzi a doladím texty, vizuál, tlačítka i mobilní detaily.</p></article>
+          <article><span>05</span><h3>Zveřejníme web</h3><p>Po potvrzení připravím zveřejnění a zkontroluji, že formulář a odkazy fungují.</p></article>
+        </div>
+        <div class="section-cta-row">
+          <button class="btn primary" type="button" data-open-lead data-sale-source="process_section_sale">Nechat poptávku v akci</button>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          <a class="btn ghost" href="#catalog">Zobrazit šablony</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-strip" id="pricing">
+      <div class="page-shell pricing-card pricing-card-full">
+        <div class="pricing-intro">
+          <p class="eyebrow">Akční ceník</p>
+          <h2>3 balíčky webu se slevou 50 %</h2>
+          <p>Nejdřív vybereme úroveň spuštění. Doména a placené služby se řeší zvlášť, běžný landing page může běžet na bezplatném hostingu.</p>
+        </div>
+        <div class="simple-pricing-grid" aria-label="Balíčky webu">
+          <article class="simple-price-card">
+            <span class="plan-kicker">START</span>
+            <strong><span class="price-sale-current">5 000 Kč <small>≈200 €</small></span><span class="price-sale-old">běžně 10 000 Kč / ≈400 €</span></strong>
+            <h3>Rychlé spuštění</h3>
+            <p>Web podle hotové demo šablony: fotky, texty, kontakty, poptávkový formulář a mobilní verze.</p>
+            <small>+ doména ~150–300 Kč / rok</small>
+            <small>+ hosting 0 Kč pro běžný landing page</small>
+            <button class="btn primary" type="button" data-open-lead data-package="Start" data-package-price="5 000 Kč / ≈200 €" data-regular-price="10 000 Kč / ≈400 €" data-sale-source="pricing_start_sale50">Objednat Start se slevou</button>
+          </article>
+          <article class="simple-price-card recommended">
+            <span class="plan-badge">Populární / optimální</span>
+            <span class="plan-kicker">PLUS</span>
+            <strong><span class="price-sale-current">10 000 Kč <small>≈400 €</small></span><span class="price-sale-old">běžně 20 000 Kč / ≈800 €</span></strong>
+            <h3>Optimální varianta</h3>
+            <p>Více bloků, fotky, druhý jazyk, děkovací stránka a základní analytika.</p>
+            <small>+ doména ~150–300 Kč / rok</small>
+            <small>+ hosting 0 Kč pro běžný landing page</small>
+            <button class="btn primary" type="button" data-open-lead data-package="Plus" data-package-price="10 000 Kč / ≈400 €" data-regular-price="20 000 Kč / ≈800 €" data-sale-source="pricing_plus_sale50">Objednat Plus se slevou</button>
+          </article>
+          <article class="simple-price-card premium">
+            <span class="plan-kicker">PRO</span>
+            <strong><span class="price-sale-current">od 15 000 Kč <small>od ≈600 €</small></span><span class="price-sale-old">běžně od 30 000 Kč / od ≈1 200 €</span></strong>
+            <h3>Pro reklamu a růst</h3>
+            <p>Analytika kliknutí, UTM, základ SEO, další sekce a příprava na propagaci. Rozsah si předem potvrdíme.</p>
+            <small>+ doména ~150–300 Kč / rok</small>
+            <small>+ placené služby podle zadání</small>
+            <button class="btn primary" type="button" data-open-lead data-package="Pro" data-package-price="od 15 000 Kč / od ≈600 €" data-regular-price="od 30 000 Kč / od ≈1 200 €" data-sale-source="pricing_pro_sale50">Probrat Pro se slevou</button>
+          </article>
+        </div>
+        <div class="hosting-note">
+          <p>U běžného prezentačního webu nebo landing page lze hosting řešit zdarma. Klient obvykle platí jen doménu přibližně 150–300 Kč ročně. Pokud později potřebujete databázi, platby, klientský účet, CRM, složité formuláře nebo placené služby, řeší se to zvlášť.</p>
+          <div>
+            <strong>Minimální spuštění</strong>
+            <span>START v akci 5 000 Kč / ≈200 € + doména přibližně 150–300 Kč ročně + bezplatný hosting.</span>
+            <span>Pro jednoduchý prezentační web tedy může být měsíční hosting 0 Kč.</span>
+          </div>
+          <small>Není v ceně: doména, placené formuláře, placený hosting, reklamní rozpočet, logo, profesionální fotky, překlady a složité funkce se platí zvlášť.</small>
+        </div>
+        <div class="pricing-actions pricing-actions-inline">
+          <button class="btn dark" type="button" data-open-pricing>Zobrazit podrobnosti</button>
+          <div class="ambient-video-card compact" aria-hidden="true">
+            <img src="assets/img/portfolio-hero-poster.jpg" alt="" loading="lazy">
+            <video class="ambient-video" muted loop playsinline preload="none" poster="assets/img/portfolio-hero-poster.jpg" data-src="assets/videos/portfolio-hero-tech.mp4"></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-section">
+      <div class="page-shell">
+        <div class="section-head">
+          <p class="eyebrow">Výhodná cena právě teď</p>
+          <h2>Portfolio roste, proto lze první projekty udělat výhodněji</h2>
+          <p>Teď rozvíjím portfolio, proto první projekty beru za dostupnější cenu. Pro vás je to možnost získat funkční web levněji, než bude podobná práce stát později. Pro mě je to další reálný case do portfolia.</p>
+        </div>
+        <div class="price-trust-card">
+          <strong>Není to „levně za každou cenu“</strong>
+          <p>Cena zůstává férová: nejdřív krátce projdeme zadání, stanovíme rozsah a pak web děláme po etapách. Pokud zadání vyžaduje více logiky, integrací nebo materiálů, domluví se to předem.</p>
+          <button class="btn dark" type="button" data-open-pricing>Zobrazit akční ceny</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles-section">
+      <div class="page-shell">
+        <div class="section-head">
+          <p class="eyebrow">Principy</p>
+          <h2>Pracuji podle jasného postupu</h2>
+        </div>
+        <div class="why-grid">
+          <article><h3>Ukážu demo před začátkem</h3><p>Vidíte směr a můžete objednat podobný web bez hádání stylu.</p></article>
+          <article><h3>Předem vysvětlím rozsah</h3><p>Co je v ceně, co je samostatná práce a kde mohou vzniknout rizika.</p></article>
+          <article><h3>Pracuji po etapách</h3><p>Nejdřív struktura, potom vizuál, pak formulář, mobilní kontrola a zveřejnění.</p></article>
+          <article><h3>Připojím poptávku</h3><p>Formulář, Telegram, Facebook a e-mail vedou ke skutečnému kontaktu, ne k prázdnému tlačítku.</p></article>
+          <article><h3>Neslibuji kouzelné prodeje</h3><p>Web pomáhá přijímat poptávky, ale reklamu, nabídku a trh je potřeba hodnotit férově.</p></article>
+          <article><h3>Nejdřív výsledek pro klienta</h3><p>Důraz na jasnou nabídku, poptávky, mobilní verzi a připravenost webu ke spuštění.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sale-campaign-section" id="sale">
+      <div class="page-shell sale-campaign-grid">
+        <div>
+          <p class="eyebrow">Akce na demo šablony</p>
+          <h2>Můžete si podržet cenu -50 %</h2>
+          <p>Vyberte hotovou demo šablonu, pošlete poptávku a zvolte balíček START / PLUS / PRO. Pokud zadání odpovídá hotové struktuře, upravím web pro váš byznys za akční cenu.</p>
+          <div class="sale-campaign-timer">Čas do konce nabídky: <strong data-sale-countdown>03:00:00</strong></div>
+          <button class="btn primary" type="button" data-open-lead data-sale-source="sale_campaign_section">Získat slevu -50 %</button>
+        </div>
+        <div class="sale-campaign-card">
+          <span>-50%</span>
+          <strong>START od 5 000 Kč / ≈200 €</strong>
+          <p>Doplnit vaše fotky, texty, kontakty a poptávkový formulář do hotové demo šablony.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="page-shell">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Časté otázky</h2>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <section class="section format-help-section">
+      <div class="page-shell format-help-card">
+        <div>
+          <p class="eyebrow">Nejste si jistí formátem?</p>
+          <h2>Nevíte, jaký web potřebujete?</h2>
+          <p>Pošlete krátkou poptávku. Podívám se na vaši situaci a navrhnu vhodný formát: jednoduchý landing page, web služeb, katalog, stránku pro poptávky, web pro reklamu nebo složitější MVP.</p>
+        </div>
+        <div class="format-help-actions">
+          <button class="btn primary" type="button" data-open-lead data-sale-source="format_help_sale">Vybrat formát v akci</button>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          <a class="btn facebook" href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook / Messenger</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacts">
+      <div class="page-shell contact-grid">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Popište zadání — ozvu se rychle</h2>
+          <p>Stačí stručně napsat, co potřebujete, jestli máte příklad webu, termín a rozpočet. Poptávka přijde na e-mail.</p>
+          <div class="contact-links">
+            <a href="mailto:nikyrchenko71@gmail.com">nikyrchenko71@gmail.com</a>
+            <a href="https://t.me/pracehub" target="_blank" rel="noopener">Telegram: @pracehub</a>
+            <a href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook / Messenger</a>
+            <span>Prague, Czechia / remote</span>
+          </div>
+        </div>
+        <div class="contact-panel">
+          <div class="ambient-video-card contact-video" aria-hidden="true">
+            <img src="assets/img/portfolio-hero-poster.jpg" alt="" loading="lazy">
+            <video class="ambient-video" muted loop playsinline preload="none" poster="assets/img/portfolio-hero-poster.jpg" data-src="assets/videos/portfolio-hero-tech.mp4"></video>
+          </div>
+          <strong>Rychlá poptávka</strong>
+          <p>Otevřete formulář, vyberte typ projektu a odešlete poptávku.</p>
+          <button class="btn dark" type="button" data-open-lead data-sale-source="contact_panel_sale">Nechat poptávku v akci</button>
+          <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          <a class="btn facebook" href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="floating-cta" id="floatingCta" aria-live="polite">
+    <button type="button" id="closeFloatingCta" aria-label="Zavřít">×</button>
+    <div>
+      <strong>Sleva 50 % ještě: <b data-sale-countdown>03:00:00</b></strong>
+      <span>Web v akci od 5 000 Kč.</span>
+    </div>
+    <button type="button" data-open-lead data-sale-source="sticky_sale_cta">Poptávka</button>
+    <button type="button" data-open-pricing>Ceník</button>
+  </aside>
+
+  <div class="modal" id="appModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-panel" id="modalPanel">
+      <button class="modal-close" type="button" data-close-modal aria-label="Zavřít">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="page-shell">
+      <span>Nikolaj Dev</span>
+      <a href="#top">Nahoru</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/site-categories.js?v=pricing-eur-1"></script>
+  <script src="assets/js/app.js?v=pricing-eur-1"></script>
+  <script src="assets/js/forminit-submit.js?v=forminit-safe-2"></script>
+</body>
+</html>
+
+
+

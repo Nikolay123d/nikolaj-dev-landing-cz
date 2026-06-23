@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eaf3ff"/>
+      <stop offset=".42" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#eef6ff" stop-opacity=".78"/>
+    </linearGradient>
+    <linearGradient id="blueGold" x1="0" x2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset=".62" stop-color="#06a6d8"/>
+      <stop offset="1" stop-color="#d79a35"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse">
+      <path d="M72 0H0v72" fill="none" stroke="#2563eb" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <g opacity=".8">
+    <rect width="1600" height="900" fill="url(#grid)">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-72 -72;0 0" dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <g filter="url(#glow)" opacity=".56">
+    <circle cx="190" cy="148" r="190" fill="#2563eb">
+      <animate attributeName="cx" values="160;230;160" dur="14s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1370" cy="142" r="230" fill="#d79a35">
+      <animate attributeName="cy" values="110;190;110" dur="16s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1040" cy="740" r="260" fill="#06a6d8">
+      <animate attributeName="cx" values="980;1090;980" dur="20s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g opacity=".46" stroke="url(#blueGold)" stroke-width="2" fill="none">
+    <path d="M80 650 C260 510 420 620 615 454 C790 305 960 390 1160 238 C1320 115 1430 156 1560 88">
+      <animate attributeName="stroke-dasharray" values="1 28;22 8;1 28" dur="9s" repeatCount="indefinite"/>
+    </path>
+    <path d="M-30 738 C188 604 330 690 520 560 C720 424 895 474 1086 350 C1300 210 1435 248 1630 160">
+      <animate attributeName="stroke-dasharray" values="18 12;1 30;18 12" dur="11s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(875 135)" opacity=".86">
+    <rect width="520" height="344" rx="28" fill="url(#panel)" stroke="#b7c8e6"/>
+    <rect x="26" y="26" width="468" height="42" rx="14" fill="#0f172a"/>
+    <circle cx="54" cy="47" r="6" fill="#f97316"/>
+    <circle cx="77" cy="47" r="6" fill="#d79a35"/>
+    <circle cx="100" cy="47" r="6" fill="#22c55e"/>
+    <rect x="36" y="100" width="215" height="20" rx="10" fill="#2563eb" opacity=".82">
+      <animate attributeName="width" values="180;250;180" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="36" y="142" width="350" height="14" rx="7" fill="#94a3b8" opacity=".72"/>
+    <rect x="36" y="172" width="300" height="14" rx="7" fill="#94a3b8" opacity=".48"/>
+    <rect x="36" y="224" width="126" height="46" rx="16" fill="#101827"/>
+    <rect x="184" y="224" width="126" height="46" rx="16" fill="#eaf2ff" stroke="#c5d6f0"/>
+    <g transform="translate(346 104)">
+      <rect width="112" height="180" rx="22" fill="#101827"/>
+      <rect x="12" y="18" width="88" height="144" rx="14" fill="#eaf3ff"/>
+      <rect x="26" y="42" width="62" height="10" rx="5" fill="#2563eb"/>
+      <rect x="26" y="70" width="48" height="8" rx="4" fill="#94a3b8"/>
+      <rect x="26" y="92" width="62" height="8" rx="4" fill="#94a3b8" opacity=".65"/>
+      <rect x="26" y="128" width="54" height="18" rx="9" fill="#d79a35"/>
+    </g>
+  </g>
+
+  <g transform="translate(1035 560)" opacity=".66">
+    <rect width="275" height="150" rx="24" fill="#ffffff" stroke="#bdd0eb"/>
+    <path d="M34 92 94 50l62 44 82-70" fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="stroke-dasharray" values="1 320;170 80;1 320" dur="6s" repeatCount="indefinite"/>
+    </path>
+    <rect x="32" y="112" width="74" height="10" rx="5" fill="#94a3b8"/>
+    <rect x="124" y="112" width="118" height="10" rx="5" fill="#94a3b8" opacity=".58"/>
+  </g>
+
+  <g opacity=".78">
+    <circle cx="270" cy="210" r="6" fill="#2563eb">
+      <animate attributeName="r" values="4;10;4" dur="3.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="690" cy="330" r="5" fill="#06a6d8">
+      <animate attributeName="r" values="3;9;3" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1210" cy="610" r="6" fill="#d79a35">
+      <animate attributeName="r" values="5;12;5" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

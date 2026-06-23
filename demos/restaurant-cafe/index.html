@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo web pro restauraci | Nikolaj Dev</title>
+<meta name="description" content="Demo landing page pro restauraci nebo kavárnu: menu, rezervace, galerie, otevírací doba, kontaktní tlačítka a mobilní design.">
+<meta property="og:title" content="Demo web pro restauraci / kavárnu">
+<meta property="og:description" content="Menu, reservation, gallery, opening hours and contact buttons for a modern restaurant website.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="../../assets/images/restaurant-cafe/hero-food.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#fbf4e8;
+  --paper:#fffaf2;
+  --paper2:#f4ead9;
+  --espresso:#20130e;
+  --coffee:#382119;
+  --wine:#6c1f2f;
+  --caramel:#c48138;
+  --gold:#d8ad66;
+  --olive:#53633d;
+  --muted:#7d6d5c;
+  --line:rgba(56,33,25,.16);
+  --shadow:0 18px 60px rgba(32,19,14,.16);
+  --r:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--cream);color:var(--espresso);font-family:Manrope,Arial,sans-serif;line-height:1.58;overflow-x:hidden;padding-bottom:74px}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
+.demo-bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:center;gap:10px;min-height:36px;padding:6px 12px;background:rgba(32,19,14,.92);color:#fff;border-bottom:1px solid rgba(216,173,102,.28);backdrop-filter:blur(12px);font-size:12px;font-weight:800}
+.demo-bar a{color:#ffe7be;text-decoration:none}.demo-bar .order{background:linear-gradient(135deg,var(--caramel),var(--wine));color:#fff;border:0;border-radius:999px;padding:6px 10px;text-decoration:none}
+.site-nav{position:sticky;top:36px;z-index:45;background:rgba(251,244,232,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+.nav-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:"Playfair Display",serif;font-size:27px;font-weight:800;text-decoration:none;color:var(--coffee)}.brand span{color:var(--caramel)}
+.nav-links{display:flex;align-items:center;gap:4px}.nav-links a{padding:9px 12px;border-radius:999px;text-decoration:none;color:var(--muted);font-size:14px;font-weight:800}.nav-links a:hover{background:#fff;color:var(--espresso)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:999px;padding:12px 18px;border:1px solid transparent;text-decoration:none;font-weight:900}
+.btn.primary{background:linear-gradient(135deg,var(--caramel),var(--wine));color:#fff;box-shadow:0 16px 36px rgba(108,31,47,.26)}
+.btn.secondary{background:#fff6e8;color:var(--coffee);border-color:rgba(196,129,56,.32)}
+.btn.dark{background:var(--espresso);color:#fff}.btn.full{width:100%}
+.hero{position:relative;min-height:calc(100svh - 36px);display:grid;align-items:end;overflow:hidden;background:var(--espresso);isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:0;background:#20130e}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.03)}
+.hero-media img{z-index:0}
+.hero-media img{animation:slowPan 18s ease-in-out infinite alternate}
+.hero-media video{z-index:1;opacity:0;transition:opacity .75s ease;will-change:opacity}
+.hero-media video.is-ready{opacity:1}
+.hero-media video.is-disabled{display:none}
+.hero-media::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(32,19,14,.86),rgba(32,19,14,.52) 48%,rgba(32,19,14,.18)),linear-gradient(0deg,rgba(32,19,14,.82),transparent 46%)}
+@keyframes slowPan{from{transform:scale(1.02)}to{transform:scale(1.1) translateX(-1.5%)}}
+.hero-content{position:relative;z-index:1;padding:116px 0 76px;color:#fff}
+.eyebrow{margin:0 0 12px;color:#ffdca8;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:900}
+h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.02;margin:0;color:inherit}
+h1{max-width:780px;font-size:clamp(42px,8vw,88px)}h2{font-size:clamp(32px,5vw,58px)}h3{font-size:25px}
+.hero p{max-width:680px;color:rgba(255,255,255,.84);font-size:clamp(17px,2vw,21px);margin:18px 0 26px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.chips span{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
+.info-strip{position:relative;z-index:2;margin-top:-34px}.info-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:rgba(255,250,242,.94);border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:var(--shadow)}
+.info-grid article{padding:14px;border-radius:16px;background:#fff}.info-grid span{display:block;color:var(--muted);font-size:12px;font-weight:800}.info-grid strong{display:block;margin-top:4px}
+.section{padding:76px 0}.split{display:grid;grid-template-columns:1fr .92fr;gap:36px;align-items:center}.lead{color:var(--muted);font-size:18px}.kicker{color:var(--caramel);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:12px;margin-bottom:10px}
+.media-card{position:relative;overflow:hidden;border-radius:var(--r);box-shadow:var(--shadow);background:var(--coffee);min-height:360px}.media-card img,.media-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.media-card img{z-index:0}.media-card::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,rgba(32,19,14,.5),transparent)}
+.atmosphere-video{min-height:410px}.atmosphere-video img{animation:slowPan 22s ease-in-out infinite alternate}.atmosphere-video video{z-index:1;opacity:0;transition:opacity .75s ease;will-change:opacity}.atmosphere-video video.is-ready{opacity:1}.atmosphere-video video.is-disabled{display:none}
+@media(prefers-reduced-motion:reduce){.hero-media img,.atmosphere-video img{animation:none}.hero-media video,.atmosphere-video video{display:none}}
+.feature-grid,.dish-grid,.special-grid,.trust-grid,.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature-grid article,.special-grid article,.trust-grid article,.faq-grid details{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 12px 36px rgba(32,19,14,.08)}
+.feature-grid{margin-top:22px}.feature-grid h3,.special-grid h3,.trust-grid h3{font-size:21px}.feature-grid p,.special-grid p,.trust-grid p,.faq-grid p{color:var(--muted);margin:8px 0 0}
+.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:28px}.section-head p{max-width:520px;color:var(--muted)}
+.dish-card{overflow:hidden;border-radius:22px;background:var(--paper);border:1px solid var(--line);box-shadow:0 16px 44px rgba(32,19,14,.1)}.dish-card img{width:100%;aspect-ratio:4/3;object-fit:cover}.dish-body{padding:18px}.dish-body h3{font-size:22px}.dish-body p{color:var(--muted);min-height:50px}.dish-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}.dish-meta span{background:#f1e2cc;color:var(--coffee);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900}.dish-meta strong{color:var(--wine)}
+.menu-board{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.menu-col{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px}.menu-item{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}.menu-item:last-child{border-bottom:0}.menu-item p{margin:4px 0 0;color:var(--muted);font-size:14px}.menu-note{margin-top:16px;color:var(--muted);font-size:14px}
+.booking{background:linear-gradient(135deg,var(--espresso),#3b1d17);color:#fff}.booking h2{color:#fff}.booking p{color:rgba(255,255,255,.72)}.booking-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:24px}.booking form{display:grid;gap:12px}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}input,select,textarea{width:100%;border:1px solid rgba(56,33,25,.16);border-radius:14px;background:#fffaf2;padding:13px;color:var(--espresso);outline:0}textarea{resize:vertical}.booking input,.booking select,.booking textarea{background:rgba(255,255,255,.95)}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:20px;box-shadow:0 14px 38px rgba(32,19,14,.12)}.gallery img:first-child{height:534px;grid-row:span 2}
+.location-card{display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.map-box{min-height:300px;border-radius:20px;background:linear-gradient(135deg,#ead8bd,#c48138);display:grid;place-items:center;text-align:center;color:#fff;padding:24px}.contact-list{display:grid;gap:10px;margin-top:18px}.contact-list a,.contact-list span{padding:13px;border:1px solid var(--line);border-radius:14px;background:#fff;text-decoration:none;color:var(--coffee);font-weight:800}
+.final-cta{background:var(--coffee);color:#fff}.final-card{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.final-card p{color:rgba(255,255,255,.76);max-width:760px}.final-actions{display:grid;gap:10px;min-width:230px}
+.template-pricing{background:#fffaf2}.template-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.template-price-card{display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:22px;border:1px solid var(--line);background:#fff;box-shadow:0 14px 38px rgba(32,19,14,.08)}.template-price-card.recommended{border-color:rgba(196,129,56,.42);background:linear-gradient(180deg,#fff,#fff3df)}.template-price-card.premium{background:linear-gradient(145deg,var(--espresso),#3b1d17);color:#fff;border-color:rgba(216,173,102,.24)}.template-price-card.premium p,.template-price-card.premium small{color:rgba(255,255,255,.76)}.template-price-card .badge{align-self:flex-start;padding:5px 9px;border-radius:999px;background:linear-gradient(135deg,var(--caramel),var(--gold));color:#22130d;font-size:12px;font-weight:900}.template-price-card strong{font-size:32px;line-height:1;color:var(--wine)}.template-price-card strong small{display:block;margin-top:5px;font-size:15px;color:var(--muted)}.template-price-card.premium strong{color:#fff}.template-price-card.premium strong small{color:rgba(255,255,255,.76)}.template-price-card h3{font-size:22px;color:inherit}.template-price-card p,.template-price-card small{margin:0;color:var(--muted);font-weight:750}.template-price-card .btn{margin-top:auto;width:100%}.template-cost-note{margin-top:16px;padding:18px;border-radius:18px;border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:750}.template-cost-note strong{color:var(--wine)}
+.bottom-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:60;display:none;grid-template-columns:repeat(4,1fr);gap:6px;background:rgba(32,19,14,.92);border:1px solid rgba(216,173,102,.25);border-radius:18px;padding:7px;backdrop-filter:blur(14px)}.bottom-nav a{color:#fff;text-decoration:none;text-align:center;font-size:12px;font-weight:900;padding:8px 4px;border-radius:12px}.bottom-nav a:hover{background:rgba(255,255,255,.1)}
+footer{padding:34px 0;background:var(--espresso);color:rgba(255,255,255,.68)}footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:900px){.nav-links{display:none}.split,.location-card,.final-card{grid-template-columns:1fr}.info-grid,.feature-grid,.dish-grid,.special-grid,.trust-grid,.faq-grid,.template-pricing-grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr 1fr}.gallery img:first-child{grid-column:1/-1;height:340px}.menu-board{grid-template-columns:1fr}}
+@media(max-width:640px){body{padding-bottom:82px}.demo-bar{justify-content:flex-start;overflow-x:auto;white-space:nowrap;min-height:34px;font-size:11px}.demo-bar .hide-sm{display:none}.site-nav{top:34px}.nav-inner{height:58px}.brand{font-size:23px}.hero{min-height:calc(100svh - 34px)}.hero-content{padding:94px 0 92px}.hero p{font-size:16px}.hero-actions .btn{width:100%}.info-strip{margin-top:0}.info-grid,.feature-grid,.dish-grid,.special-grid,.trust-grid,.faq-grid,.field-row,.template-pricing-grid{grid-template-columns:1fr}.section{padding:58px 0}.section-head{display:block}.media-card{min-height:300px}.gallery{grid-template-columns:1fr}.gallery img,.gallery img:first-child{height:260px}.final-actions{min-width:0}.bottom-nav{display:grid}}
+</style>
+</head>
+<body>
+  <div class="demo-bar">
+    <span>DEMO šablona restaurace</span>
+    <span class="hide-sm">·</span>
+    <a href="../../index.html#catalog">← Zpět</a>
+    <span>·</span>
+    <a class="order" href="#booking">Objednat podobný web</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Navigace Luma Bistro">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Luma <span>Bistro</span></a>
+      <div class="nav-links">
+        <a href="#menu">Menu</a>
+        <a href="#booking">Rezervace</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+      <a class="btn primary" href="#booking">Rezervovat</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="../../assets/images/restaurant-cafe/hero-food.jpg" alt="">
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="../../assets/images/restaurant-cafe/hero-food.jpg">
+          <source src="../../assets/videos/restaurant-cafe/hero-charring.webm" type="video/webm">
+        </video>
+      </div>
+      <div class="wrap hero-content">
+        <p class="eyebrow">Luma Bistro Prague</p>
+        <h1>Teplá kuchyně, sezónní jídla a útulné večery v centru Prahy</h1>
+        <p>Menu, rezervace, fotky jídel, kontakty a mapa - vše, co host potřebuje, aby si rychle vybral restauraci a nechal poptávku.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#booking">Rezervovat stůl</a>
+          <a class="btn secondary" href="#menu">Zobrazit menu</a>
+        </div>
+        <div class="chips">
+          <span>Praha</span><span>Online rezervace</span><span>Menu s cenami</span><span>Mobilní verze</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div class="wrap info-grid">
+        <article><span>Otevírací doba</span><strong>Po–Ne 10:00–22:00</strong></article>
+        <article><span>Lokalita</span><strong>Prague 1 / centrum</strong></article>
+        <article><span>Telefon</span><strong><a href="tel:+420777123456">+420 777 123 456</a></strong></article>
+        <article><span>Rezervace</span><strong>Odpovíme během dne</strong></article>
+        <article><span>Kuchyně</span><strong>Seasonal / brunch</strong></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Atmosféra</p>
+          <h2>Místo, kam se chcete vrátit</h2>
+          <p class="lead">Lokální suroviny, sezónní jídla, měkké večerní světlo a jasná rezervace. Takový web pomáhá hostovi vidět nejen menu, ale i atmosféru podniku.</p>
+          <div class="feature-grid">
+            <article><h3>Seasonal menu</h3><p>Jídla lze rychle měnit podle sezóny, oběda nebo speciální nabídky.</p></article>
+            <article><h3>Fresh ingredients</h3><p>Fotky a krátké popisy ukazují kvalitu bez dlouhých textů.</p></article>
+            <article><h3>Easy reservation</h3><p>Host hned vidí tlačítko rezervace, telefon a mapu.</p></article>
+          </div>
+        </div>
+        <div class="media-card atmosphere-video">
+          <img src="../../assets/images/restaurant-cafe/interior.jpg" alt="Teplý interiér restaurace" loading="lazy">
+          <video class="lazy-video" muted loop playsinline preload="none" poster="../../assets/images/restaurant-cafe/interior.jpg" data-src="../../assets/videos/restaurant-cafe/atmosphere-kitchen.webm"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="kicker">Menu</p><h2>Oblíbená jídla</h2></div>
+          <p>Demo menu lze nahradit reálnými jídly, cenami, fotkami a kategoriemi restaurace.</p>
+        </div>
+        <div class="dish-grid">
+          <article class="dish-card"><img src="../../assets/images/restaurant-cafe/dish-burrata.jpg" alt="Burrata with tomatoes" loading="lazy"><div class="dish-body"><h3>Burrata with tomatoes</h3><p>Krémová burrata, rajčata, zelený olej a křupavý chléb.</p><div class="dish-meta"><span>vegetarian</span><strong>245 Kč</strong></div></div></article>
+          <article class="dish-card"><img src="../../assets/images/restaurant-cafe/dish-pasta.jpg" alt="Truffle pasta" loading="lazy"><div class="dish-body"><h3>Truffle pasta</h3><p>Těstoviny s lanýžovým olejem, sýrem a jemnou smetanovou omáčkou.</p><div class="dish-meta"><span>signature</span><strong>345 Kč</strong></div></div></article>
+          <article class="dish-card"><img src="../../assets/images/restaurant-cafe/dish-seafood.jpg" alt="Seafood dish" loading="lazy"><div class="dish-body"><h3>Salmon with herbs</h3><p>Ryba, bylinky, sezónní zelenina a lehká omáčka.</p><div class="dish-meta"><span>gluten-free option</span><strong>385 Kč</strong></div></div></article>
+          <article class="dish-card"><img src="../../assets/images/restaurant-cafe/dish-dessert.jpg" alt="Chocolate fondant" loading="lazy"><div class="dish-body"><h3>Chocolate fondant</h3><p>Teplý čokoládový dezert s měkkým středem.</p><div class="dish-meta"><span>dessert</span><strong>185 Kč</strong></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="kicker">Celé menu</p><h2>Menu bez PDF pasti</h2></div>
+          <p>Host si může přečíst menu přímo na webu: rychle, pohodlně a bez stahování souboru.</p>
+        </div>
+        <div class="menu-board">
+          <div class="menu-col"><h3>Starters</h3><div class="menu-item"><div><strong>Beef tartare with toast</strong><p>Kapary, hořčice, čerstvý chléb.</p></div><strong>295 Kč</strong></div><div class="menu-item"><div><strong>Seasonal soup</strong><p>Denní krémová polévka.</p></div><strong>135 Kč</strong></div><div class="menu-item"><div><strong>Goat cheese salad</strong><p>Ořechy, jablko, med.</p></div><strong>225 Kč</strong></div></div>
+          <div class="menu-col"><h3>Main dishes</h3><div class="menu-item"><div><strong>Duck confit</strong><p>Brambory, omáčka demi-glace.</p></div><strong>395 Kč</strong></div><div class="menu-item"><div><strong>Truffle pasta</strong><p>Smetana, parmazán, bylinky.</p></div><strong>345 Kč</strong></div><div class="menu-item"><div><strong>Vegetable risotto</strong><p>Sezónní zelenina a sýr.</p></div><strong>285 Kč</strong></div></div>
+          <div class="menu-col"><h3>Desserts</h3><div class="menu-item"><div><strong>Chocolate fondant</strong><p>Zmrzlina a bobulové ovoce.</p></div><strong>185 Kč</strong></div><div class="menu-item"><div><strong>Lemon tart</strong><p>Krém, sníh a citronová kůra.</p></div><strong>165 Kč</strong></div></div>
+          <div class="menu-col"><h3>Drinks</h3><div class="menu-item"><div><strong>Homemade lemonade</strong><p>Citrus, máta, led.</p></div><strong>95 Kč</strong></div><div class="menu-item"><div><strong>Glass of house wine</strong><p>White / red / rose.</p></div><strong>125 Kč</strong></div></div>
+        </div>
+        <p class="menu-note">Demo content: položky, ceny a alergeny se upraví pro reálnou restauraci.</p>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Rezervace</p>
+          <h2>Rezervovat stůl</h2>
+          <p>Formulář je demonstrační, ale ukazuje, jak lze přijímat poptávky od hostů: jméno, kontakt, datum, čas a počet hostů.</p>
+          <div class="hero-actions">
+            <a class="btn secondary" href="tel:+420777123456">Zavolat</a>
+            <a class="btn secondary" href="https://t.me/pracehub" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+        <div class="booking-card">
+          <form action="https://forminit.com/f/kshbr37bfe4" method="POST">
+            <input type="hidden" name="selected_template" value="Demo web pro restauraci / kavárnu">
+            <input type="hidden" name="selected_package" value="">
+            <input type="hidden" name="package_price" value="">
+            <input type="hidden" name="source" value="restaurant-demo">
+            <select name="selected_package_visible" required>
+              <option value="">Vyberte balíček webu</option>
+              <option value="Start" data-price="10 000 Kč / ≈400 €">START — 10 000 Kč / ≈400 € — hotová demo šablona</option>
+              <option value="Plus" data-price="20 000 Kč / ≈800 €">PLUS — 20 000 Kč / ≈800 € — více bloků a úpravy</option>
+              <option value="Pro" data-price="od 30 000 Kč / od ≈1 200 €">PRO — od 30 000 Kč / od ≈1 200 € — pro reklamu a růst</option>
+            </select>
+            <input name="package_price_visible" placeholder="Cena balíčku" readonly>
+            <div class="field-row"><input name="name" placeholder="Jméno" required><input name="phone" placeholder="Telefon" required></div>
+            <input name="email" type="email" placeholder="Email">
+            <div class="field-row"><input name="date" type="date"><input name="time" type="time"></div>
+            <select name="guests"><option>2 hosté</option><option>3-4 hosté</option><option>5-8 hostů</option><option>Akce / větší společnost</option></select>
+            <textarea name="message" rows="4" placeholder="Komentář: příležitost, přání, alergie"></textarea>
+            <button class="btn primary full" type="submit">Odeslat poptávku</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section template-pricing" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="kicker">Cena webu</p><h2>Balíčky pro web restaurace</h2></div>
+          <p>Lze začít s hotovou demo šablonou, vyměnit menu, fotky a kontakty a potom web rozšiřovat pro reklamu.</p>
+        </div>
+        <div class="template-pricing-grid">
+          <article class="template-price-card">
+            <span class="badge">START</span><strong>10 000 Kč <small>≈400 €</small></strong><h3>Start Restaurace Site</h3>
+            <p>Menu, kontakty, rezervace, mobilní verze a základní struktura.</p>
+            <small>+ doména ~150–300 Kč / rok</small><small>+ hosting 0 Kč pro běžný landing page</small>
+            <a class="btn primary" href="#booking" data-package="Start" data-package-price="10 000 Kč / ≈400 €">Vybrat Start</a>
+          </article>
+          <article class="template-price-card recommended">
+            <span class="badge">Populární</span><strong>20 000 Kč <small>≈800 €</small></strong><h3>Restaurace Plus</h3>
+            <p>Více bloků, fotek, druhý jazyk, děkovací stránka a základní analytika.</p>
+            <small>+ doména ~150–300 Kč / rok</small><small>+ hosting 0 Kč pro běžný landing page</small>
+            <a class="btn primary" href="#booking" data-package="Plus" data-package-price="20 000 Kč / ≈800 €">Vybrat Plus</a>
+          </article>
+          <article class="template-price-card premium">
+            <span class="badge">PRO</span><strong>od 30 000 Kč <small>od ≈1 200 €</small></strong><h3>Restaurace Pro</h3>
+            <p>UTM, základ SEO, další sekce a příprava na reklamu.</p>
+            <small>+ doména ~150–300 Kč / rok</small><small>+ placené služby podle zadání</small>
+            <a class="btn primary" href="#booking" data-package="Pro" data-package-price="od 30 000 Kč / od ≈1 200 €">Probrat Pro</a>
+          </article>
+        </div>
+        <div class="template-cost-note"><strong>Minimální spuštění:</strong> START 10 000 Kč / ≈400 € + doména přibližně 150–300 Kč / rok + bezplatný hosting. U jednoduchého prezentačního webu může být měsíční hosting 0 Kč. Doména, placené formuláře, placený hosting, reklamní rozpočet, logo, profesionální fotky, překlady a složité funkce se platí zvlášť.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Nabídky</p><h2>Speciální formáty</h2></div><p>Web restaurace může prodávat nejen večeře, ale i akce, brunch, lunch menu a soukromé eventy.</p></div>
+        <div class="special-grid">
+          <article><h3>Business lunch</h3><p>Rychlé denní menu pro okolní kanceláře.</p><strong>od 185 Kč</strong></article>
+          <article><h3>Weekend brunch</h3><p>Samostatný blok pro víkendy, fotky a rezervace.</p><strong>podle menu</strong></article>
+          <article><h3>Private event</h3><p>Narozeniny, firemní akce a menší soukromé večeře.</p><strong>na poptávku</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Galerie</p><h2>Jídlo, interiér a nálada</h2></div><p>Pro reálného klienta sem přijdou skutečné fotky restaurace, jídel, týmu a servisu.</p></div>
+        <div class="gallery">
+          <img src="../../assets/images/restaurant-cafe/gallery-table.jpg" alt="Prostřený stůl" loading="lazy">
+          <img src="../../assets/images/restaurant-cafe/gallery-bar.jpg" alt="Bar a interiér" loading="lazy">
+          <img src="../../assets/images/restaurant-cafe/dish-pasta.jpg" alt="Těstoviny" loading="lazy">
+          <img src="../../assets/images/restaurant-cafe/dish-dessert.jpg" alt="Dezert" loading="lazy">
+          <img src="../../assets/images/restaurant-cafe/interior.jpg" alt="Interiér" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div><p class="kicker">Důvěra</p><h2>Co hosté chtějí rychle najít</h2></div><p>Demo poctivě ukazuje bloky, které hostovi pomáhají se rozhodnout: menu, fotky, adresa, otevírací doba a rezervace.</p></div>
+        <div class="trust-grid">
+          <article><h3>Menu s cenami</h3><p>Bez PDF jako jediného způsobu, jak zobrazit jídla.</p></article>
+          <article><h3>Fotky jídel</h3><p>Host vidí kuchyni ještě před voláním nebo rezervací.</p></article>
+          <article><h3>Adresa a otevírací doba</h3><p>Telefon, mapa a otevírací doba na jedné stránce.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap location-card">
+        <div>
+          <p class="kicker">Kontakt</p>
+          <h2>Luma Bistro Prague</h2>
+          <p class="lead">Demo address: Prague 1, near the river. Pro reálný projekt sem přijde přesná adresa, telefon, sociální sítě a mapa.</p>
+          <div class="contact-list">
+            <a href="tel:+420777123456">Zavolat: +420 777 123 456</a>
+            <a href="#booking">Rezervovat stůl</a>
+            <a href="https://t.me/pracehub" target="_blank" rel="noopener">Messenger / Telegram</a>
+            <span>Po–Ne 10:00–22:00</span>
+          </div>
+        </div>
+        <div class="map-box">
+          <div><h3>Mapa bez těžkého iframe</h3><p>Na reálném webu tlačítko otevře Google Maps.</p><a class="btn dark" href="https://maps.google.com/?q=Prague%201" target="_blank" rel="noopener">Otevřít mapu</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap faq-grid">
+        <details open><summary>Lze rezervovat stůl online?</summary><p>Ano, formulář může odesílat poptávku na e-mail nebo do CRM.</p></details>
+        <details><summary>Máte business lunch?</summary><p>Lze přidat samostatný blok lunch menu a měnit ho bez předělávání webu.</p></details>
+        <details><summary>Lze uspořádat akci?</summary><p>Ano, web může sbírat poptávky na narozeniny, bankety a firemní akce.</p></details>
+        <details><summary>Lze objednat web tohoto typu?</summary><p>Ano. Tuto demo šablonu lze upravit pro kavárnu, restauraci, bar nebo rozvoz jídla.</p></details>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="wrap final-card">
+        <div>
+          <p class="kicker">Nikolaj Dev template</p>
+          <h2>Chcete takový web pro svou restauraci?</h2>
+          <p>Tuto demo šablonu lze upravit pro kavárnu, restauraci, bar nebo rozvoz jídla: vyměnit menu, fotky, kontakty, styl, připojit rezervační formulář a web zveřejnit.</p>
+        </div>
+        <div class="final-actions">
+          <a class="btn primary" href="#booking">Objednat podobný web</a>
+          <a class="btn secondary" href="../../index.html#catalog">Vrátit se do portfolia</a>
+          <a class="btn secondary" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Rychlé akce">
+    <a href="#menu">Menu</a>
+    <a href="#booking">Stůl</a>
+    <a href="tel:+420777123456">Volání</a>
+    <a href="#contact">Mapa</a>
+  </nav>
+
+  <footer>
+    <div class="wrap">
+      <span>Luma Bistro Prague · Demo template</span>
+      <span>Menu · rezervace · galerie · kontakt</span>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const ua = navigator.userAgent || "";
+      const inAppBrowser = /FBAN|FBAV|Instagram|Messenger/i.test(ua);
+
+      const startVideo = (video) => {
+        if (!video || reduceMotion) {
+          video?.classList.add("is-disabled");
+          return;
+        }
+
+        video.addEventListener("canplay", () => {
+          video.classList.add("is-ready");
+        }, { once: true });
+
+        const play = () => video.play().catch(() => {
+          video.classList.remove("is-ready");
+        });
+
+        if (window.requestIdleCallback && !inAppBrowser) {
+          window.requestIdleCallback(play, { timeout: 1200 });
+        } else {
+          window.setTimeout(play, inAppBrowser ? 1200 : 500);
+        }
+      };
+
+      startVideo(document.querySelector(".hero-video"));
+
+      document.querySelectorAll(".lazy-video").forEach((video) => {
+        const src = video.dataset.src;
+        if (!src || reduceMotion) {
+          video.classList.add("is-disabled");
+          return;
+        }
+
+        const load = () => {
+          if (video.dataset.loaded) return;
+          video.dataset.loaded = "true";
+          const source = document.createElement("source");
+          source.src = src;
+          source.type = "video/webm";
+          video.appendChild(source);
+          startVideo(video);
+          video.load();
+        };
+
+        if (!("IntersectionObserver" in window)) {
+          window.setTimeout(load, 1400);
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              load();
+              observer.disconnect();
+            }
+          });
+        }, { rootMargin: "280px 0px" });
+
+        observer.observe(video);
+      });
+
+      const bookingForm = document.querySelector("#booking form");
+      const packageSelect = bookingForm?.querySelector("[name='selected_package_visible']");
+      const packagePriceVisible = bookingForm?.querySelector("[name='package_price_visible']");
+      const syncPackage = (packageName, packagePrice) => {
+        if (!bookingForm) return;
+        bookingForm.querySelector("[name='selected_package']").value = packageName || "";
+        bookingForm.querySelector("[name='package_price']").value = packagePrice || "";
+        if (packageSelect) packageSelect.value = packageName || "";
+        if (packagePriceVisible) packagePriceVisible.value = packagePrice || "";
+      };
+      packageSelect?.addEventListener("change", () => {
+        const option = packageSelect.selectedOptions[0];
+        syncPackage(packageSelect.value, option?.dataset.price || "");
+      });
+      bookingForm?.addEventListener("submit", () => {
+        const option = packageSelect?.selectedOptions[0];
+        syncPackage(packageSelect?.value || "", option?.dataset.price || packagePriceVisible?.value || "");
+      });
+      document.querySelectorAll("[data-package]").forEach((link) => {
+        link.addEventListener("click", () => {
+          syncPackage(link.dataset.package || "", link.dataset.packagePrice || "");
+        });
+      });
+    })();
+  </script>
+  <script src="../../assets/js/demo-sale.js"></script>
+  <script src="../../assets/js/forminit-submit.js?v=forminit-safe-2"></script>
+</body>
+</html>
+
+
+

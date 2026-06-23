@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Poptávka odeslána - Nikolaj Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=forminit-existing-form-1">
+</head>
+<body>
+  <main class="hero" id="thanks">
+    <img class="hero-poster" src="assets/img/portfolio-hero-poster.jpg" alt="" aria-hidden="true" loading="eager" decoding="sync">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="page-shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Poptávka odeslána</p>
+        <h1>Děkuji, poptávku jsem obdržel</h1>
+        <p class="hero-sub">Podívám se na zadání a ozvu se vám na uvedený kontakt. Pokud je věc urgentní, můžete napsat také e-mailem.</p>
+        <div class="sale-form-notice" id="saleThanks" hidden>
+          <strong>Poptávka se slevou 50 % byla přijata.</strong>
+          <span>Podívám se na zadání a ozvu se vám na uvedený kontakt.</span>
+          <span>Pokud projekt odpovídá hotové demo šabloně, pokusím se vám akční cenu potvrdit.</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="index.html#work">Zpět k ukázkám</a>
+          <a class="btn ghost" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
+          <a class="btn ghost" href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn dark" href="mailto:nikyrchenko71@gmail.com">Napsat e-mail</a>
+        </div>
+        <div class="trust-row" aria-label="Kontakt">
+          <span>nikyrchenko71@gmail.com</span>
+          <span>Telegram: @pracehub</span>
+          <span>Facebook / Messenger</span>
+          <span>Prague / remote</span>
+        </div>
+      </div>
+      <aside class="hero-showcase" aria-label="Co dál">
+        <div class="showcase-top">
+          <span>Další krok</span>
+          <strong>odpověď</strong>
+        </div>
+        <ul>
+          <li>zkontroluji zadání a vybranou šablonu;</li>
+          <li>upřesním termín, rozpočet a materiály;</li>
+          <li>navrhnu jasný první krok.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+  <script>
+    const rawSaleLead = sessionStorage.getItem("nikolaj_last_sale_lead");
+    const saleBox = document.querySelector("#saleThanks");
+    if (rawSaleLead && saleBox) {
+      try {
+        const lead = JSON.parse(rawSaleLead);
+        const isActiveSale = lead.promo_code === "SALE50_3H" && lead.promo_status !== "EXPIRED";
+        if (isActiveSale) {
+          const rows = [
+            lead.selected_package ? `Balíček: ${lead.selected_package}` : "",
+            lead.selected_template ? `Demo: ${lead.selected_template}` : "",
+            lead.promo_code ? `Promo: ${lead.promo_code}` : "",
+            lead.discount_price ? `Akční cena: ${lead.discount_price}` : ""
+          ].filter(Boolean);
+          rows.forEach((text) => {
+            const item = document.createElement("span");
+            item.textContent = text;
+            saleBox.appendChild(item);
+          });
+          saleBox.hidden = false;
+        } else {
+          sessionStorage.removeItem("nikolaj_last_sale_lead");
+        }
+      } catch (error) {}
+    }
+  </script>
+</body>
+</html>
+
+
+

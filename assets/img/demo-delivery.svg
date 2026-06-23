@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title">
+  <title id="title">Local delivery demo concept</title>
+  <rect width="900" height="560" rx="30" fill="#07162a"/>
+  <rect x="60" y="70" width="780" height="420" rx="28" fill="#0d1020" stroke="#26344f"/>
+  <path d="M205 218h230M205 280h180M205 352h230" stroke="#e8eaf6" stroke-width="22" stroke-linecap="round"/>
+  <rect x="205" y="402" width="150" height="46" rx="23" fill="#7c5cff"/>
+  <path d="M575 340h185l32-82h-88l-36-52H575v134Z" fill="none" stroke="#1a8fff" stroke-width="18" stroke-linejoin="round"/>
+  <circle cx="615" cy="370" r="28" fill="#ff7b00"/>
+  <circle cx="745" cy="370" r="28" fill="#ff7b00"/>
+</svg>

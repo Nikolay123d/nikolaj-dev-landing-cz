@@ -1,0 +1,31 @@
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+dist/
+build/
+.firebase/
+.firebaserc
+firebase-debug.log
+serviceAccount*.json
+*.key
+*.pem
+.chrome-github/
+
+# Local old draft / handoff artifacts
+майо портфоліо.html
+NIKOLAJ_LANDING_V1_REPORT.txt
+docs/*.txt
+docs/screenshots/
+tools/
+
+# Superseded local placeholder previews
+assets/img/pracehub-preview.svg
+assets/img/argus-*
+assets/img/argus-control-preview.svg
+assets/img/argus-guardian.svg
+assets/img/demo-repair.svg
