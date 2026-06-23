@@ -4,7 +4,7 @@ Czech version of the Nikolaj Dev landing page and demo template portfolio.
 
 ## About
 
-This repository contains a static Czech sales website for website templates and landing pages. The site presents ready demo templates, service packages, pricing, contact options and a Forminit lead form.
+This repository contains a static Czech sales website for website templates and landing pages. The site presents ready demo templates, service packages, pricing, contact options and a Web3Forms lead form.
 
 ## What The Site Sells
 
@@ -58,7 +58,7 @@ The sale countdown is handled in JavaScript and expires after three hours from t
 - JavaScript
 - Responsive design
 - Local optimized images and videos
-- Forminit lead form endpoint
+- Web3Forms lead form endpoint
 - GitHub Pages-ready static structure
 
 ## Local Run
@@ -85,13 +85,13 @@ Telegram: [@pracehub](https://t.me/pracehub)
 
 Facebook: [Facebook / Messenger](https://www.facebook.com/share/18hdnUyhLG/)
 
-The form submits to Forminit endpoint:
+The form submits to Web3Forms endpoint:
 
 ```text
-https://forminit.com/f/kshbr37bfe4
+https://api.web3forms.com/submit
 ```
 
-For this Czech project, the Forminit redirect should point to:
+For this Czech project, the Web3Forms redirect should point to:
 
 ```text
 https://nikolay123d.github.io/nikolaj-dev-landing-cz/thank-you.html

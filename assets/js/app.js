@@ -699,7 +699,7 @@ function buildLeadModal(projectOrPlan = "") {
       <p>Poptávka se odešle na e-mail Nikolaje. Můžete také napsat přímo na Telegram @pracehub nebo Facebook.</p>
     </div>
     ${saleNote}
-    <form class="lead-form" id="leadForm" action="https://forminit.com/f/kshbr37bfe4" method="POST">
+    <form class="lead-form" id="leadForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="selected_template" value="${selected}">
       <input type="hidden" name="selected_package" value="${selectedPackage}">
       <input type="hidden" name="package_price" value="${packagePrice}">

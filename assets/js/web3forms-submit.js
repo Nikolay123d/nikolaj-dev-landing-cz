@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  const FORMINIT_ENDPOINT = "https://forminit.com/f/kshbr37bfe4";
+  const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+  const WEB3FORMS_ACCESS_KEY = "ac5ffe92-57e4-41fb-a905-3dc1c154cd2e";
   const SALE_STORAGE_KEY = "nikolaj_sale50_started_at";
   const SALE_DURATION_MS = 3 * 60 * 60 * 1000;
   const THANK_YOU_FILE = "thank-you.html";
@@ -51,22 +52,23 @@
     return `${hours}:${minutes}:${seconds}`;
   }
 
+  function selectedPackageData(form) {
+    return {
+      selectedPackage: value(form, ["selected_package", "selected_package_visible"]),
+      packagePrice: value(form, ["package_price", "package_price_visible"]),
+      regularPrice: value(form, ["regular_price"]),
+      discountPrice: value(form, ["discount_price"])
+    };
+  }
+
   function appendIf(formData, name, val) {
     const cleaned = String(val || "").trim();
     if (cleaned) formData.append(name, cleaned);
   }
 
-  function selectedPackageData(form) {
-    const selectedPackage = value(form, ["selected_package", "selected_package_visible"]);
-    const packagePrice = value(form, ["package_price", "package_price_visible"]);
-    const regularPrice = value(form, ["regular_price"]);
-    const discountPrice = value(form, ["discount_price"]);
-    return { selectedPackage, packagePrice, regularPrice, discountPrice };
-  }
-
   function buildMessage(form, meta) {
     const originalMessage = value(form, ["message", "fi-text-message"]);
-    if (/SALE 50%|Poptávka bez aktivní akce|Běžná poptávka|Normal request/i.test(originalMessage)) {
+    if (/SALE 50%|Bez aktivní akce|Běžná poptávka|Normal request/i.test(originalMessage)) {
       return originalMessage;
     }
     const lines = [originalMessage];
@@ -78,6 +80,7 @@
         `Balíček: ${meta.selectedPackage || "nevybráno"}`,
         `Běžná cena: ${meta.regularPrice || "neuvedeno"}`,
         `Akční cena: ${meta.discountPrice || meta.packagePrice || "neuvedeno"}`,
+        `Šablona: ${meta.selectedTemplate || "neuvedeno"}`,
         `Zbývající čas: ${meta.saleRemaining || "neuvedeno"}`,
         `Zdroj tlačítka: ${meta.sourceCta || "form_submit"}`
       );
@@ -87,74 +90,81 @@
         "Běžná poptávka",
         `Balíček: ${meta.selectedPackage || "nevybráno"}`,
         `Cena balíčku: ${meta.packagePrice || meta.regularPrice || "neuvedeno"}`,
+        `Šablona: ${meta.selectedTemplate || "neuvedeno"}`,
         `Zdroj tlačítka: ${meta.sourceCta || "form_submit"}`
       );
     }
     return lines.join("\n").trim();
   }
 
-  function buildForminitPayload(form) {
+  function buildWeb3FormsPayload(form) {
     const state = saleState();
     const pkg = selectedPackageData(form);
     const rawPromoStatus = value(form, ["promo_status"]);
     const promoStatus = rawPromoStatus === "ACTIVE" && state.active
       ? "ACTIVE"
       : (state.expired || rawPromoStatus === "EXPIRED" ? "EXPIRED" : "");
-    const promoCode = promoStatus === "ACTIVE" ? (value(form, ["promo_code"]) || "SALE50_3H") : "";
-    const discountPercent = promoStatus === "ACTIVE" ? (value(form, ["discount_percent"]) || "50") : "";
-    const saleStartedAt = promoStatus === "ACTIVE" ? (value(form, ["sale_started_at"]) || new Date(state.startedAt).toISOString()) : "";
-    const saleExpiresAt = promoStatus === "ACTIVE" ? (value(form, ["sale_expires_at"]) || new Date(state.expiresAt).toISOString()) : "";
-    const saleRemaining = promoStatus === "ACTIVE" ? (value(form, ["sale_remaining"]) || formatRemaining(state.remainingMs)) : "";
     const meta = {
-      promoCode,
+      promoCode: promoStatus === "ACTIVE" ? (value(form, ["promo_code"]) || "SALE50_3H") : "",
       promoStatus,
       promoLabel: promoStatus === "ACTIVE" ? (value(form, ["promo_label"]) || "Sleva 50 % / 3 hodiny") : "",
-      discountPercent,
+      discountPercent: promoStatus === "ACTIVE" ? (value(form, ["discount_percent"]) || "50") : "",
       selectedPackage: pkg.selectedPackage,
       selectedTemplate: value(form, ["selected_template", "selected_template_visible"]),
       packagePrice: pkg.packagePrice,
       regularPrice: pkg.regularPrice,
       discountPrice: promoStatus === "ACTIVE" ? pkg.discountPrice : "",
-      saleStartedAt,
-      saleExpiresAt,
-      saleRemaining,
+      saleStartedAt: promoStatus === "ACTIVE" ? (value(form, ["sale_started_at"]) || new Date(state.startedAt).toISOString()) : "",
+      saleExpiresAt: promoStatus === "ACTIVE" ? (value(form, ["sale_expires_at"]) || new Date(state.expiresAt).toISOString()) : "",
+      saleRemaining: promoStatus === "ACTIVE" ? (value(form, ["sale_remaining"]) || formatRemaining(state.remainingMs)) : "",
       sourceCta: value(form, ["source_cta"]) || "form_submit"
     };
 
+    const fullName = value(form, ["name", "fi-sender-fullName"]);
+    const email = value(form, ["email", "fi-sender-email"]);
+    const phone = value(form, ["phone", "fi-sender-phone", "fi-text-phone"]);
+    const businessType = value(form, ["business_type", "company", "fi-sender-company"]);
+
     const formData = new FormData();
-    appendIf(formData, "fi-sender-fullName", value(form, ["name", "fi-sender-fullName"]));
-    appendIf(formData, "fi-sender-email", value(form, ["email", "fi-sender-email"]));
-    appendIf(formData, "fi-sender-phone", value(form, ["phone", "fi-sender-phone", "fi-text-phone"]));
-    appendIf(formData, "fi-sender-company", value(form, ["business_type", "company", "fi-sender-company"]));
-    appendIf(formData, "fi-text-message", buildMessage(form, meta));
-    appendIf(formData, "fi-text-telegramWhatsapp", value(form, ["telegram_whatsapp"]));
-    appendIf(formData, "fi-text-businessType", value(form, ["business_type"]));
-    appendIf(formData, "fi-text-projectType", value(form, ["project_type"]));
-    appendIf(formData, "fi-text-budget", value(form, ["budget"]));
-    appendIf(formData, "fi-text-timeline", value(form, ["timeline"]));
-    appendIf(formData, "fi-text-promoCode", meta.promoCode);
-    appendIf(formData, "fi-text-promoStatus", meta.promoStatus);
-    appendIf(formData, "fi-text-promoLabel", meta.promoLabel);
-    appendIf(formData, "fi-text-discountPercent", meta.discountPercent);
-    appendIf(formData, "fi-text-selectedPackage", meta.selectedPackage);
-    appendIf(formData, "fi-text-selectedTemplate", meta.selectedTemplate);
-    appendIf(formData, "fi-text-packagePrice", meta.packagePrice);
-    appendIf(formData, "fi-text-regularPrice", meta.regularPrice);
-    appendIf(formData, "fi-text-discountPrice", meta.discountPrice);
-    appendIf(formData, "fi-text-saleStartedAt", meta.saleStartedAt);
-    appendIf(formData, "fi-text-saleExpiresAt", meta.saleExpiresAt);
-    appendIf(formData, "fi-text-saleRemaining", meta.saleRemaining);
-    appendIf(formData, "fi-text-sourceCta", meta.sourceCta);
-    appendIf(formData, "fi-text-pageUrl", window.location.href);
-    appendIf(formData, "fi-text-userAgent", navigator.userAgent || "");
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "CZ web poptavka - Nikolaj Dev");
+    formData.append("from_name", "Nikolaj Dev CZ Landing");
+    formData.append("redirect", rootThankYouUrl());
+
+    appendIf(formData, "name", fullName);
+    appendIf(formData, "email", email);
+    appendIf(formData, "phone", phone);
+    appendIf(formData, "telegram_whatsapp", value(form, ["telegram_whatsapp"]));
+    appendIf(formData, "business_type", businessType);
+    appendIf(formData, "project_type", value(form, ["project_type"]));
+    appendIf(formData, "budget", value(form, ["budget"]));
+    appendIf(formData, "timeline", value(form, ["timeline"]));
+    appendIf(formData, "message", buildMessage(form, meta));
+
+    appendIf(formData, "promo_code", meta.promoCode);
+    appendIf(formData, "promo_status", meta.promoStatus);
+    appendIf(formData, "promo_label", meta.promoLabel);
+    appendIf(formData, "discount_percent", meta.discountPercent);
+    appendIf(formData, "selected_package", meta.selectedPackage);
+    appendIf(formData, "selected_template", meta.selectedTemplate);
+    appendIf(formData, "package_price", meta.packagePrice);
+    appendIf(formData, "regular_price", meta.regularPrice);
+    appendIf(formData, "discount_price", meta.discountPrice);
+    appendIf(formData, "sale_started_at", meta.saleStartedAt);
+    appendIf(formData, "sale_expires_at", meta.saleExpiresAt);
+    appendIf(formData, "sale_remaining", meta.saleRemaining);
+    appendIf(formData, "source_cta", meta.sourceCta);
+    appendIf(formData, "page_url", window.location.href);
+    appendIf(formData, "user_agent", navigator.userAgent || "");
+
     return { formData, meta };
   }
 
   function showFormError(form, message) {
-    let note = form.querySelector("[data-forminit-error]");
+    let note = form.querySelector("[data-web3forms-error]");
     if (!note) {
       note = document.createElement("div");
-      note.dataset.forminitError = "1";
+      note.dataset.web3formsError = "1";
       note.style.cssText = "margin-top:12px;padding:12px;border-radius:12px;background:#fff1f2;color:#9f1239;font-weight:800;";
       form.appendChild(note);
     }
@@ -173,24 +183,8 @@
     }
   }
 
-  function submitNativeFallback(cleanFormData) {
-    const tempForm = document.createElement("form");
-    tempForm.method = "POST";
-    tempForm.action = FORMINIT_ENDPOINT;
-    tempForm.style.display = "none";
-    for (const [name, val] of cleanFormData.entries()) {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = name;
-      input.value = val;
-      tempForm.appendChild(input);
-    }
-    document.body.appendChild(tempForm);
-    tempForm.submit();
-  }
-
-  async function submitForminit(form, submitter) {
-    const { formData, meta } = buildForminitPayload(form);
+  async function submitWeb3Forms(form, submitter) {
+    const { formData, meta } = buildWeb3FormsPayload(form);
     if (meta.promoStatus === "ACTIVE") {
       sessionStorage.setItem("nikolaj_last_sale_lead", JSON.stringify({
         promo_code: meta.promoCode,
@@ -206,38 +200,27 @@
 
     setSubmitting(submitter, true);
     try {
-      const response = await fetch(form.action || FORMINIT_ENDPOINT, {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         body: formData
       });
-      if (response.redirected || /thank-you\.html/i.test(response.url || "")) {
-        window.location.href = rootThankYouUrl();
-        return;
-      }
-      const text = await response.clone().text().catch(() => "");
-      if (!response.ok || /block key|invalid field|invalid block|field name|forminit[^<]{0,80}(reject|declin|denied)/i.test(text)) {
-        throw new Error(text.slice(0, 220) || `Forminit response ${response.status}`);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || data.success === false) {
+        throw new Error(data.message || `Web3Forms response ${response.status}`);
       }
       window.location.href = rootThankYouUrl();
     } catch (error) {
-      if (/Failed to fetch|NetworkError|Load failed/i.test(String(error && error.message))) {
-        submitNativeFallback(formData);
-        return;
-      }
       setSubmitting(submitter, false);
-      showFormError(form, "Forminit poptávku odmítl. Zkontrolujte pole a zkuste to znovu.");
-      console.error("Forminit submission failed", error);
+      showFormError(form, "Formulář se nepodařilo odeslat. Zkontrolujte pole a zkuste to znovu.");
+      console.error("Web3Forms submission failed", error);
     }
   }
 
   document.addEventListener("submit", function (event) {
     const form = event.target;
     if (!(form instanceof HTMLFormElement)) return;
-    if (!/forminit\.com\/f\//i.test(form.action || "")) return;
+    if (!/web3forms\.com\/submit/i.test(form.action || "")) return;
     event.preventDefault();
-    submitForminit(form, event.submitter || form.querySelector("[type='submit']"));
+    submitWeb3Forms(form, event.submitter || form.querySelector("[type='submit']"));
   });
 })();
-
-
-

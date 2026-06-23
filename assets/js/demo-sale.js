@@ -158,7 +158,7 @@
   }
 
   function enhanceForms() {
-    document.querySelectorAll("form[action*='forminit.com']").forEach((form) => {
+    document.querySelectorAll("form[action*='web3forms.com']").forEach((form) => {
       fillSaleFields(form, "demo_form_sale");
       const active = isSaleActive();
       const existingNote = form.querySelector(".demo-sale-form-note");
@@ -253,7 +253,7 @@
         const target = document.querySelector("#order, #request, #contact, form");
         if (!target) return;
         event.preventDefault();
-        document.querySelectorAll("form[action*='forminit.com']").forEach((form) => setFormPackage(form, packageName, button.dataset.sourceCta));
+        document.querySelectorAll("form[action*='web3forms.com']").forEach((form) => setFormPackage(form, packageName, button.dataset.sourceCta));
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       button.dataset.salePrepared = "1";
@@ -300,7 +300,7 @@
     popup.querySelector("[aria-label='Zavřít']").addEventListener("click", () => popup.remove());
     popup.querySelector(".btn.ghost").addEventListener("click", () => popup.remove());
     popup.querySelector(".btn.primary").addEventListener("click", () => {
-      document.querySelectorAll("form[action*='forminit.com']").forEach((form) => fillSaleFields(form, "demo_mid_scroll_sale_popup"));
+      document.querySelectorAll("form[action*='web3forms.com']").forEach((form) => fillSaleFields(form, "demo_mid_scroll_sale_popup"));
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       popup.remove();
     });

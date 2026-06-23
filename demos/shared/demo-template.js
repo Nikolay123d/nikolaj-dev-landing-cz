@@ -371,7 +371,7 @@
           </div>
         </div>
         <div class="panel">
-          <form action="https://forminit.com/f/kshbr37bfe4" method="POST">
+          <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="selected_template" value="${cfg.templateName}">
             <input type="hidden" name="selected_package" value="">
             <input type="hidden" name="package_price" value="">
@@ -620,10 +620,10 @@
     }
   });
 
-  if (!document.querySelector("script[data-forminit-safe-submit]")) {
+  if (!document.querySelector("script[data-web3forms-safe-submit]")) {
     const safeSubmitScript = document.createElement("script");
-    safeSubmitScript.src = "../../assets/js/forminit-submit.js?v=forminit-safe-2";
-    safeSubmitScript.dataset.forminitSafeSubmit = "1";
+    safeSubmitScript.src = "../../assets/js/web3forms-submit.js?v=web3forms-1";
+    safeSubmitScript.dataset.web3formsSafeSubmit = "1";
     document.body.appendChild(safeSubmitScript);
   }
 
