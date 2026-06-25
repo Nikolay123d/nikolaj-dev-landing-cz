@@ -735,6 +735,25 @@ main{
 .site-footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.72);backdrop-filter:blur(10px)}.site-footer .page-shell{display:flex;justify-content:space-between;color:var(--muted)}
 
 @media (max-width:980px){
+  .site-page-wallpaper{display:none}
+  main{background:#f6f8fc}
+  .hero-content-band{
+    background:
+      linear-gradient(90deg,rgba(7,17,31,.68),rgba(15,23,42,.48) 52%,rgba(7,17,31,.7)),
+      linear-gradient(180deg,rgba(7,17,31,.26),rgba(7,17,31,.42)),
+      url("../img/lower-text-wallpaper-poster.jpg") center/cover no-repeat,
+      #07111f;
+    min-height:auto;
+  }
+  .section:not(.sale-campaign-section),
+  .featured-demo-section,
+  .pricing-strip{
+    background:#f8fbff;
+    backdrop-filter:none;
+    transform:none;
+    backface-visibility:visible;
+    contain:none;
+  }
   .desktop-nav,.header-cta{display:none}.menu-toggle{display:block}
   .hero-grid,.section-head.split,.contact-grid,.detail-layout{grid-template-columns:1fr}
   .sale-side-ribbon{display:none}
@@ -747,28 +766,36 @@ main{
 }
 @media (max-width:640px){
   body{background:#f6f8fc}
-  .site-wallpaper-video.is-ready{opacity:.42}
-  .site-page-wallpaper-overlay{
+  .site-page-wallpaper{
+    display:none;
+  }
+  main{
+    background:#f6f8fc;
+  }
+  .hero-content-band{
     background:
-      linear-gradient(90deg,rgba(7,17,31,.58),rgba(15,23,42,.38) 48%,rgba(7,17,31,.58)),
-      linear-gradient(180deg,rgba(7,17,31,.22),rgba(7,17,31,.54));
+      linear-gradient(90deg,rgba(7,17,31,.68),rgba(15,23,42,.48) 52%,rgba(7,17,31,.7)),
+      linear-gradient(180deg,rgba(7,17,31,.26),rgba(7,17,31,.42)),
+      url("../img/lower-text-wallpaper-poster.jpg") center/cover no-repeat,
+      #07111f;
+    transform:none;
+    backface-visibility:visible;
   }
   .section:not(.sale-campaign-section),
   .featured-demo-section,
   .pricing-strip{
-    background:
-      linear-gradient(180deg,rgba(249,251,255,.98),rgba(238,245,255,.97)),
-      radial-gradient(circle at 18% 10%,rgba(37,99,235,.08),transparent 20rem);
-    background-color:#f8fbff;
+    background:#f8fbff;
     backdrop-filter:none;
+    transform:none;
+    backface-visibility:visible;
+    contain:none;
   }
   .catalog-section,
   .work-section,
   .principles-section,
   .quick-pricing-section,
   .value-section{
-    background:linear-gradient(180deg,rgba(249,251,255,.98),rgba(238,245,255,.97));
-    background-color:#f8fbff;
+    background:#f8fbff;
   }
   .site-footer{backdrop-filter:none;background:rgba(255,255,255,.96)}
   html{scroll-padding-top:72px}.site-header{height:64px}.mobile-menu{top:64px}
@@ -777,7 +804,7 @@ main{
   .preloader-card strong{font-size:38px}
   .page-shell{width:calc(100% - 28px);max-width:100%;overflow-wrap:anywhere}
   .hero-video-stage{height:clamp(280px,48vh,430px)}
-  .hero-content-band{min-height:150vh;padding:34px 0 54px}
+  .hero-content-band{min-height:auto;padding:34px 0 54px}
   .hero h1{font-size:clamp(28px,8vw,32px);line-height:1.08}
   .hero-sub{font-size:17px;line-height:1.48}
   .hero-grid{width:100%;max-width:100%}
