@@ -69,6 +69,24 @@ const projects = [
     includes: ["Úprava podle značky", "Výměna menu a fotek", "Poptávkový formulář", "Tlačítka Telegram/Facebook/volání", "Příprava ke zveřejnění"]
   },
   {
+    id: "tedition-eu",
+    group: "template",
+    title: "Tedition EU Service Hub Landing",
+    label: "Nový projekt",
+    category: "Firemní služby / dokumenty / projekty",
+    image: "assets/images/tedition-eu/tedition-eu-preview.webp",
+    gallery: ["assets/images/tedition-eu/tedition-eu-preview.webp"],
+    demoUrl: "https://nikolay123d.github.io/tedition-eu-landing-cz/",
+    externalDemo: true,
+    highlight: "client-project",
+    price: "START 10 000 Kč / ≈400 €",
+    timeline: "3–7 dní",
+    short: "Prémiový firemní landing pro český service hub: práce, dokumenty, S.R.O / živnost / A1, faktury, DPH a projektová podpora.",
+    forWhom: "Pro firmy a službové projekty, které potřebují seriózně ukázat nabídku, vysvětlit postup a sbírat poptávky přes Facebook nebo formulář.",
+    features: ["Corporate hero video", "Facebook CTA", "Poptávkový formulář", "Popup po scrollu", "Mobilní verze"],
+    includes: ["Úprava podle značky", "Výměna textů/fotek/kontaktů", "Facebook kontakt", "Poptávkový formulář", "Příprava ke zveřejnění"]
+  },
+  {
     id: "restaurant-cafe",
     group: "template",
     title: "Web pro restauraci / kavárnu",
@@ -183,7 +201,7 @@ const projects = [
 ];
 
 const projectIds = new Set(projects.map((project) => project.id));
-const categoryProjectSkips = new Set(["bakery-cafe", "restaurant-cafe", "renovation", "tours-guides", "delivery-fleet", "beauty-salon"]);
+const categoryProjectSkips = new Set(["bakery-cafe", "tedition-eu", "restaurant-cafe", "renovation", "tours-guides", "delivery-fleet", "beauty-salon"]);
 siteCategories.forEach((category) => {
   if (!category.demoUrl || projectIds.has(category.id) || categoryProjectSkips.has(category.id)) return;
   projects.push({
@@ -1005,8 +1023,10 @@ function renderCategories(filter = "all") {
   const saleActive = isSaleActive();
   const startPlan = pricingPlans.find((item) => item.key === "Start");
   const list = filter === "all" ? siteCategories : siteCategories.filter((category) => category.filter === filter);
-  categoryGrid.innerHTML = list.map((category) => `
-    <article class="category-card">
+  categoryGrid.innerHTML = list.map((category) => {
+    const isExternalDemo = category.externalDemo || category.demoUrl?.startsWith("http");
+    return `
+    <article class="category-card ${category.highlight ? `category-card--${category.highlight}` : ""}">
       ${renderCategoryVisual(category)}
       <div class="category-body">
         <div class="category-labels">
@@ -1022,13 +1042,14 @@ function renderCategories(filter = "all") {
         </div>
         <ul>${featureList(category.features.slice(0, 4))}</ul>
         <div class="category-actions">
-          ${category.demoUrl ? `<a class="btn dark" href="${category.demoUrl}">Zobrazit šablonu</a>` : ""}
+          ${category.demoUrl ? `<a class="btn dark" href="${category.demoUrl}" ${isExternalDemo ? 'target="_blank" rel="noopener"' : ""}>Zobrazit šablonu</a>` : ""}
           <button class="btn primary" type="button" data-order-category="${category.id}">${saleActive ? "Objednat se slevou -50 %" : "Objednat podobný web"}</button>
           <button class="btn secondary" type="button" data-category-details="${category.id}">Podrobnosti</button>
         </div>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
   categoryGrid.querySelectorAll("[data-order-category]").forEach((button) => {
     button.addEventListener("click", () => openSaleLead({
       ...(siteCategories.find((item) => item.id === button.dataset.orderCategory) || {}),
@@ -1072,8 +1093,10 @@ function renderProjects(filter = "all") {
   const saleActive = isSaleActive();
   const startPlan = pricingPlans.find((item) => item.key === "Start");
   const list = filter === "all" ? projects : projects.filter((project) => project.group === filter);
-  projectGrid.innerHTML = list.map((project) => `
-    <article class="project-card" data-card="${project.id}">
+  projectGrid.innerHTML = list.map((project) => {
+    const isExternalDemo = project.externalDemo || project.demoUrl?.startsWith("http");
+    return `
+    <article class="project-card ${project.highlight ? `project-card--${project.highlight}` : ""}" data-card="${project.id}">
       <img src="${project.image}" alt="${project.title} preview">
       <div class="project-body">
         <span class="project-label">${project.label}</span>
@@ -1087,14 +1110,15 @@ function renderProjects(filter = "all") {
         <ul>${featureList(project.features.slice(0, 3))}</ul>
         <div class="project-actions">
           ${project.group === "template" && project.demoUrl
-            ? `<a href="${project.demoUrl}" data-demo-link="${project.id}">Zobrazit šablonu</a>`
+            ? `<a href="${project.demoUrl}" ${isExternalDemo ? 'target="_blank" rel="noopener"' : ""} data-demo-link="${project.id}">Zobrazit šablonu</a>`
             : `<button type="button" data-preview="${project.id}">Zobrazit projekt</button>`}
           <button type="button" data-details="${project.id}">Podrobnosti</button>
           <button type="button" data-order="${project.id}">${saleActive ? "Objednat se slevou -50 %" : "Objednat podobný web"}</button>
         </div>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
 
   projectGrid.querySelectorAll("[data-preview]").forEach((button) => {
     button.addEventListener("click", () => openModal("preview", projects.find((item) => item.id === button.dataset.preview)));
@@ -1115,7 +1139,11 @@ function renderProjects(filter = "all") {
       if (event.target.closest("button,a")) return;
       const project = projects.find((item) => item.id === card.dataset.card);
       if (project.group === "template" && project.demoUrl) {
-        window.location.href = project.demoUrl;
+        if (project.externalDemo || project.demoUrl.startsWith("http")) {
+          window.open(project.demoUrl, "_blank", "noopener");
+        } else {
+          window.location.href = project.demoUrl;
+        }
       } else {
         openModal("preview", project);
       }

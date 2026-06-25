@@ -13,6 +13,21 @@ window.siteCategories = [
     demoUrl: "demos/bakery-cafe/index.html"
   },
   {
+    id: "tedition-eu",
+    filter: "b2b",
+    title: "Tedition EU — firemní service hub",
+    badge: "Nový projekt",
+    status: "Speciální ukázka",
+    description: "Prémiový landing pro práci, dokumenty, podnikání, faktury, DPH a projektovou podporu v Česku.",
+    price: "START 10 000 Kč / ≈400 € · PLUS 20 000 Kč / ≈800 €",
+    timeline: "3–7 dní",
+    image: "assets/images/tedition-eu/tedition-eu-preview.webp",
+    features: ["Corporate styl", "Facebook CTA", "Formulář", "Popup"],
+    demoUrl: "https://nikolay123d.github.io/tedition-eu-landing-cz/",
+    externalDemo: true,
+    highlight: "client-project"
+  },
+  {
     id: "restaurant-cafe",
     filter: "restaurants",
     title: "Web pro restauraci / café",
