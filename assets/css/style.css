@@ -623,6 +623,26 @@ img{max-width:100%;display:block}
   backdrop-filter:blur(10px);
 }
 
+main{
+  isolation:isolate;
+  min-height:100vh;
+  background:linear-gradient(180deg,rgba(7,17,31,.1) 0%,rgba(246,248,252,.78) 14%,rgba(238,245,255,.9) 100%);
+}
+.site-page-wallpaper,
+.section,
+.featured-demo-section,
+.pricing-strip,
+.hero-content-band{
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+.section:not(.sale-campaign-section),
+.featured-demo-section,
+.pricing-strip{
+  contain:paint;
+  background-color:rgba(249,251,255,.94);
+}
+
 .floating-cta{position:fixed;right:18px;bottom:18px;z-index:160;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:10px;align-items:center;max-width:min(620px,calc(100vw - 28px));background:linear-gradient(135deg,#fff,#fff8e8);border:1px solid rgba(215,154,53,.36);border-radius:18px;padding:12px;box-shadow:var(--shadow2);transform:translateY(150%);opacity:0;pointer-events:none;transition:.3s}
 .sale-active .floating-cta{
   background:linear-gradient(135deg,#ffffff,#fff6d8 54%,#eef5ff);
@@ -726,6 +746,31 @@ img{max-width:100%;display:block}
   .category-detail{grid-template-columns:1fr}
 }
 @media (max-width:640px){
+  body{background:#f6f8fc}
+  .site-wallpaper-video.is-ready{opacity:.42}
+  .site-page-wallpaper-overlay{
+    background:
+      linear-gradient(90deg,rgba(7,17,31,.58),rgba(15,23,42,.38) 48%,rgba(7,17,31,.58)),
+      linear-gradient(180deg,rgba(7,17,31,.22),rgba(7,17,31,.54));
+  }
+  .section:not(.sale-campaign-section),
+  .featured-demo-section,
+  .pricing-strip{
+    background:
+      linear-gradient(180deg,rgba(249,251,255,.98),rgba(238,245,255,.97)),
+      radial-gradient(circle at 18% 10%,rgba(37,99,235,.08),transparent 20rem);
+    background-color:#f8fbff;
+    backdrop-filter:none;
+  }
+  .catalog-section,
+  .work-section,
+  .principles-section,
+  .quick-pricing-section,
+  .value-section{
+    background:linear-gradient(180deg,rgba(249,251,255,.98),rgba(238,245,255,.97));
+    background-color:#f8fbff;
+  }
+  .site-footer{backdrop-filter:none;background:rgba(255,255,255,.96)}
   html{scroll-padding-top:72px}.site-header{height:64px}.mobile-menu{top:64px}
   .site-preloader{padding:18px}
   .preloader-card{width:min(390px,calc(100vw - 36px));padding:28px 20px 24px}
