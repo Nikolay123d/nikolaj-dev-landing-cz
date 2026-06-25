@@ -367,7 +367,7 @@
           <p class="lead">Formulář odešle poptávku na e-mail. Ve zprávě bude vidět vybraná šablona i balíček START / PLUS / PRO.</p>
           <div class="cta-row">
             <a class="btn telegram" href="https://t.me/pracehub" target="_blank" rel="noopener">Napsat na Telegram</a>
-            <a class="btn soft" href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook / Messenger</a>
+            <a class="btn soft" href="https://www.facebook.com/share/1D8igDrmuT/" target="_blank" rel="noopener">Facebook / Messenger</a>
           </div>
         </div>
         <div class="panel">

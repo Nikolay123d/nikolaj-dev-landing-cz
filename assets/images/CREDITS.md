@@ -4,6 +4,27 @@ Images are stored locally for the Nikolaj Dev landing page. Sources were selecte
 
 Additional per-demo media for the 17 generated niche templates is stored in `assets/images/demo-media/`. Source, creator and license details for those files are recorded in `assets/images/demo-media/CREDITS.md` and `assets/images/demo-media/OPENVERSE_CREDITS.json`.
 
+# Main Landing User Media
+
+## lower text / page video wallpaper
+- Source: user-provided Files.fm link: https://files.fm/f/gtv6x3zase
+- Original file title: `12596084_1920_1080_30fps.mp4`
+- Local optimized video: `assets/video/lower-text-wallpaper.mp4`
+- Local mobile stitched video: `assets/video/lower-text-wallpaper-mobile.mp4`
+- Local poster: `assets/img/lower-text-wallpaper-poster.jpg`
+- Role: site-wide video wallpaper under the main sales copy and follow-up sections.
+
+## preloader-wallpaper.png
+- Source: user-provided image link: https://i.ibb.co/v4XV1gKL/file-00000000874071f4a0b4c724f5a6de50.png
+- Local file: `assets/img/preloader-wallpaper.png`
+- Role: first-entry Nikolaj Dev preloader wallpaper.
+
+## hero-business.mp4
+- Source: copied from the RU/UA Nikolaj Dev landing optimized local asset.
+- Local video: `assets/videos/hero-business.mp4`
+- Local poster: `assets/img/hero-business-poster.jpg`
+- Role: premium first-screen video intro.
+
 ## restaurant-cafe.jpg
 - Source: https://www.flickr.com/photos/10559879@N00/4198678349
 - Title: Soda siphons - Capital Kitchen

@@ -266,6 +266,9 @@ const modalContent = document.querySelector("#modalContent");
 const floatingCta = document.querySelector("#floatingCta");
 const closeFloatingCta = document.querySelector("#closeFloatingCta");
 const toast = document.querySelector("#toast");
+const FACEBOOK_URL = "https://www.facebook.com/share/1D8igDrmuT/";
+const PRELOADER_KEY = "nikolaj_preloader_seen";
+const CONTACT_POPUP_CLOSED_KEY = "nikolaj_contact_popup_closed";
 const SALE50_ENABLED = true;
 const SALE50_DURATION_HOURS = 3;
 const SALE50_STORAGE_KEY = "nikolaj_sale50_started_at";
@@ -781,7 +784,7 @@ function buildLeadModal(projectOrPlan = "") {
       <button class="btn dark full" type="submit">Odeslat poptávku</button>
       <div class="messenger-row">
         <a href="https://t.me/pracehub" target="_blank" rel="noopener">Telegram @pracehub</a>
-        <a href="https://www.facebook.com/share/18hdnUyhLG/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.facebook.com/share/1D8igDrmuT/" target="_blank" rel="noopener">Facebook</a>
         <a href="mailto:nikyrchenko71@gmail.com">Email</a>
       </div>
     </form>`;
@@ -1162,24 +1165,52 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-document.querySelectorAll(".hero-video").forEach((video) => {
-  const userAgent = navigator.userAgent || "";
+function setupPreloader() {
+  const preloader = document.querySelector("#sitePreloader");
+  if (!preloader) return;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const inAppBrowser = /FBAN|FBAV|FB_IAB|Instagram|Messenger/i.test(userAgent);
-  if (reducedMotion || inAppBrowser) {
+  const seen = sessionStorage.getItem(PRELOADER_KEY) === "1";
+  const hide = () => {
+    preloader.classList.add("is-hidden");
+    document.documentElement.classList.remove("preloader-active");
+    window.setTimeout(() => preloader.remove(), 520);
+  };
+  document.querySelectorAll(".hero-video, .hero-copy-video, .site-wallpaper-video").forEach((video) => {
+    try { video.load(); } catch (error) {}
+  });
+  if (seen || reducedMotion) {
+    hide();
+    return;
+  }
+  sessionStorage.setItem(PRELOADER_KEY, "1");
+  document.documentElement.classList.add("preloader-active");
+  window.setTimeout(hide, 1650);
+  window.setTimeout(hide, 2200);
+}
+
+document.querySelectorAll(".hero-video, .hero-copy-video, .site-wallpaper-video").forEach((video) => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion) {
     video.classList.add("is-disabled");
     video.pause();
     return;
   }
+  video.muted = true;
+  video.defaultMuted = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
 
   const startVideo = () => {
-    if (video.readyState >= 3) {
+    if (video.dataset.started === "1") return;
+    video.dataset.started = "1";
+    const reveal = () => {
       video.classList.add("is-ready");
-    } else {
-      video.addEventListener("canplay", () => {
-        video.classList.add("is-ready");
-      }, { once: true });
-    }
+    };
+    if (video.readyState >= 2) reveal();
+    video.addEventListener("loadeddata", reveal, { once: true });
+    video.addEventListener("canplay", reveal, { once: true });
+    video.addEventListener("playing", reveal, { once: true });
+    try { video.load(); } catch (error) {}
     video.play().catch(() => {
       video.classList.remove("is-ready");
     });
@@ -1191,6 +1222,96 @@ document.querySelectorAll(".hero-video").forEach((video) => {
     window.setTimeout(startVideo, 900);
   }
 });
+
+function openContactPopupLead(kind = "demo_match") {
+  const startPlan = pricingPlans.find((item) => item.key === "Start");
+  const saleActive = isSaleActive();
+  const isDemoMatch = kind === "demo_match";
+  openModal("lead", withSalePayload({
+    title: isDemoMatch ? "Bezplatný výběr demo šablony" : "Poptávka na web",
+    selectedPackage: "Start",
+    packagePrice: planDisplayPrice(startPlan, saleActive),
+    regularPrice: saleActive ? startPlan.price : "",
+    sourceCta: isDemoMatch ? "scroll50_popup_demo_match" : "scroll50_popup_form"
+  }, isDemoMatch ? "scroll50_popup_demo_match" : "scroll50_popup_form"));
+}
+
+function showContactPopup(source = "scroll50_popup") {
+  if (sessionStorage.getItem(CONTACT_POPUP_CLOSED_KEY) === "1" || document.querySelector(".lead-capture-popup") || appModal.classList.contains("open")) return false;
+  const popup = document.createElement("aside");
+  popup.className = "lead-capture-popup";
+  popup.setAttribute("aria-live", "polite");
+  popup.innerHTML = `
+    <div class="lead-capture-top">
+      <button class="lead-capture-toggle" type="button" aria-label="Sbalit widget" aria-expanded="true">−</button>
+      <div class="lead-capture-title">
+        <strong>Kontaktujte mě</strong>
+        <span>Bezplatně vyberu demo pro váš byznys</span>
+      </div>
+      <button class="lead-capture-close" type="button" aria-label="Zavřít">×</button>
+    </div>
+    <div class="lead-capture-body">
+      <p>Napište mi na Facebook nebo pošlete poptávku — vyberu vhodnou demo šablonu a orientační cenu.</p>
+      <small>Konzultace je zdarma. Můžeme začít z hotové šablony a upravit ji pro váš byznys.</small>
+      <div class="lead-capture-actions">
+        <a class="btn facebook" href="${FACEBOOK_URL}" target="_blank" rel="noopener" data-source-cta="${source}_facebook">Napsat na Facebook</a>
+        <button class="btn primary" type="button" data-contact-demo>Vybrat demo zdarma</button>
+        <button class="btn dark" type="button" data-contact-apply>Nechat poptávku</button>
+        <button class="btn soft" type="button" data-contact-collapse>Pokračovat v prohlížení</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  document.body.classList.add("contact-popup-visible");
+  requestAnimationFrame(() => popup.classList.add("visible"));
+  const toggleButton = popup.querySelector(".lead-capture-toggle");
+  const collapse = () => {
+    popup.classList.add("is-collapsed");
+    toggleButton.textContent = "+";
+    toggleButton.setAttribute("aria-label", "Rozbalit widget");
+    toggleButton.setAttribute("aria-expanded", "false");
+  };
+  const expand = () => {
+    popup.classList.remove("is-collapsed");
+    toggleButton.textContent = "−";
+    toggleButton.setAttribute("aria-label", "Sbalit widget");
+    toggleButton.setAttribute("aria-expanded", "true");
+  };
+  const close = () => {
+    sessionStorage.setItem(CONTACT_POPUP_CLOSED_KEY, "1");
+    document.body.classList.remove("contact-popup-visible");
+    popup.classList.remove("visible");
+    window.setTimeout(() => popup.remove(), 260);
+  };
+  const removeWithoutClosingSession = () => {
+    document.body.classList.remove("contact-popup-visible");
+    popup.classList.remove("visible");
+    window.setTimeout(() => popup.remove(), 260);
+  };
+  toggleButton.addEventListener("click", () => {
+    if (popup.classList.contains("is-collapsed")) expand();
+    else collapse();
+  });
+  popup.querySelector(".lead-capture-close").addEventListener("click", close);
+  popup.querySelector("[data-contact-collapse]").addEventListener("click", collapse);
+  popup.querySelector("[data-contact-demo]").addEventListener("click", () => {
+    removeWithoutClosingSession();
+    openContactPopupLead("demo_match");
+  });
+  popup.querySelector("[data-contact-apply]").addEventListener("click", () => {
+    removeWithoutClosingSession();
+    openContactPopupLead("form");
+  });
+  return true;
+}
+
+function maybeShowContactPopup() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  if (scrollable <= 0) return false;
+  const progress = window.scrollY / scrollable;
+  if (progress >= 0.5) return showContactPopup("scroll50_popup");
+  return false;
+}
 
 document.querySelectorAll(".ambient-video").forEach((video) => {
   const src = video.dataset.src;
@@ -1232,12 +1353,21 @@ document.querySelectorAll(".ambient-video").forEach((video) => {
 });
 
 window.addEventListener("scroll", () => {
-  if (ctaClosed) return;
   const hero = document.querySelector(".hero");
   const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
-  const shouldShow = window.scrollY > Math.max(heroHeight + 80, 1400);
-  floatingCta.classList.toggle("visible", shouldShow);
+  const videoStage = document.querySelector(".hero-video-stage");
+  const videoHeight = videoStage ? videoStage.offsetHeight : 0;
+  document.documentElement.classList.toggle("side-ribbons-visible", window.scrollY > Math.max(videoHeight - 80, 260));
+  if (!ctaClosed) {
+    const shouldShow = window.scrollY > Math.max(heroHeight + 80, 1400);
+    floatingCta.classList.toggle("visible", shouldShow);
+  }
 }, { passive: true });
+
+window.addEventListener("scroll", maybeShowContactPopup, { passive: true });
+window.setTimeout(() => {
+  maybeShowContactPopup();
+}, 35000);
 
 closeFloatingCta.addEventListener("click", () => {
   ctaClosed = true;
@@ -1245,6 +1375,7 @@ closeFloatingCta.addEventListener("click", () => {
   floatingCta.classList.remove("visible");
 });
 
+setupPreloader();
 renderServices();
 renderCategories();
 renderProjects();
