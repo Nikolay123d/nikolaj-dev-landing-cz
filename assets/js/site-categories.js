@@ -13,6 +13,21 @@ window.siteCategories = [
     demoUrl: "demos/bakery-cafe/index.html"
   },
   {
+    id: "arakera-corporate",
+    filter: "b2b",
+    title: "ARAKERA Group — corporate projektový hub",
+    badge: "Top corporate demo",
+    status: "Nová ukázka",
+    description: "Prémiová prezentace pro seriózní B2B projekt: 8 obrazovek, přepínání jazyka, poptávkový formulář a výrazný vstup do systému.",
+    price: "Akce 5 000 Kč / ≈200 € · běžně 10 000 Kč / ≈400 €",
+    timeline: "3–7 dní",
+    image: "assets/images/arakera/arakera-preview.jpg",
+    features: ["Corporate styl", "8 obrazovek", "CS / EN", "Formulář"],
+    demoUrl: "https://nikolay123d.github.io/arakera-premium-demo/",
+    externalDemo: true,
+    highlight: "corporate-top"
+  },
+  {
     id: "tedition-eu",
     filter: "b2b",
     title: "Tedition EU — firemní service hub",

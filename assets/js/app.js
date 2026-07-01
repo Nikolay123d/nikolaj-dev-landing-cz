@@ -201,7 +201,7 @@ const projects = [
 ];
 
 const projectIds = new Set(projects.map((project) => project.id));
-const categoryProjectSkips = new Set(["bakery-cafe", "tedition-eu", "restaurant-cafe", "renovation", "tours-guides", "delivery-fleet", "beauty-salon"]);
+const categoryProjectSkips = new Set(["bakery-cafe", "arakera-corporate", "tedition-eu", "restaurant-cafe", "renovation", "tours-guides", "delivery-fleet", "beauty-salon"]);
 siteCategories.forEach((category) => {
   if (!category.demoUrl || projectIds.has(category.id) || categoryProjectSkips.has(category.id)) return;
   projects.push({
